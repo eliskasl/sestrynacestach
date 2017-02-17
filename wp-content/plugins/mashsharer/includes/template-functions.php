@@ -902,8 +902,7 @@ function getFakecount() {
 
     
     $fakecount = isset($mashsb_options['fake_count']) && is_numeric ($mashsb_options['fake_count']) ? 
-            round( $mashsb_options['fake_count'] * mashsb_get_fake_factor(), 0 ) : 
-            0;
+            round( $mashsb_options['fake_count'] * mashsb_get_fake_factor(), 0 ) : 0;
     
     return $fakecount;
 

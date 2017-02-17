@@ -9,7 +9,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: Share buttons, Social Sharing, social media, Facebook, Twitter, Subscribe, Traffic posts, pages, widget, social share buttons, analytics, email
 Requires at least: 3.6+
 Tested up to: 4.7.2
-Stable tag: 3.3.7
+Stable tag: 3.3.8
 
 Social Media Share Buttons for Twitter, Facebook and other social networks. Highly customizable Social Media ecosystem
 
@@ -315,6 +315,10 @@ Read here more FAQ: [https://www.mashshare.net/faq/](https://www.mashshare.net/f
 
 
 == Changelog ==
+
+= 3.3.8 =
+* Fix: Zero shares are not shown with the use of the inline post plugin
+* Fix: jQuery nearest library not detected with older jQuery versions
 
 = 3.3.7 =
 * New: Check once a day if facebook access token is expired and throw a message
