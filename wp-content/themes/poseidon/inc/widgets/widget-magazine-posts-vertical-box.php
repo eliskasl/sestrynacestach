@@ -1,8 +1,8 @@
 <?php
 /**
- * Magazine Posts Grid Widget
+ * Magazine Vertical Box Widget
  *
- * Display the latest posts from a selected category in a grid layout.
+ * Display the latest posts from a selected category in a vertical box.
  * Intented to be used in the Magazine Homepage widget area to built a magazine layouted page.
  *
  * @package Poseidon
@@ -11,7 +11,7 @@
 /**
  * Magazine Widget Class
  */
-class Poseidon_Magazine_Posts_Grid_Widget extends WP_Widget {
+class Poseidon_Magazine_Vertical_Box_Widget extends WP_Widget {
 
 	/**
 	 * Widget Constructor
@@ -20,11 +20,11 @@ class Poseidon_Magazine_Posts_Grid_Widget extends WP_Widget {
 
 		// Setup Widget.
 		parent::__construct(
-			'poseidon-magazine-posts-grid', // ID.
-			esc_html__( 'Magazine (Grid)', 'poseidon' ), // Name.
+			'poseidon-magazine-vertical-box', // ID.
+			esc_html__( 'Magazine (Vertical Box)', 'poseidon' ), // Name.
 			array(
-				'classname' => 'poseidon-magazine-grid-widget',
-				'description' => esc_html__( 'Displays your posts from a selected category in a grid layout. Please use this widget ONLY in the Magazine Homepage widget area.', 'poseidon' ),
+				'classname' => 'poseidon-magazine-vertical-box-widget',
+				'description' => esc_html__( 'Displays your posts from a selected category in a vertical box. Please use this widget ONLY in the Magazine Homepage widget area.', 'poseidon' ),
 				'customize_selective_refresh' => true,
 			) // Args.
 		);
@@ -38,8 +38,6 @@ class Poseidon_Magazine_Posts_Grid_Widget extends WP_Widget {
 		$defaults = array(
 			'title'				=> '',
 			'category'			=> 0,
-			'layout'			=> 'three-columns',
-			'number'			=> 6,
 		);
 
 		return $defaults;
@@ -61,19 +59,16 @@ class Poseidon_Magazine_Posts_Grid_Widget extends WP_Widget {
 		// Get Widget Settings.
 		$settings = wp_parse_args( $instance, $this->default_settings() );
 
-		// Set Widget class.
-		$class = ( 'three-columns' === $settings['layout'] ) ? 'magazine-grid-three-columns' : 'magazine-grid-two-columns';
-
 		// Output.
 		echo $args['before_widget'];
 		?>
 
-		<div class="widget-magazine-posts-grid widget-magazine-posts clearfix">
+		<div class="widget-magazine-posts-vertical-box widget-magazine-posts clearfix">
 
 			<?php // Display Title.
 			$this->widget_title( $args, $settings ); ?>
 
-			<div class="widget-magazine-posts-content <?php echo $class; ?> magazine-grid">
+			<div class="widget-magazine-posts-content magazine-vertical-box clearfix">
 
 				<?php $this->render( $settings ); ?>
 
@@ -91,9 +86,9 @@ class Poseidon_Magazine_Posts_Grid_Widget extends WP_Widget {
 	/**
 	 * Renders the Widget Content
 	 *
-	 * Switches between two or three column layout style based on widget settings
+	 * Switches between vertical and vertical layout style based on widget settings
 	 *
-	 * @uses this->magazine_posts_two_column_grid() or this->magazine_posts_three_column_grid()
+	 * @uses this->magazine_posts_vertical() or this->magazine_posts_vertical()
 	 * @used-by this->widget()
 	 *
 	 * @param array $settings / Settings for this widget instance.
@@ -101,18 +96,15 @@ class Poseidon_Magazine_Posts_Grid_Widget extends WP_Widget {
 	function render( $settings ) {
 
 		// Get cached post ids.
-		$post_ids = poseidon_get_magazine_post_ids( $this->id, $settings['category'], $settings['number'] );
+		$post_ids = poseidon_get_magazine_post_ids( $this->id, $settings['category'], 5 );
 
 		// Fetch posts from database.
 		$query_arguments = array(
 			'post__in'       => $post_ids,
-			'posts_per_page' => absint( $settings['number'] ),
+			'posts_per_page' => 5,
 			'no_found_rows'  => true,
 		);
 		$posts_query = new WP_Query( $query_arguments );
-
-		// Set template.
-		$template = ( 'three-columns' === $settings['layout'] ) ? 'medium-post' : 'large-post';
 
 		// Check if there are posts.
 		if ( $posts_query->have_posts() ) :
@@ -121,16 +113,26 @@ class Poseidon_Magazine_Posts_Grid_Widget extends WP_Widget {
 			add_filter( 'excerpt_length', 'poseidon_magazine_posts_excerpt_length' );
 
 			// Display Posts.
-			while ( $posts_query->have_posts() ) : $posts_query->the_post(); ?>
+			while ( $posts_query->have_posts() ) :
 
-				<div class="post-column">
+				$posts_query->the_post();
 
-					<?php get_template_part( 'template-parts/widgets/magazine-' . $template, 'grid' ); ?>
+				// Display first post differently.
+				if ( 0 === $posts_query->current_post ) :
 
-				</div>
+					get_template_part( 'template-parts/widgets/magazine-large-post', 'vertical-box' );
 
-				<?php
+					echo '<div class="small-posts clearfix">';
+
+				else :
+
+					get_template_part( 'template-parts/widgets/magazine-small-post', 'vertical-box' );
+
+				endif;
+
 			endwhile;
+
+			echo '</div><!-- end .small-posts -->';
 
 			// Remove excerpt filter.
 			remove_filter( 'excerpt_length', 'poseidon_magazine_posts_excerpt_length' );
@@ -175,8 +177,6 @@ class Poseidon_Magazine_Posts_Grid_Widget extends WP_Widget {
 		$instance = $old_instance;
 		$instance['title'] = sanitize_text_field( $new_instance['title'] );
 		$instance['category'] = (int) $new_instance['category'];
-		$instance['layout'] = esc_attr( $new_instance['layout'] );
-		$instance['number'] = (int) $new_instance['number'];
 
 		poseidon_flush_magazine_post_ids();
 
@@ -215,20 +215,6 @@ class Poseidon_Magazine_Posts_Grid_Widget extends WP_Widget {
 			?>
 		</p>
 
-		<p>
-			<label for="<?php echo $this->get_field_id( 'layout' ); ?>"><?php esc_html_e( 'Grid Layout:', 'poseidon' ); ?></label><br/>
-			<select id="<?php echo $this->get_field_id( 'layout' ); ?>" name="<?php echo $this->get_field_name( 'layout' ); ?>">
-				<option <?php selected( $settings['layout'], 'two-columns' ); ?> value="two-columns" ><?php esc_html_e( 'Two Columns Grid', 'poseidon' ); ?></option>
-				<option <?php selected( $settings['layout'], 'three-columns' ); ?> value="three-columns" ><?php esc_html_e( 'Three Columns Grid', 'poseidon' ); ?></option>
-			</select>
-		</p>
-
-		<p>
-			<label for="<?php echo $this->get_field_id( 'number' ); ?>"><?php esc_html_e( 'Number of posts:', 'poseidon' ); ?>
-				<input id="<?php echo $this->get_field_id( 'number' ); ?>" name="<?php echo $this->get_field_name( 'number' ); ?>" type="text" value="<?php echo absint( $settings['number'] ); ?>" size="3" />
-			</label>
-		</p>
-
 		<?php
 	}
 }
@@ -236,9 +222,9 @@ class Poseidon_Magazine_Posts_Grid_Widget extends WP_Widget {
 /**
  * Register Widget
  */
-function poseidon_register_magazine_posts_grid_widget() {
+function poseidon_register_magazine_posts_vertical_box_widget() {
 
-	register_widget( 'Poseidon_Magazine_Posts_Grid_Widget' );
+	register_widget( 'Poseidon_Magazine_Vertical_Box_Widget' );
 
 }
-add_action( 'widgets_init', 'poseidon_register_magazine_posts_grid_widget' );
+add_action( 'widgets_init', 'poseidon_register_magazine_posts_vertical_box_widget' );

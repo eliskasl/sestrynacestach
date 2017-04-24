@@ -4,7 +4,7 @@ Theme URI: https://themezee.com/themes/poseidon/
 Author: ThemeZee
 Author URI: https://themezee.com
 Description: Poseidon is an elegant designed WordPress theme featuring a splendid fullscreen image slideshow. The clean typography and spacious white layout makes it great to share your stories. You can use the theme as simple blog or easily create a news website with the widget-based Magazine Homepage template.
-Version: 1.1.8
+Version: 1.2.2
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: poseidon
@@ -1209,8 +1209,8 @@ textarea {
 	font-size: 0.75rem;
 }
 
-/* Magazine Posts Boxed Widget Horizontal Style */
-.widget-magazine-posts-boxed .magazine-posts-boxed-horizontal .large-post .wp-post-image {
+/* Magazine Posts Horizontal Box Widget */
+.widget-magazine-posts .magazine-horizontal-box .large-post .wp-post-image {
 	float: left;
 	box-sizing: border-box;
 	margin: 0;
@@ -1218,19 +1218,19 @@ textarea {
 	width: 50%;
 }
 
-.widget-magazine-posts-boxed .magazine-posts-boxed-horizontal .large-post .post-content {
+.widget-magazine-posts .magazine-horizontal-box .large-post .post-content {
 	float: right;
 	box-sizing: border-box;
 	padding-left: 1em;
 	width: 50%;
 }
 
-.widget-magazine-posts-boxed .magazine-posts-boxed-horizontal .medium-posts {
+.widget-magazine-posts .magazine-horizontal-box .medium-posts {
 	margin-right: -2em;
 }
 
-/* Magazine Posts Boxed Widget Vertical Style */
-.widget-magazine-posts-boxed .magazine-posts-boxed-vertical .large-post {
+/* Magazine Posts Vertical Box Widget */
+.widget-magazine-posts .magazine-vertical-box .large-post {
 	float: left;
 	box-sizing: border-box;
 	margin-bottom: 1em;
@@ -1238,7 +1238,7 @@ textarea {
 	width: 50%;
 }
 
-.widget-magazine-posts-boxed .magazine-posts-boxed-vertical .small-posts {
+.widget-magazine-posts .magazine-vertical-box .small-posts {
 	box-sizing: border-box;
 	margin-left: 50%;
 	padding-left: 1em;
@@ -1246,15 +1246,20 @@ textarea {
 }
 
 /* Magazine Posts Grid Widget */
-.widget-magazine-posts-grid .magazine-posts-grid-row {
+.widget-magazine-posts .magazine-grid {
 	margin-right: -2em;
 }
 
-.widget-magazine-posts-grid .magazine-posts-grid-row .large-post {
+.widget-magazine-posts .magazine-grid .large-post {
 	float: left;
 	box-sizing: border-box;
 	padding-right: 2em;
 	width: 50%;
+}
+
+.widget-magazine-posts .magazine-grid .post-column:nth-child(2n+1) .large-post,
+.widget-magazine-posts .magazine-grid .post-column:nth-child(3n+1) .medium-post {
+	clear: left;
 }
 
 /* Magazine Posts Columns Widget */
@@ -1412,6 +1417,24 @@ textarea {
 }
 
 .entry-meta span:last-child:after {
+	display: none;
+}
+
+/* Hide post meta if they are deactivated in settings */
+body.date-hidden .entry-meta .meta-date,
+body.author-hidden .entry-meta .meta-author,
+body.categories-hidden .entry-meta .meta-category {
+	 position: absolute;
+	 clip: rect(1px, 1px, 1px, 1px);
+}
+
+body.author-hidden.categories-hidden .entry-meta .meta-date:after,
+body.categories-hidden .entry-meta .meta-author:after,
+body.author-hidden .widget-magazine-posts .entry-meta .meta-date:after {
+	display: none;
+}
+
+body.date-hidden.author-hidden.categories-hidden .content-area .entry-meta {
 	display: none;
 }
 
@@ -1909,7 +1932,7 @@ object {
 		font-size: 0.875rem;
 	}
 
-	.widget-magazine-posts-boxed .magazine-posts-boxed-horizontal .large-post .more-link  {
+	.widget-magazine-posts .magazine-horizontal-box .large-post .more-link  {
 		display: none;
 	}
 
@@ -1919,7 +1942,7 @@ object {
 ## 14.2 - Desktop Medium ( < 1040px )
 --------------------------------------------------------------*/
 @media only screen and (max-width: 65em) {
-	.widget-magazine-posts-boxed .magazine-posts-boxed-horizontal .large-post .entry-content {
+	.widget-magazine-posts .magazine-horizontal-box .large-post .entry-content {
 		display: none;
 	}
 
@@ -2149,8 +2172,8 @@ object {
 	}
 
 	/* Magazine Post Widgets */
-	.widget-magazine-posts-boxed .magazine-posts-boxed-horizontal .large-post .entry-content,
-	.widget-magazine-posts-boxed .magazine-posts-boxed-horizontal .large-post .more-link {
+	.widget-magazine-posts .magazine-horizontal-box .large-post .entry-content,
+	.widget-magazine-posts .magazine-horizontal-box .large-post .more-link {
 		display: inline-block;
 	}
 
@@ -2200,7 +2223,7 @@ object {
 		font-size: 0.875rem;
 	}
 
-	.widget-magazine-posts-boxed .magazine-posts-boxed-horizontal .large-post .more-link {
+	.widget-magazine-posts .magazine-horizontal-box .large-post .more-link {
 		display: none;
 	}
 
@@ -2210,7 +2233,7 @@ object {
 ## 14.6 - Tablet Small ( < 720px )
 --------------------------------------------------------------*/
 @media only screen and (max-width: 45em) {
-	.widget-magazine-posts-boxed .magazine-posts-boxed-horizontal .large-post .entry-content {
+	.widget-magazine-posts .magazine-horizontal-box .large-post .entry-content {
 		display: none;
 	}
 
@@ -2237,24 +2260,24 @@ object {
 	}
 
 	/* Magazine Post Widgets */
-	.widget-magazine-posts-grid .magazine-posts-grid-row {
+	.widget-magazine-posts .magazine-grid-two-columns {
 		margin-right: 0;
 	}
 
-	.widget-magazine-posts-grid .medium-post-row {
+	.widget-magazine-posts .magazine-grid-three-columns {
 		margin-right: -1.2em;
 	}
 
-	.widget-magazine-posts-grid .magazine-posts-grid-row .large-post,
-	.widget-magazine-posts-boxed .magazine-posts-boxed-horizontal .large-post .wp-post-image,
-	.widget-magazine-posts-boxed .magazine-posts-boxed-vertical .large-post,
+	.widget-magazine-posts .magazine-grid .large-post,
+	.widget-magazine-posts .magazine-horizontal-box .large-post .wp-post-image,
+	.widget-magazine-posts .magazine-vertical-box .large-post,
 	.widget-magazine-posts-columns .magazine-posts-column-left {
 		float: none;
 		padding: 0;
 		width: 100%;
 	}
 
-	.widget-magazine-posts-boxed .magazine-posts-boxed-vertical .small-posts,
+	.widget-magazine-posts .magazine-vertical-box .small-posts,
 	.widget-magazine-posts-columns .magazine-posts-column-right {
 		margin-left: 0;
 		padding-top: 1em;
@@ -2268,17 +2291,17 @@ object {
 		max-width: 50%;
 	}
 
-	.widget-magazine-posts-boxed .magazine-posts-boxed-horizontal .large-post .post-content {
+	.widget-magazine-posts .magazine-horizontal-box .large-post .post-content {
 		float: right;
 		padding-left: 1.5em;
 		width: 50%;
 	}
 
-	.widget-magazine-posts-grid .magazine-posts-grid-row .large-post {
+	.widget-magazine-posts .magazine-grid .large-post {
 		clear: left;
 	}
 
-	.widget-magazine-posts-grid .magazine-posts-grid-row .large-post .wp-post-image {
+	.widget-magazine-posts .magazine-grid .large-post .wp-post-image {
 		margin-bottom: 1em;
 	}
 
@@ -2312,7 +2335,7 @@ object {
 		font-size: 26px;
 	}
 
-	.widget-magazine-posts-grid .medium-post-row {
+	.widget-magazine-posts .magazine-grid-three-columns {
 		margin-right: 0;
 	}
 
@@ -2372,13 +2395,13 @@ object {
 	}
 
 	.widget-magazine-posts .large-post .wp-post-image,
-	.widget-magazine-posts-grid .magazine-posts-grid-row .large-post .wp-post-image {
+	.widget-magazine-posts .magazine-grid .large-post .wp-post-image {
 		float: none;
 		margin: 0 0 0.5em 0;
 		max-width: 100%;
 	}
 
-	.widget-magazine-posts-boxed .magazine-posts-boxed-horizontal .large-post .post-content {
+	.widget-magazine-posts .magazine-horizontal-box .large-post .post-content {
 		float: none;
 		padding: 0;
 		width: 100%;
