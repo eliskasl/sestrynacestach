@@ -5,7 +5,7 @@ Contributors: themezee
 Tags: widget, recent posts, recent comments, social icons, facebook
 Requires at least: 4.4
 Tested up to: 4.8
-Stable tag: 1.0.6
+Stable tag: 1.1
 License: GPLv2 or later
 
 A collection of useful widgets, neatly bundled into a single plugin.
@@ -42,6 +42,10 @@ For detailed setup instructions, visit the official [Documentation](https://them
 6. Facebook Like Widget
 
 == Changelog ==
+
+= 1.1 =
+
+* improved theme integration for custom image sizes
 
 = 1.0.6 =
 
