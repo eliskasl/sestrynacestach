@@ -8,6 +8,49 @@
  */
 
 
+/**
+* Displays Magazine widget area
+*/
+function poseidon_magazine_widgets() {
+
+	// Get theme options from database.
+	$theme_options = poseidon_theme_options();
+
+	// Return early if Magazine widgets are deactivated on blog index.
+	if ( is_home() && false === $theme_options['blog_magazine_widgets'] ) {
+		return;
+	}
+
+	// Only display on first page of blog.
+	if ( is_home() && is_paged() ) {
+		return;
+	}
+
+	// Check if there are widgets in Magazine sidebar.
+	if ( is_active_sidebar( 'magazine-homepage' ) ) : ?>
+
+		<div id="magazine-homepage-widgets" class="widget-area clearfix">
+
+			<?php dynamic_sidebar( 'magazine-homepage' ); ?>
+
+		</div><!-- #magazine-homepage-widgets -->
+
+	<?php
+	elseif ( is_customize_preview() ) :
+
+		// Display Magazine Widget Placeholder in Customizer.
+		poseidon_customize_magazine_placeholder();
+
+	elseif ( is_page_template( 'template-magazine.php' ) && current_user_can( 'edit_theme_options' ) ) :
+
+		echo '<p class="empty-widget-area">';
+		esc_html_e( 'Please go to Customize &#8594; Widgets and add at least one widget to the Magazine Homepage widget area.', 'poseidon' );
+		echo '</p>';
+
+	endif;
+}
+
+
 if ( ! function_exists( 'poseidon_magazine_widget_title' ) ) :
 	/**
 	 * Displays the widget title with link to the category archive
@@ -82,7 +125,7 @@ function poseidon_get_magazine_post_ids( $cache_id, $category, $number_of_posts 
 	$cache_id = sanitize_key( $cache_id );
 	$post_ids = get_transient( 'poseidon_magazine_post_ids' );
 
-	if ( ! isset( $post_ids[ $cache_id ] ) ) {
+	if ( ! isset( $post_ids[ $cache_id ] ) || is_customize_preview() ) {
 
 		// Get Posts from Database.
 		$query_arguments = array(
@@ -115,4 +158,5 @@ function poseidon_flush_magazine_post_ids() {
 }
 add_action( 'save_post', 'poseidon_flush_magazine_post_ids' );
 add_action( 'deleted_post', 'poseidon_flush_magazine_post_ids' );
+add_action( 'customize_save_after', 'poseidon_flush_magazine_post_ids' );
 add_action( 'switch_theme', 'poseidon_flush_magazine_post_ids' );

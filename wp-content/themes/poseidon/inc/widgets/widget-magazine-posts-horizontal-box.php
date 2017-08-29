@@ -24,7 +24,7 @@ class Poseidon_Magazine_Horizontal_Box_Widget extends WP_Widget {
 			esc_html__( 'Magazine (Horizontal Box)', 'poseidon' ), // Name.
 			array(
 				'classname' => 'poseidon-magazine-horizontal-box-widget',
-				'description' => esc_html__( 'Displays your posts from a selected category in a horizontal box. Please use this widget ONLY in the Magazine Homepage widget area.', 'poseidon' ),
+				'description' => esc_html__( 'Displays your posts from a selected category in a horizontal box.', 'poseidon' ),
 				'customize_selective_refresh' => true,
 			) // Args.
 		);
@@ -36,8 +36,8 @@ class Poseidon_Magazine_Horizontal_Box_Widget extends WP_Widget {
 	private function default_settings() {
 
 		$defaults = array(
-			'title'				=> '',
-			'category'			=> 0,
+			'title'    => esc_html__( 'Magazine (Horizontal Box)', 'poseidon' ),
+			'category' => 0,
 		);
 
 		return $defaults;
@@ -100,9 +100,10 @@ class Poseidon_Magazine_Horizontal_Box_Widget extends WP_Widget {
 
 		// Fetch posts from database.
 		$query_arguments = array(
-			'post__in'       => $post_ids,
-			'posts_per_page' => 4,
-			'no_found_rows'  => true,
+			'post__in'            => $post_ids,
+			'posts_per_page'      => 4,
+			'ignore_sticky_posts' => true,
+			'no_found_rows'       => true,
 		);
 		$posts_query = new WP_Query( $query_arguments );
 

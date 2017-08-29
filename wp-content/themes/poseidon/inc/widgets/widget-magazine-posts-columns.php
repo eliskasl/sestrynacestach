@@ -24,7 +24,7 @@ class Poseidon_Magazine_Posts_Columns_Widget extends WP_Widget {
 			esc_html__( 'Magazine (Columns)', 'poseidon' ), // Name.
 			array(
 				'classname' => 'poseidon-magazine-columns-widget',
-				'description' => esc_html__( 'Displays your posts from two selected categories. Please use this widget ONLY in the Magazine Homepage widget area.', 'poseidon' ),
+				'description' => esc_html__( 'Displays your posts from two selected categories.', 'poseidon' ),
 				'customize_selective_refresh' => true,
 			) // Args.
 		);
@@ -36,12 +36,12 @@ class Poseidon_Magazine_Posts_Columns_Widget extends WP_Widget {
 	private function default_settings() {
 
 		$defaults = array(
-			'category_one'			=> 0,
-			'category_two'			=> 0,
-			'category_one_title'	=> '',
-			'category_two_title'	=> '',
-			'number'				=> 4,
-			'highlight_post'		=> true,
+			'category_one'       => 0,
+			'category_two'       => 0,
+			'category_one_title' => esc_html__( 'Left Category', 'poseidon' ),
+			'category_two_title' => esc_html__( 'Right Category', 'poseidon' ),
+			'number'             => 4,
+			'highlight_post'     => true,
 		);
 
 		return $defaults;
@@ -147,9 +147,10 @@ class Poseidon_Magazine_Posts_Columns_Widget extends WP_Widget {
 
 		// Fetch posts from database.
 		$query_arguments = array(
-			'post__in'       => $post_ids,
-			'posts_per_page' => absint( $number_of_posts ),
-			'no_found_rows'  => true,
+			'post__in'            => $post_ids,
+			'posts_per_page'      => absint( $number_of_posts ),
+			'ignore_sticky_posts' => true,
+			'no_found_rows'       => true,
 		);
 		$posts_query = new WP_Query( $query_arguments );
 
