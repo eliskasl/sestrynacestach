@@ -864,7 +864,7 @@ function the_champ_save_sharing_meta($postId){
     if ( isset( $_POST['_the_champ_meta'] ) ) {
 		$newData = $_POST['_the_champ_meta'];
 		foreach($newData as $k => $v){
-			$newData[$k] = intval($v);
+			$newData[$k] = $v;
 		}
 	}else{
 		$newData = array( 'sharing' => 0, 'vertical_sharing' => 0, 'counter' => 0, 'vertical_counter' => 0, 'fb_comments' => 0 );
