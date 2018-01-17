@@ -3,7 +3,7 @@
 Plugin Name: Super Socializer
 Plugin URI: https://super-socializer-wordpress.heateor.com
 Description: A complete 360 degree solution to provide all the social features like Social Login, Social Commenting, Social Sharing and more.
-Version: 7.9.7
+Version: 7.10
 Author: Team Heateor
 Author URI: https://www.heateor.com
 Text Domain: Super-Socializer
@@ -11,7 +11,7 @@ Domain Path: /languages
 License: GPL2+
 */
 defined('ABSPATH') or die("Cheating........Uh!!");
-define('THE_CHAMP_SS_VERSION', '7.9.7');
+define('THE_CHAMP_SS_VERSION', '7.10');
 
 require 'helper.php';
 
@@ -657,6 +657,14 @@ function the_champ_frontend_scripts(){
 		<?php
 		if(!$combinedScript){
 			wp_enqueue_script('the_champ_sl_common', plugins_url('js/front/social_login/common.js', __FILE__), array('jquery'), THE_CHAMP_SS_VERSION, $inFooter);
+			wp_localize_script(
+				'the_champ_sl_common',
+				'the_champ_sl_ajax_token',
+				[
+					'ajax_url'  => admin_url('admin-ajax.php'),
+					'security'  => wp_create_nonce('the-champ-sl-ajax-token'),
+				]
+			);
 		}
 		wp_enqueue_script('thickbox');
 		wp_enqueue_style('thickbox');
@@ -781,6 +789,14 @@ function the_champ_frontend_scripts(){
 
 	if($combinedScript){
 		wp_enqueue_script('the_champ_combined_script', plugins_url('js/front/combined.js', __FILE__), array('jquery'), THE_CHAMP_SS_VERSION, $inFooter);
+		wp_localize_script(
+			'the_champ_combined_script',
+			'the_champ_sl_ajax_token',
+			[
+				'ajax_url'  => admin_url('admin-ajax.php'),
+				'security'  => wp_create_nonce('the-champ-sl-ajax-token'),
+			]
+		);
 	}
 }
 

@@ -3,8 +3,8 @@ Contributors: Heateor, the_champ, Hungarian Translator: László Tavaszi http://
 Donate link: https://www.heateor.com/donate?action=Super+Socializer
 Tags: social login, social share, social commenting, social comments, social plugin, profile data, social analytics, online identity, social profile storage, single sign-on, social media, facebook login
 Requires at least: 2.5.0
-Tested up to: 4.9.1
-Stable tag: 7.9.7
+Tested up to: 4.9.2
+Stable tag: 7.10
 License: GPLv2 or later
 
 The unique Social Plugin to let you integrate Social Login, Social Share and Social Comments at your website
@@ -200,13 +200,17 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 1. **Social Login**: Social Login interface at Wordpress login form
 2. **Social Sharing**: A wide variety of sharing icons
 3. **Social Sharing**: Options to chosse size (minimum 16px, no upper limit) and shape (round and square) of sharing icons
-4. **Social Sharing**: Around 90 social networks in Social Sharing
+4. **Social Sharing**: Around 100 social networks in Social Sharing
 5. **Social Commenting**: WordPress Commenting selected
 6. **Social Commenting**: Facebook Commenting selected
 7. **Social Commenting**: GooglePlus Commenting selected
 8. **Social Commenting**: Disqus Commenting selected
 
 == Changelog ==
+= 7.10 =
+* [Security] Social Login is more secure (props to <a href="https://github.com/calvinhughes" target="_blank">Calvin Hughes</a>)
+* [Improvement] Social avatar functionality was not working when "get_avatar_url" function was being used to show avatar
+
 = 7.9.7 =
 * [New] Included "Super Socializer - Follow Icons" widget to integrate Social Media follow icons with your website
 * [Improvement] Users using Social Login were being logged out from website after closing the browser
@@ -1340,3 +1344,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 * [New] Included "Super Socializer - Follow Icons" widget to integrate Social Media follow icons with your website
 * [Improvement] Users using Social Login were being logged out from website after closing the browser
 * [Bugfix] Social share icons in "more share icons popup" were coming out of it in a few cases 
+
+= 7.10 =
+* [Security] Social Login is more secure (props to <a href="https://github.com/calvinhughes" target="_blank">Calvin Hughes</a>)
+* [Improvement] Social avatar functionality was not working when "get_avatar_url" function was being used to show avatar
