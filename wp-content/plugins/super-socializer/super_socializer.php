@@ -3,7 +3,7 @@
 Plugin Name: Super Socializer
 Plugin URI: https://super-socializer-wordpress.heateor.com
 Description: A complete 360 degree solution to provide all the social features like Social Login, Social Commenting, Social Sharing and more.
-Version: 7.10
+Version: 7.10.1
 Author: Team Heateor
 Author URI: https://www.heateor.com
 Text Domain: Super-Socializer
@@ -11,7 +11,7 @@ Domain Path: /languages
 License: GPL2+
 */
 defined('ABSPATH') or die("Cheating........Uh!!");
-define('THE_CHAMP_SS_VERSION', '7.10');
+define('THE_CHAMP_SS_VERSION', '7.10.1');
 
 require 'helper.php';
 
@@ -660,10 +660,10 @@ function the_champ_frontend_scripts(){
 			wp_localize_script(
 				'the_champ_sl_common',
 				'the_champ_sl_ajax_token',
-				[
+				array(
 					'ajax_url'  => admin_url('admin-ajax.php'),
 					'security'  => wp_create_nonce('the-champ-sl-ajax-token'),
-				]
+				)
 			);
 		}
 		wp_enqueue_script('thickbox');
@@ -792,10 +792,10 @@ function the_champ_frontend_scripts(){
 		wp_localize_script(
 			'the_champ_combined_script',
 			'the_champ_sl_ajax_token',
-			[
+			array(
 				'ajax_url'  => admin_url('admin-ajax.php'),
 				'security'  => wp_create_nonce('the-champ-sl-ajax-token'),
-			]
+			)
 		);
 	}
 }

@@ -4,7 +4,7 @@ Donate link: https://www.heateor.com/donate?action=Super+Socializer
 Tags: social login, social share, social commenting, social comments, social plugin, profile data, social analytics, online identity, social profile storage, single sign-on, social media, facebook login
 Requires at least: 2.5.0
 Tested up to: 4.9.2
-Stable tag: 7.10
+Stable tag: 7.10.1
 License: GPLv2 or later
 
 The unique Social Plugin to let you integrate Social Login, Social Share and Social Comments at your website
@@ -207,6 +207,9 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 8. **Social Commenting**: Disqus Commenting selected
 
 == Changelog ==
+= 7.10.1 =
+* [Improvement] New changes made in version 7.10 were causing problem at websites running on PHP version less than 5.0
+
 = 7.10 =
 * [Security] Social Login is more secure (props to <a href="https://github.com/calvinhughes" target="_blank">Calvin Hughes</a>)
 * [Improvement] Social avatar functionality was not working when "get_avatar_url" function was being used to show avatar
@@ -1348,3 +1351,6 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 = 7.10 =
 * [Security] Social Login is more secure (props to <a href="https://github.com/calvinhughes" target="_blank">Calvin Hughes</a>)
 * [Improvement] Social avatar functionality was not working when "get_avatar_url" function was being used to show avatar
+
+= 7.10.1 =
+* [Improvement] New changes made in version 7.10 were causing problem at websites running on PHP version less than 5.0
