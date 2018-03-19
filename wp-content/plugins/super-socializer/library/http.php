@@ -147,11 +147,8 @@ class http_class
 		return($this->error=$error);
 	}
 
-	Function SetPHPError($error, &$php_error_message, $error_code = HTTP_CLIENT_ERROR_UNSPECIFIED_ERROR)
+	Function SetPHPError($error, $error_code = HTTP_CLIENT_ERROR_UNSPECIFIED_ERROR)
 	{
-		if(IsSet($php_error_message)
-		&& strlen($php_error_message))
-			$error.=": ".$php_error_message;
 		return($this->SetError($error, $error_code));
 	}
 
@@ -433,7 +430,7 @@ class http_class
 				case -7:
 					return($this->SetError("setvbuf() call failed", $error_code));
 				default:
-					return($this->SetPHPError($errno." could not connect to the host \"".$host_name."\"",$php_errormsg, $error_code));
+					return($this->SetPHPError($errno." could not connect to the host \"".$host_name."\"", $error_code));
 			}
 		}
 		else
@@ -991,9 +988,7 @@ class http_class
 			if(GetType($length=@filesize($file["FileName"]))!="integer")
 			{
 				$error="it was not possible to determine the length of the file ".$file["FileName"];
-				if(IsSet($php_errormsg)
-				&& strlen($php_errormsg))
-					$error.=": ".$php_errormsg;
+				
 				if(!file_exists($file["FileName"]))
 					$error="it was not possible to access the file ".$file["FileName"];
 				return($error);
@@ -1037,7 +1032,7 @@ class http_class
 			case "200":
 				if(!@stream_socket_enable_crypto($this->connection, 1, STREAM_CRYPTO_METHOD_SSLv23_CLIENT))
 				{
-					$this->SetPHPError('it was not possible to start a SSL encrypted connection via this proxy', $php_errormsg, HTTP_CLIENT_ERROR_COMMUNICATION_FAILURE);
+					$this->SetPHPError('it was not possible to start a SSL encrypted connection via this proxy', HTTP_CLIENT_ERROR_COMMUNICATION_FAILURE);
 					$this->Disconnect();
 					return($this->error);
 				}
@@ -1216,12 +1211,12 @@ class http_class
 					elseif(IsSet($stream[$part]["File"]))
 					{
 						if(!($file=@fopen($stream[$part]["File"],"rb")))
-							return($this->SetPHPError("could not open upload file ".$stream[$part]["File"], $php_errormsg, HTTP_CLIENT_ERROR_CANNOT_ACCESS_LOCAL_FILE));
+							return($this->SetPHPError("could not open upload file ".$stream[$part]["File"], HTTP_CLIENT_ERROR_CANNOT_ACCESS_LOCAL_FILE));
 						while(!feof($file))
 						{
 							if(GetType($block=@fread($file,$this->file_buffer_length))!="string")
 							{
-								$error=$this->SetPHPError("could not read body stream file ".$stream[$part]["File"], $php_errormsg, HTTP_CLIENT_ERROR_CANNOT_ACCESS_LOCAL_FILE);
+								$error=$this->SetPHPError("could not read body stream file ".$stream[$part]["File"], HTTP_CLIENT_ERROR_CANNOT_ACCESS_LOCAL_FILE);
 								fclose($file);
 								return($error);
 							}
@@ -1335,7 +1330,7 @@ class http_class
 					{
 						if(!($file=@fopen($post_parts[$part]["FILENAME"],"rb")))
 						{
-							$this->SetPHPError("could not open upload file ".$post_parts[$part]["FILENAME"], $php_errormsg, HTTP_CLIENT_ERROR_CANNOT_ACCESS_LOCAL_FILE);
+							$this->SetPHPError("could not open upload file ".$post_parts[$part]["FILENAME"], HTTP_CLIENT_ERROR_CANNOT_ACCESS_LOCAL_FILE);
 							$success=0;
 							break;
 						}
@@ -1343,7 +1338,7 @@ class http_class
 						{
 							if(GetType($block=@fread($file,$this->file_buffer_length))!="string")
 							{
-								$this->SetPHPError("could not read upload file", $php_errormsg, HTTP_CLIENT_ERROR_CANNOT_ACCESS_LOCAL_FILE);
+								$this->SetPHPError("could not read upload file", HTTP_CLIENT_ERROR_CANNOT_ACCESS_LOCAL_FILE);
 								$success=0;
 								break;
 							}
@@ -1404,7 +1399,7 @@ class http_class
 								{
 									if(!($file=@fopen($post_parts[$part]["FILENAME"],"rb")))
 									{
-										$this->SetPHPError("could not open upload file ".$post_parts[$part]["FILENAME"], $php_errormsg, HTTP_CLIENT_ERROR_CANNOT_ACCESS_LOCAL_FILE);
+										$this->SetPHPError("could not open upload file ".$post_parts[$part]["FILENAME"], HTTP_CLIENT_ERROR_CANNOT_ACCESS_LOCAL_FILE);
 										$success=0;
 										break;
 									}
@@ -1412,7 +1407,7 @@ class http_class
 									{
 										if(GetType($block=@fread($file,$this->file_buffer_length))!="string")
 										{
-											$this->SetPHPError("could not read upload file", $php_errormsg, HTTP_CLIENT_ERROR_CANNOT_ACCESS_LOCAL_FILE);
+											$this->SetPHPError("could not read upload file", HTTP_CLIENT_ERROR_CANNOT_ACCESS_LOCAL_FILE);
 											$success=0;
 											break;
 										}
@@ -2002,7 +1997,7 @@ class http_class
 	Function ReadWholeReplyIntoTemporaryFile(&$file)
 	{
 		if(!($file = tmpfile()))
-			return $this->SetPHPError('could not create the temporary file to save the response', $php_errormsg, HTTP_CLIENT_ERROR_CANNOT_ACCESS_LOCAL_FILE);
+			return $this->SetPHPError('could not create the temporary file to save the response', HTTP_CLIENT_ERROR_CANNOT_ACCESS_LOCAL_FILE);
 		for(;;)
 		{
 			if(strlen($error = $this->ReadReplyBody($block, $this->file_buffer_length)))
@@ -2014,7 +2009,7 @@ class http_class
 			{
 				if(@fseek($file, 0) != 0)
 				{
-					$error = $this->SetPHPError('could not seek to the beginning of temporary file with the response', $php_errormsg, HTTP_CLIENT_ERROR_CANNOT_ACCESS_LOCAL_FILE);
+					$error = $this->SetPHPError('could not seek to the beginning of temporary file with the response', HTTP_CLIENT_ERROR_CANNOT_ACCESS_LOCAL_FILE);
 					fclose($file);
 					return $error;
 				}
@@ -2022,7 +2017,7 @@ class http_class
 			}
 			if(!@fwrite($file, $block))
 			{
-				$error = $this->SetPHPError('could not write to the temporary file to save the response', $php_errormsg, HTTP_CLIENT_ERROR_CANNOT_ACCESS_LOCAL_FILE);
+				$error = $this->SetPHPError('could not write to the temporary file to save the response', HTTP_CLIENT_ERROR_CANNOT_ACCESS_LOCAL_FILE);
 				fclose($file);
 				return $error;
 			}

@@ -1,13 +1,13 @@
 ﻿=== WordPress Social Share, Social Login and Social Comments Plugin - Super Socializer ===
 Contributors: Heateor, the_champ, Hungarian Translator: László Tavaszi http://kerekmese.hu, Chinese Translator: Alex Li plpkj.com, Portuguese Translator: Paulo Purkyt https://www.linkedin.com/in/ppurkyt, Italian Translator: FG3D (Freedom's Gate) https://fg3d.net, Spanish translator: Ignacio Iglesias http://trespies.com, Arabic Translator: http://www.ArabsSM.com, Russian/Ukrainian Translator: Nicholas Lagunov
 Donate link: https://www.heateor.com/donate?action=Super+Socializer
-Tags: social login, social share, social commenting, social comments, social plugin, profile data, social analytics, online identity, social profile storage, single sign-on, social media, facebook login
+Tags: social login, social share, social commenting, social comments, social plugin, profile data, social analytics, online identity, social profile storage, single sign-on, social media follow, facebook login
 Requires at least: 2.5.0
-Tested up to: 4.9.2
-Stable tag: 7.10.1
+Tested up to: 4.9.4
+Stable tag: 7.11.6
 License: GPLv2 or later
 
-The unique Social Plugin to let you integrate Social Login, Social Share and Social Comments at your website
+The unique Social Plugin to let you integrate Social Login, Social Share, Social Comments and Social Media follow at your website
 
 == Description ==
 Integrate Social Login, Social Share and Social Comments at your website easiest and simplest possible way.
@@ -15,11 +15,12 @@ Integrate Social Login, Social Share and Social Comments at your website easiest
 **Note:**
 1. Plugin will not work on local server. You should have an online website for the plugin to function properly.
 2. If you want to integrate only Facebook Comments, you should install <a target="_blank" href="https://wordpress.org/plugins/fancy-facebook-comments/">Fancy Facebook Comments</a>
+3. If you want to integrate only Social Share, you should install <a target="_blank" href="https://wordpress.org/plugins/sassy-social-share">Sassy Social Share</a>
 
 = Feature list =
 * Social Share from around 100 social networks
 * Social Media follow icons 
-* Share counts are supported for Facebook, Linkedin, Twitter, Buffer, Reddit, Pinterest, Stumbleupon and Vkontakte
+* Share counts are supported for Facebook, Linkedin, Twitter, Buffer, Reddit, Pinterest, Stumbleupon, Odnoklassniki and Vkontakte
 * FREE icon customization options
 * Options to specify sharing icon shape - Square, Round and Rectangular
 * Options to specify sharing icon size - minimum 16 pixels, no upper limit
@@ -35,8 +36,9 @@ Integrate Social Login, Social Share and Social Comments at your website easiest
 * Enable/Disable sharing on individual pages/posts
 * Enable/Disable total/individual share count(s)
 * Mobile responsive sharing interface
+* Compatible with AMP
 * Enable/Disable vertical/floating sharing interface on mobile device
-* Social Login from 9 Social Networks - Facebook, Google, Linkedin, Twitter, Vkontakte, Instagram, Xing, Twitch, Steam and LiveJournal
+* Social Login from 9 Social Networks - Facebook, Google, Linkedin, Twitter, Vkontakte, Instagram, Xing, Steam and LiveJournal
 * Enable Social Login interface at WordPress Login, Register pages and comment form
 * Syncs user's basic social profile data with WordPress profile
 * Enable Social Login at WooCommerce checkout page and customer login form
@@ -207,6 +209,68 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 8. **Social Commenting**: Disqus Commenting selected
 
 == Changelog ==
+= 7.11.6 =
+* [Improvement] Link to get bit.ly login and API key was broken at the plugin options page in admin
+* [Bugfix] PHP error was being generated with Yoast SEO plugin active, in a few cases
+* [Bugfix] New users were seeing a not so user-friendly message in social login popup when user registration via social login kept disabled
+* [Bugfix] "Pinterest Save" official share button was appearing misaligned in the standard social share bar
+
+= 7.11.5 =
+* [Bugfix] Social Login was not working in the cases where website homepage was different from the WordPress installation directory
+* [Bugfix] Fixed the AMP validation error being generated with <a href="https://wordpress.org/plugins/accelerated-mobile-pages/" target="_blank">AMPforWP</a> plugin due to "super-socializer-data-href" attribute
+* [Bugfix] PHP notices were being generated with AMP enabled, in WordPress debugging mode if official like buttons were enabled with share icons
+* [Bugfix] GentleReader icon was not appearing in AMP
+* [Improvement] Floating share bar was appearing as static vertical bar in AMP. It will not appear in AMP
+
+= 7.11.4 =
+* [Bugfix] Plugin broke when Vkonakte login enabled on websites running PHP version < 5.4
+
+= 7.11.3 =
+* [Bugfix] Fixed PHP errors being generated at the websites running on PHP version < 5.4
+* Websites having directory appended to the domain as homepage url need to update the "Authorized redirect URIs" in Google client settings. Notification is being displayed in the admin for the same.
+
+= 7.11.2 =
+* [Bugfix] "Redirect to same page" option was not working for Google+ and Linkedin
+* [Bugfix] Facebook login was not working with Facebook app's "Strict Mode" enabled
+* [Bugfix] Linkedin login was not working properly in some cases
+* [Improvement] Size of Social login popup was not enough when "Load all Javascript files in single file" option was enabled
+
+= 7.11.1 =
+* [Bugfix] Facebook and Google+ login were not working in some cases when Vkontakte login was not enabled
+
+= 7.11 =
+* [Security] Social Login is now more secure based on PHP OAuth instead of Javascript SDK
+* [Improvement] Vkontakte social login now fetches user's email address too
+* Removed Twitch login temporarily
+
+= 7.10.6 =
+* [New] Added <a href="https://gentlereader.com" target="_blank">GentleReader</a> bookmarking service
+* [New] Compatible with <a href="https://wordpress.org/plugins/accelerated-mobile-pages/" target="_blank">AMPforWP</a>
+* [Bugfix] GlotPress translations were not working
+* [Improvement] Fixed PHP warnings being generated when using Xing login with PHP 7.2
+* [Improvement] Improved Steam login
+
+= 7.10.5 =
+* [Bugfix] Social Account Linking was not working in some cases after updating to version 7.10
+* [Improvement] Improved "More" share icons popup for mobile devices
+* [Improvement] Improved admin UI for mobile devices
+* [Improvement] Upgraded version of official Facebook SDK being used throughout the plugin
+* [Improvement] Link to language codes at plugin options page was broken
+
+= 7.10.4 =
+* [Bugfix] Some social media follow icons were appearing broken in a few cases
+* [Bugfix] Initial share count was appearing as 0 at webpages in some cases
+* [New] Added "heateor_ss_follow_icons" filter to customize "Follow Icons" widget
+
+= 7.10.3 =
+* [Bugfix] Some share icons were appearing broken on AMP
+
+= 7.10.2 =
+* [New] Added Odnoklassniki share counter
+* [Improvement] Compatible with <a href="https://wordpress.org/plugins/amp/" target="_blank">AMP</a>
+* [Improvement] Share count functionality is smoother
+* [Bugfix] Comment icon at homepage was not redirecting to the comment form of individual post
+
 = 7.10.1 =
 * [Improvement] New changes made in version 7.10 were causing problem at websites running on PHP version less than 5.0
 
@@ -1354,3 +1418,65 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 
 = 7.10.1 =
 * [Improvement] New changes made in version 7.10 were causing problem at websites running on PHP version less than 5.0
+
+= 7.10.2 =
+* [New] Added Odnoklassniki share counter
+* [Improvement] Compatible with <a href="https://wordpress.org/plugins/amp/" target="_blank">AMP</a>
+* [Improvement] Share count functionality is smoother
+* [Bugfix] Comment icon at homepage was not redirecting to the comment form of individual post
+
+= 7.10.3 =
+* [Bugfix] Some share icons were appearing broken on AMP
+
+= 7.10.4 =
+* [Bugfix] Some social media follow icons were appearing broken in a few cases
+* [Bugfix] Initial share count was appearing as 0 at webpages in some cases
+* [New] Added "heateor_ss_follow_icons" filter to customize "Follow Icons" widget
+
+= 7.10.5 =
+* [Bugfix] Social Account Linking was not working in some cases after updating to version 7.10
+* [Improvement] Improved "More" share icons popup for mobile devices
+* [Improvement] Improved admin UI for mobile devices
+* [Improvement] Upgraded version of official Facebook SDK being used throughout the plugin
+* [Improvement] Link to language codes at plugin options page was broken
+
+= 7.10.6 =
+* [New] Added <a href="https://gentlereader.com" target="_blank">GentleReader</a> bookmarking service
+* [New] Compatible with <a href="https://wordpress.org/plugins/accelerated-mobile-pages/" target="_blank">AMPforWP</a>
+* [Bugfix] GlotPress translations were not working
+* [Improvement] Fixed PHP warnings being generated when using Xing login with PHP 7.2
+* [Improvement] Improved Steam login
+
+= 7.11 =
+* [Security] Social Login is now more secure based on PHP OAuth instead of Javascript SDK
+* [Improvement] Vkontakte social login now fetches user's email address too
+* Removed Twitch login temporarily
+
+= 7.11.1 =
+* [Bugfix] Facebook and Google+ login were not working in some cases when Vkontakte login was not enabled
+
+= 7.11.2 =
+* [Bugfix] "Redirect to same page" option was not working for Google+ and Linkedin
+* [Bugfix] Facebook login was not working with Facebook app's "Strict Mode" enabled
+* [Bugfix] Linkedin login was not working properly in some cases
+* [Improvement] Size of Social login popup was not enough when "Load all Javascript files in single file" option was enabled
+
+= 7.11.3 =
+* [Bugfix] Fixed PHP errors being generated at the websites running on PHP version < 5.4
+* Websites having directory appended to the domain as homepage url need to update the "Authorized redirect URIs" in Google client settings. Notification is being displayed in the admin for the same.
+
+= 7.11.4 =
+* [Bugfix] Plugin broke when Vkonakte login enabled on websites running PHP version < 5.4
+
+= 7.11.5 =
+* [Bugfix] Social Login was not working in the cases where website homepage was different from the WordPress installation directory
+* [Bugfix] Fixed the AMP validation error being generated with <a href="https://wordpress.org/plugins/accelerated-mobile-pages/" target="_blank">AMPforWP</a> plugin due to "super-socializer-data-href" attribute
+* [Bugfix] PHP notices were being generated with AMP enabled, in WordPress debugging mode if official like buttons were enabled with share icons
+* [Bugfix] GentleReader icon was not appearing in AMP
+* [Improvement] Floating share bar was appearing as static vertical bar in AMP. It will not appear in AMP
+
+= 7.11.6 =
+* [Improvement] Link to get bit.ly login and API key was broken at the plugin options page in admin
+* [Bugfix] PHP error was being generated with Yoast SEO plugin active, in a few cases
+* [Bugfix] New users were seeing a not so user-friendly message in social login popup when user registration via social login kept disabled
+* [Bugfix] "Pinterest Save" official share button was appearing misaligned in the standard social share bar

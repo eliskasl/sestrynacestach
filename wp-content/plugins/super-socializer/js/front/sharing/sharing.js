@@ -137,6 +137,11 @@ function theChampMoreSharingPopup(elem, postUrl, postTitle, twitterTitle){
 		locale: "en-US",
 		redirect_url: "https://mail.google.com/mail/?ui=2&view=cm&fs=1&tf=1&su=" + postTitle + "&body=Link: " + postUrl,
 	  },
+	  gentlereader: {
+        title: "GentleReader",
+        locale: "en-US",
+        redirect_url: "https://app.gentlereader.com/bookmark?url=" + postUrl,
+      },
 	  google_bookmarks: {
 		title: "Google Bookmarks",
 		locale: "en-US",
@@ -710,7 +715,7 @@ function theChampFBShareJSONCall(targetUrl, loopCounter, targetUrlsLength, dataH
 					sharingCount += parseInt(jQuery(targetElement).attr('ss_st_count'));
 				}
 				if(sharingCount > 0){
-					if(jQuery(targetElement).text().trim() == '' || jQuery(targetElement).text().trim() == '&nbsp;'){
+					if(typeof jQuery(facebookBackground).attr('heateor-ss-fb-shares') == 'undefined'){
 						jQuery(targetElement).html(theChampCalculateApproxCount(sharingCount)).css({'visibility': 'visible', 'display': 'block'});
 						jQuery(facebookBackground).attr('heateor-ss-fb-shares', sharingCount);
 					}else if(typeof jQuery(facebookBackground).attr('heateor-ss-fb-shares') != 'undefined'){

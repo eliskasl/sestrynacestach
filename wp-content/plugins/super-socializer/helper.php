@@ -5,7 +5,7 @@
 function the_champ_settings_saved_notification(){
 	if(isset($_GET['settings-updated']) && sanitize_text_field($_GET['settings-updated']) == 'true'){
 		return '<div id="setting-error-settings_updated" class="updated settings-error notice is-dismissible below-h2"> 
-<p><strong>' . __('Settings saved', 'Super-Socializer') . '</strong></p><button type="button" class="notice-dismiss"><span class="screen-reader-text">' . __('Dismiss this notice', 'Super-Socializer') . '</span></button></div>';
+<p><strong>' . __('Settings saved', 'super-socializer') . '</strong></p><button type="button" class="notice-dismiss"><span class="screen-reader-text">' . __('Dismiss this notice', 'super-socializer') . '</span></button></div>';
 	}
 }
 
@@ -14,9 +14,9 @@ function the_champ_settings_saved_notification(){
  */
 function the_champ_login_notifications($loginOptions){
 	$errorHtml = '';
-	if(isset($loginOptions['providers'])){
-		if(in_array('facebook', $loginOptions['providers']) && (!isset($loginOptions['fb_key']) || $loginOptions['fb_key'] == '')){
-			$errorHtml .= the_champ_error_message('Specify Facebook App ID in <strong>Super Socializer</strong> > <strong>Social Login</strong> section in admin panel for Facebook Login to work');
+	if(isset($loginOptions['enable']) && isset($loginOptions['providers'])){
+		if(in_array('facebook', $loginOptions['providers']) && (!isset($loginOptions['fb_key']) || $loginOptions['fb_key'] == '' || !isset($loginOptions['fb_secret']) || $loginOptions['fb_secret'] == '')){
+			$errorHtml .= the_champ_error_message('Specify Facebook App ID and Secret in <strong>Super Socializer</strong> > <strong>Social Login</strong> section in admin panel for Facebook Login to work');
 		}
 		if(in_array('xing', $loginOptions['providers']) && (!isset($loginOptions['xing_ck']) || $loginOptions['xing_ck'] == '' || !isset($loginOptions['xing_cs']) || $loginOptions['xing_cs'] == '')){
 			$errorHtml .= the_champ_error_message('Specify Xing Consumer Key and Secret in <strong>Super Socializer</strong> > <strong>Social Login</strong> section in admin panel for Xing Login to work');
@@ -24,20 +24,20 @@ function the_champ_login_notifications($loginOptions){
 		if(in_array('twitter', $loginOptions['providers']) && (!isset($loginOptions['twitter_key']) || $loginOptions['twitter_key'] == '' || !isset($loginOptions['twitter_secret']) || $loginOptions['twitter_secret'] == '')){
 			$errorHtml .= the_champ_error_message('Specify Twitter Consumer Key and Secret in <strong>Super Socializer</strong> > <strong>Social Login</strong> section in admin panel for Twitter Login to work');
 		}
-		if(in_array('linkedin', $loginOptions['providers']) && (!isset($loginOptions['li_key']) || $loginOptions['li_key'] == '')){
-			$errorHtml .= the_champ_error_message('Specify LinkedIn API Key in <strong>Super Socializer</strong> > <strong>Social Login</strong> section in admin panel for LinkedIn Login to work');
+		if(in_array('linkedin', $loginOptions['providers']) && (!isset($loginOptions['li_key']) || $loginOptions['li_key'] == '' || !isset($loginOptions['li_secret']) || $loginOptions['li_secret'] == '')){
+			$errorHtml .= the_champ_error_message('Specify LinkedIn Client ID and Secret in <strong>Super Socializer</strong> > <strong>Social Login</strong> section in admin panel for LinkedIn Login to work');
 		}
-		if(in_array('google', $loginOptions['providers']) && (!isset($loginOptions['google_key']) || $loginOptions['google_key'] == '')){
-			$errorHtml .= the_champ_error_message('Specify GooglePlus Client ID in <strong>Super Socializer</strong> > <strong>Social Login</strong> section in admin panel for GooglePlus Login to work');
+		if(in_array('google', $loginOptions['providers']) && (!isset($loginOptions['google_key']) || $loginOptions['google_key'] == '' || !isset($loginOptions['google_secret']) || $loginOptions['google_secret'] == '')){
+			$errorHtml .= the_champ_error_message('Specify GooglePlus Client ID and Secret in <strong>Super Socializer</strong> > <strong>Social Login</strong> section in admin panel for GooglePlus Login to work');
 		}
-		if(in_array('vkontakte', $loginOptions['providers']) && (!isset($loginOptions['vk_key']) || $loginOptions['vk_key'] == '')){
-			$errorHtml .= the_champ_error_message('Specify Vkontakte Application ID in <strong>Super Socializer</strong> > <strong>Social Login</strong> section in admin panel for Vkontakte Login to work');
+		if(in_array('vkontakte', $loginOptions['providers']) && (!isset($loginOptions['vk_key']) || $loginOptions['vk_key'] == '' || !isset($loginOptions['vk_secure_key']) || $loginOptions['vk_secure_key'] == '')){
+			$errorHtml .= the_champ_error_message('Specify Vkontakte Application ID and Secret Key in <strong>Super Socializer</strong> > <strong>Social Login</strong> section in admin panel for Vkontakte Login to work');
 		}
 		if(in_array('instagram', $loginOptions['providers']) && (!isset($loginOptions['insta_id']) || $loginOptions['insta_id'] == '')){
 			$errorHtml .= the_champ_error_message('Specify Instagram Client ID in <strong>Super Socializer</strong> > <strong>Social Login</strong> section in admin panel for Instagram Login to work');
 		}
-		if(in_array('twitch', $loginOptions['providers']) && (!isset($loginOptions['twitch_client_id']) || $loginOptions['twitch_client_id'] == '')){
-			$errorHtml .= the_champ_error_message('Specify Twitch Client ID in <strong>Super Socializer</strong> > <strong>Social Login</strong> section in admin panel for Twitch Login to work');
+		if(in_array('steam', $loginOptions['providers']) && (!isset($loginOptions['steam_api_key']) || $loginOptions['steam_api_key'] == '')){
+			$errorHtml .= the_champ_error_message('Specify Steam API Key in <strong>Super Socializer</strong> > <strong>Social Login</strong> section in admin panel for Steam Login to work');
 		}
 	}
 	return $errorHtml;
@@ -153,7 +153,7 @@ add_action('admin_init', 'the_champ_options_init');
  */	
 function the_champ_admin_scripts(){
 	?>
-	<script>var theChampWebsiteUrl = '<?php echo esc_url(home_url()) ?>', theChampHelpBubbleTitle = "<?php echo __('Click to show help', 'Super-Socializer') ?>", theChampHelpBubbleCollapseTitle = "<?php echo __('Click to hide help', 'Super-Socializer') ?>" </script>
+	<script>var theChampWebsiteUrl = '<?php echo esc_url(home_url()) ?>', theChampHelpBubbleTitle = "<?php echo __('Click to show help', 'super-socializer') ?>", theChampHelpBubbleCollapseTitle = "<?php echo __('Click to hide help', 'super-socializer') ?>" </script>
 	<?php
 	wp_enqueue_script('the_champ_admin_script', plugins_url('js/admin/admin.js', __FILE__), array('jquery', 'jquery-ui-tabs'), THE_CHAMP_SS_VERSION);
 }
@@ -246,9 +246,9 @@ function the_champ_update_css( $replace_color_option, $logo_color_option, $css_f
 }
 
 function the_champ_add_settings_link($links){
-    $addonsLink = '<a href="https://www.heateor.com/add-ons" target="_blank">' . __('Add-Ons', 'Super-Socializer') . '</a>';
-    $supportLink = '<a href="http://support.heateor.com" target="_blank">' . __('Support Documentation', 'Super-Socializer') . '</a>';
-    $settingsLink = '<a href="admin.php?page=heateor-ss-general-options">' . __('Settings', 'Super-Socializer') . '</a>';
+    $addonsLink = '<a href="https://www.heateor.com/add-ons" target="_blank">' . __('Add-Ons', 'super-socializer') . '</a>';
+    $supportLink = '<a href="http://support.heateor.com" target="_blank">' . __('Support Documentation', 'super-socializer') . '</a>';
+    $settingsLink = '<a href="admin.php?page=heateor-ss-general-options">' . __('Settings', 'super-socializer') . '</a>';
     // place it before other links
 	array_unshift( $links, $settingsLink );
 	$links[] = $addonsLink;
@@ -415,7 +415,7 @@ function the_champ_social_commenting_enabled(){
  */
 function the_champ_facebook_plugin_enabled(){
 	global $theChampFacebookOptions, $theChampCounterOptions;
-	if(the_champ_social_login_provider_enabled('facebook') || (the_champ_social_commenting_enabled() && the_champ_facebook_commenting_enabled()) || the_champ_facebook_like_rec_enabled()){
+	if((the_champ_social_commenting_enabled() && the_champ_facebook_commenting_enabled()) || the_champ_facebook_like_rec_enabled()){
 		return true;
 	}else{
 		return false;
@@ -449,7 +449,7 @@ function the_champ_error_message($error, $heading = false){
 	if($heading){
 		$html .= "<p style='color: black'><strong>Super Socializer: </strong></p>";
 	}
-	$html .= "<p style ='color:red; margin: 0'>". __($error, 'Super-Socializer') ."</p></div>";
+	$html .= "<p style ='color:red; margin: 0'>". __($error, 'super-socializer') ."</p></div>";
 	return $html;
 }
 
@@ -497,7 +497,7 @@ function the_champ_account_linking(){
 		$currentPageUrl = urldecode($twitterRedirect);
 		$theChampLJAuthUrl = remove_query_arg('action', the_champ_get_valid_url($currentPageUrl));
 		?>
-		<script>function theChampLoadEvent(e){var t=window.onload;if(typeof window.onload!="function"){window.onload=e}else{window.onload=function(){t();e()}}} var theChampCloseIconPath = '<?php echo plugins_url('images/close.png', __FILE__) ?>'; var theChampLJAuthUrl = '<?php echo $theChampLJAuthUrl . (strpos($theChampLJAuthUrl, '?') !== false ? '&' : '?') . 'SuperSocializerAuth=LiveJournal'; ?>'; var theChampLJLoginUsernameString = '<?php echo htmlspecialchars(__('Enter your LiveJournal username', 'Super-Socializer'), ENT_QUOTES); ?>';</script>
+		<script>function theChampLoadEvent(e){var t=window.onload;if(typeof window.onload!="function"){window.onload=e}else{window.onload=function(){t();e()}}} var theChampCloseIconPath = '<?php echo plugins_url('images/close.png', __FILE__) ?>'; var theChampLJAuthUrl = '<?php echo $theChampLJAuthUrl . (strpos($theChampLJAuthUrl, '?') !== false ? '&' : '?') . 'SuperSocializerAuth=LiveJournal'; ?>'; var theChampLJLoginUsernameString = '<?php echo htmlspecialchars(__('Enter your LiveJournal username', 'super-socializer'), ENT_QUOTES); ?>';</script>
 		<?php
 		// general (required) scripts
 		wp_enqueue_script('the_champ_ss_general_scripts', plugins_url('js/front/social_login/general.js', __FILE__), false, THE_CHAMP_SS_VERSION);
@@ -511,12 +511,12 @@ function the_champ_account_linking(){
 			$theChampAjaxUrl = get_admin_url().'admin-ajax.php';
 			$redirectionUrl = the_champ_get_login_redirection_url();
 			$regRedirectionUrl = the_champ_get_login_redirection_url('', true);
-			global $theChampSteamLogin;
+			global $theChampSteamLogin, $heateorSsVkontakte;
 			?>
 			<style type="text/css">
 			#ss_openid{border:1px solid gray;display:inline;font-family:"Trebuchet MS";font-size:12px;width:98%;padding:.35em .325em .75em;margin-bottom:20px}#ss_openid form{margin-top:25px;margin-left:0;padding:0;background:transparent;-webkit-box-shadow:none;box-shadow:none}#ss_openid input{font-family:"Trebuchet MS";font-size:12px;width:100px;float:left}#ss_openid input[type=submit]{background:#767676;padding:.75em 2em;border:0;-webkit-border-radius:2px;border-radius:2px;-webkit-box-shadow:none;box-shadow:none;color:#fff;cursor:pointer;display:inline-block;font-weight:800;line-height:1;text-shadow:none;-webkit-transition:background .2s;transition:background .2s}#ss_openid legend{color:#FF6200;float:left;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:table;max-width:100%;padding:0;white-space:normal}#ss_openid input.openid_login{background-color:#fff;background-position:0 50%;color:#000;width:220px;margin-right:10px;height:30px;margin-bottom:5px;background:#fff;background-image:-webkit-linear-gradient(rgba(255,255,255,0),rgba(255,255,255,0));border:1px solid #bbb;-webkit-border-radius:3px;border-radius:3px;display:block;padding:.7em;line-height:1.5}#ss_openid a{color:silver}#ss_openid a:hover{color:#5e5e5e}
 			</style>
-			<script> var theChampLoadingImgPath = '<?php echo $loadingImagePath ?>'; var theChampAjaxUrl = '<?php echo $theChampAjaxUrl ?>'; var theChampRedirectionUrl = '<?php echo $redirectionUrl ?>'; var theChampRegRedirectionUrl = '<?php echo $regRedirectionUrl ?>', theChampSteamAuthUrl = "<?php echo $theChampSteamLogin ? $theChampSteamLogin->url( esc_url(home_url()) . '?SuperSocializerSteamAuth=' . $twitterRedirect ) : ''; ?>"; var heateorMSEnabled = 0; var theChampTwitterAuthUrl = theChampSiteUrl + "?SuperSocializerAuth=Twitter&super_socializer_redirect_to=" + theChampTwitterRedirect; var theChampTwitchAuthUrl = theChampSiteUrl + "?SuperSocializerAuth=Twitch"; var theChampXingAuthUrl = theChampSiteUrl + "?SuperSocializerAuth=Xing&super_socializer_redirect_to=" + theChampTwitterRedirect;</script>
+			<script> var theChampLoadingImgPath = '<?php echo $loadingImagePath ?>'; var theChampAjaxUrl = '<?php echo $theChampAjaxUrl ?>'; var theChampRedirectionUrl = '<?php echo $redirectionUrl ?>'; var theChampRegRedirectionUrl = '<?php echo $regRedirectionUrl ?>', theChampSteamAuthUrl = "<?php echo $theChampSteamLogin ? $theChampSteamLogin->url( esc_url(home_url()) . '?SuperSocializerSteamAuth=' . $twitterRedirect ) : ''; ?>"; var heateorMSEnabled = 0; var theChampTwitterAuthUrl = theChampSiteUrl + "?SuperSocializerAuth=Twitter&super_socializer_redirect_to=" + theChampTwitterRedirect; var theChampFacebookAuthUrl = theChampSiteUrl + "?SuperSocializerAuth=Facebook&super_socializer_redirect_to=" + theChampTwitterRedirect; var theChampGoogleAuthUrl = theChampSiteUrl + "?SuperSocializerAuth=Google&super_socializer_redirect_to=" + theChampTwitterRedirect; var theChampVkontakteAuthUrl = '<?php echo isset($heateorSsVkontakte) ? $heateorSsVkontakte->getLoginUrl() : ''; ?>'; var theChampLinkedinAuthUrl = theChampSiteUrl + "?SuperSocializerAuth=Linkedin&super_socializer_redirect_to=" + theChampTwitterRedirect; var theChampXingAuthUrl = theChampSiteUrl + "?SuperSocializerAuth=Xing&super_socializer_redirect_to=" + theChampTwitterRedirect;</script>
 			<?php
 			$userVerified = false;
 			$ajaxUrl = 'admin-ajax.php';
@@ -525,50 +525,12 @@ function the_champ_account_linking(){
 		}
 		// linking functions
 		wp_enqueue_script('the_champ_ss_linking_script', plugins_url('js/front/social_login/linking.js', __FILE__), array('jquery'), THE_CHAMP_SS_VERSION);
-		// Google+ scripts
-		if(the_champ_social_login_provider_enabled('google')){
-			$googleKey = isset($theChampLoginOptions['google_key']) ? $theChampLoginOptions['google_key'] : '';
-			?>
-			<script>var theChampGoogleKey = '<?php echo $googleKey ?>' </script>
-			<?php
-			wp_enqueue_script('the_champ_sl_google', plugins_url('js/front/social_login/google.js', __FILE__), array('jquery'), THE_CHAMP_SS_VERSION);
-		}
-		// Linkedin scripts
-		if(the_champ_social_login_provider_enabled('linkedin')){
-			?>
-			<script type="text/javascript" src="//platform.linkedin.com/in.js">
-			  api_key: <?php echo isset($theChampLoginOptions['li_key']) ? $theChampLoginOptions['li_key'] : '' ?>
-			  
-			  onLoad: theChampLinkedInOnLoad
-			</script>
-			<?php
-			wp_enqueue_script('the_champ_sl_linkedin', plugins_url('js/front/social_login/linkedin.js', __FILE__), array('jquery'), THE_CHAMP_SS_VERSION);
-		}
-		// Vkontakte scripts
-		if(the_champ_social_login_provider_enabled('vkontakte')){
-			?>
-			<div id="vk_api_transport"></div>
-			<script> var theChampVkKey = '<?php echo (isset($theChampLoginOptions["vk_key"]) && $theChampLoginOptions["vk_key"] != "") ? $theChampLoginOptions["vk_key"] : 0 ?>' </script>
-			<?php
-			wp_enqueue_script('the_champ_sl_vkontakte', plugins_url('js/front/social_login/vkontakte.js', __FILE__), array('jquery'), THE_CHAMP_SS_VERSION);
-		}
 		// Instagram scripts
 		if(the_champ_social_login_provider_enabled('instagram')){
 			?>
 			<script> var theChampInstaId = '<?php echo (isset($theChampLoginOptions["insta_id"]) && $theChampLoginOptions["insta_id"] != "") ? $theChampLoginOptions["insta_id"] : 0 ?>' </script>
 			<?php
 			wp_enqueue_script('the_champ_sl_instagram', plugins_url('js/front/social_login/instagram.js', __FILE__), false, THE_CHAMP_SS_VERSION);
-		}
-		if(the_champ_social_login_provider_enabled('facebook')){
-			?>
-			<div id="fb-root"></div>
-			<script>
-			var theChampFBKey = '<?php echo (isset($theChampLoginOptions["fb_key"]) && $theChampLoginOptions["fb_key"] != "") ? $theChampLoginOptions["fb_key"] : "" ?>'; var theChampFBLang = '<?php echo (isset($theChampFacebookOptions["comment_lang"]) && $theChampFacebookOptions["comment_lang"] != '') ? $theChampFacebookOptions["comment_lang"] : "en_US" ?>';
-			var theChampFacebookScope = 'email', theChampFbIosLogin = <?php echo is_user_logged_in() && isset($_GET['code']) && trim($_GET['code']) != '' ? 1 : 0; ?>;
-			</script>
-			<?php
-			wp_enqueue_script('the_champ_fb_sdk', plugins_url('js/front/facebook/sdk.js', __FILE__), false, THE_CHAMP_SS_VERSION);
-			wp_enqueue_script('the_champ_sl_facebook', plugins_url('js/front/social_login/facebook.js', __FILE__), array('jquery'), THE_CHAMP_SS_VERSION);
 		}
 		$html = '<style type="text/css">
 			table.superSocializerTable td{
@@ -584,11 +546,11 @@ function the_champ_account_linking(){
                         if(isset($_GET['linked'])){
                         	if(intval($_GET['linked']) == 1){
 	                        	$html .= '<tr>
-	                        		<td colspan="2" style="color: green">' . __('Account linked successfully', 'Super-Socializer') . '</td>
+	                        		<td colspan="2" style="color: green">' . __('Account linked successfully', 'super-socializer') . '</td>
 	                        	</tr>';
                         	}elseif(intval($_GET['linked']) == 0){
 	                        	$html .= '<tr>
-	                        		<td colspan="2" style="color: red">' . __('Account already exists or linked', 'Super-Socializer') . '</td>
+	                        		<td colspan="2" style="color: red">' . __('Account already exists or linked', 'super-socializer') . '</td>
 	                        	</tr>';
                         	}
                         }
@@ -608,7 +570,7 @@ function the_champ_account_linking(){
                         }
 						if(count($existingProviders) > 0){
                         $html .= '<tr>
-                            <td colspan="2"><strong>' . __('Link your social account to login to your account at this website', 'Super-Socializer') . '</strong><br/>';
+                            <td colspan="2"><strong>' . __('Link your social account to login to your account at this website', 'super-socializer') . '</strong><br/>';
 							foreach($existingProviders as $provider){
 								$icons_container .= '<li><i ';
 								// id
@@ -646,13 +608,13 @@ function the_champ_account_linking(){
                             		if($primarySocialNetwork && $primarySocialId){
                             			$current = get_user_meta($user_ID, 'thechamp_current_id', true) == get_user_meta($user_ID, 'thechamp_social_id', true);
 	                            		$html .= '<tr>
-	                            		<td style="padding: 0">'. ($current ? '<strong>'. __('Currently', 'Super-Socializer') . ' </strong>' : '') . __('Connected with', 'Super-Socializer') . ' <strong>'. ucfirst($primarySocialNetwork) .'</strong></td><td><input type="button" onclick="theChampUnlink(this, \''. $primarySocialNetwork .'\')" value="'. __('Remove', 'Super-Socializer') .'" /></td></tr>';
+	                            		<td style="padding: 0">'. ($current ? '<strong>'. __('Currently', 'super-socializer') . ' </strong>' : '') . __('Connected with', 'super-socializer') . ' <strong>'. ucfirst($primarySocialNetwork) .'</strong></td><td><input type="button" onclick="theChampUnlink(this, \''. $primarySocialNetwork .'\')" value="'. __('Remove', 'super-socializer') .'" /></td></tr>';
                             		}
                             		if(is_array($linkedAccounts) && count($linkedAccounts) > 0){
                             			foreach($linkedAccounts as $key => $value){
 	                            			$current = get_user_meta($user_ID, 'thechamp_current_id', true) == $value;
 	                            			$html .= '<tr>
-	                            			<td style="padding: 0">'. ($current ? '<strong>'. __('Currently', 'Super-Socializer') . ' </strong>' : '') . __('Connected with', 'Super-Socializer') . ' <strong>'. ucfirst($key) .'</strong></td><td><input type="button" onclick="theChampUnlink(this, \''. $key .'\')" value="'. __('Remove', 'Super-Socializer') .'" /></td></tr>';
+	                            			<td style="padding: 0">'. ($current ? '<strong>'. __('Currently', 'super-socializer') . ' </strong>' : '') . __('Connected with', 'super-socializer') . ' <strong>'. ucfirst($key) .'</strong></td><td><input type="button" onclick="theChampUnlink(this, \''. $key .'\')" value="'. __('Remove', 'super-socializer') .'" /></td></tr>';
 	                            		}
                             		}
                             		$html .= '</tbody>
@@ -723,7 +685,7 @@ function the_champ_add_linking_tab() {
 			global $bp, $user_ID;
 			if($user_ID){
 				bp_core_new_subnav_item( array(
-						'name' => __('Social Account Linking', 'Super-Socializer'),
+						'name' => __('Social Account Linking', 'super-socializer'),
 						'slug' => 'account-linking',
 						'parent_url' => trailingslashit( bp_loggedin_user_domain() . 'profile' ),
 						'parent_slug' => 'profile',
@@ -773,42 +735,42 @@ function the_champ_sharing_meta_setup(){
 	<p>
 		<label for="the_champ_sharing">
 			<input type="checkbox" name="_the_champ_meta[sharing]" id="the_champ_sharing" value="1" <?php checked('1', @$sharingMeta['sharing']); ?> />
-			<?php _e('Disable Standard Social Sharing on this '.$postType, 'Super-Socializer') ?>
+			<?php _e('Disable Standard Social Sharing on this '.$postType, 'super-socializer') ?>
 		</label>
 		<br/>
 		<label for="the_champ_vertical_sharing">
 			<input type="checkbox" name="_the_champ_meta[vertical_sharing]" id="the_champ_vertical_sharing" value="1" <?php checked('1', @$sharingMeta['vertical_sharing']); ?> />
-			<?php _e('Disable Floating Social Sharing on this '.$postType, 'Super-Socializer') ?>
+			<?php _e('Disable Floating Social Sharing on this '.$postType, 'super-socializer') ?>
 		</label>
 		<br/>
 		<label for="the_champ_counter">
 			<input type="checkbox" name="_the_champ_meta[counter]" id="the_champ_counter" value="1" <?php checked('1', @$sharingMeta['counter']); ?> />
-			<?php _e('Disable Standard like buttons on this '.$postType, 'Super-Socializer') ?>
+			<?php _e('Disable Standard like buttons on this '.$postType, 'super-socializer') ?>
 		</label>
 		<br/>
 		<label for="the_champ_vertical_counter">
 			<input type="checkbox" name="_the_champ_meta[vertical_counter]" id="the_champ_vertical_counter" value="1" <?php checked('1', @$sharingMeta['vertical_counter']); ?> />
-			<?php _e('Disable Floating like buttons on this '.$postType, 'Super-Socializer') ?>
+			<?php _e('Disable Floating like buttons on this '.$postType, 'super-socializer') ?>
 		</label>
 		<br/>
 		<label for="the_champ_fb_comments">
 			<input type="checkbox" name="_the_champ_meta[fb_comments]" id="the_champ_fb_comments" value="1" <?php checked('1', @$sharingMeta['fb_comments']); ?> />
-			<?php _e('Disable Social Commenting on this '.$postType, 'Super-Socializer') ?>
+			<?php _e('Disable Social Commenting on this '.$postType, 'super-socializer') ?>
 		</label>
 		<?php
 		if(the_champ_social_sharing_enabled()){
 			global $theChampSharingOptions;
-			$validNetworks = array('facebook', 'twitter', 'linkedin', 'buffer', 'reddit', 'pinterest', 'stumbleupon', 'vkontakte');
+			$validNetworks = array('facebook', 'twitter', 'linkedin', 'buffer', 'reddit', 'pinterest', 'stumbleupon', 'vkontakte', 'Odnoklassniki');
 			if(isset($theChampSharingOptions['hor_enable']) && isset($theChampSharingOptions['horizontal_counts']) && isset($theChampSharingOptions['horizontal_re_providers']) && count($theChampSharingOptions['horizontal_re_providers']) > 0){
 				?>
 				<p>
-				<strong style="font-weight:bold"><?php _e('Standard Sharing Interface', 'Super-Socializer') ?></strong>
+				<strong style="font-weight:bold"><?php _e('Standard Sharing Interface', 'super-socializer') ?></strong>
 				<?php
 				foreach(array_intersect($theChampSharingOptions['horizontal_re_providers'], $validNetworks) as $sharingProvider){
 					?>
 					<br/>
 					<label for="the_champ_<?php echo $sharingProvider ?>_horizontal_sharing_count">
-						<span style="width: 242px; float:left"><?php _e('Starting share count for ' . ucfirst(str_replace('_', ' ', $sharingProvider)), 'Super-Socializer') ?></span>
+						<span style="width: 242px; float:left"><?php _e('Starting share count for ' . ucfirst(str_replace('_', ' ', $sharingProvider)), 'super-socializer') ?></span>
 						<input type="text" name="_the_champ_meta[<?php echo $sharingProvider ?>_horizontal_count]" id="the_champ_<?php echo $sharingProvider ?>_horizontal_sharing_count" value="<?php echo isset($sharingMeta[$sharingProvider.'_horizontal_count']) ? $sharingMeta[$sharingProvider.'_horizontal_count'] : '' ?>" />
 					</label>
 					<?php
@@ -821,13 +783,13 @@ function the_champ_sharing_meta_setup(){
 			if(isset($theChampSharingOptions['vertical_enable']) && isset($theChampSharingOptions['vertical_counts']) && isset($theChampSharingOptions['vertical_re_providers']) && count($theChampSharingOptions['vertical_re_providers']) > 0){
 				?>
 				<p>
-				<strong style="font-weight:bold"><?php _e('Floating Sharing Interface', 'Super-Socializer') ?></strong>
+				<strong style="font-weight:bold"><?php _e('Floating Sharing Interface', 'super-socializer') ?></strong>
 				<?php
 				foreach(array_intersect($theChampSharingOptions['vertical_re_providers'], $validNetworks) as $sharingProvider){
 					?>
 					<br/>
 					<label for="the_champ_<?php echo $sharingProvider ?>_vertical_sharing_count">
-						<span style="width: 242px; float:left"><?php _e('Starting share count for ' . ucfirst(str_replace('_', ' ', $sharingProvider)), 'Super-Socializer') ?></span>
+						<span style="width: 242px; float:left"><?php _e('Starting share count for ' . ucfirst(str_replace('_', ' ', $sharingProvider)), 'super-socializer') ?></span>
 						<input type="text" name="_the_champ_meta[<?php echo $sharingProvider ?>_vertical_count]" id="the_champ_<?php echo $sharingProvider ?>_vertical_sharing_count" value="<?php echo isset($sharingMeta[$sharingProvider.'_vertical_count']) ? $sharingMeta[$sharingProvider.'_vertical_count'] : '' ?>" />
 					</label>
 					<?php
@@ -917,22 +879,22 @@ function the_champ_social_avatar_options(){
 		?>
 		<div class="profile" style="margin-bottom:20px">
 			<form action="" method="post" class="standard-form base">
-				<h4><?php _e('Social Avatar', 'Super-Socializer') ?></h4>
+				<h4><?php _e('Social Avatar', 'super-socializer') ?></h4>
 				<div class="clear"></div>
 				<div class="editfield field_name visibility-public field_type_textbox">
-					<label for="ss_dontupdate_avatar_1"><input id="ss_dontupdate_avatar_1" style="margin-right:5px" type="radio" name="ss_dontupdate_avatar" value="1" <?php echo $dontUpdateAvatar ? 'checked' : '' ?> /><?php _e('Do not fetch and update social avatar from my profile, next time I Social Login', 'Super-Socializer') ?></label>
-					<label for="ss_dontupdate_avatar_0"><input id="ss_dontupdate_avatar_0" style="margin-right:5px" type="radio" name="ss_dontupdate_avatar" value="0" <?php echo ! $dontUpdateAvatar ? 'checked' : '' ?> /><?php _e('Update social avatar, next time I Social Login', 'Super-Socializer') ?></label>
+					<label for="ss_dontupdate_avatar_1"><input id="ss_dontupdate_avatar_1" style="margin-right:5px" type="radio" name="ss_dontupdate_avatar" value="1" <?php echo $dontUpdateAvatar ? 'checked' : '' ?> /><?php _e('Do not fetch and update social avatar from my profile, next time I Social Login', 'super-socializer') ?></label>
+					<label for="ss_dontupdate_avatar_0"><input id="ss_dontupdate_avatar_0" style="margin-right:5px" type="radio" name="ss_dontupdate_avatar" value="0" <?php echo ! $dontUpdateAvatar ? 'checked' : '' ?> /><?php _e('Update social avatar, next time I Social Login', 'super-socializer') ?></label>
 				</div>
 				<div class="editfield field_name visibility-public field_type_textbox">
-					<label for="ss_small_avatar"><?php _e('Small Avatar', 'Super-Socializer') ?></label>
+					<label for="ss_small_avatar"><?php _e('Small Avatar', 'super-socializer') ?></label>
 					<input id="ss_small_avatar" type="text" name="ss_small_avatar" value="<?php echo isset($updatedSmallAvatar) ? $updatedSmallAvatar : get_user_meta($user_ID, 'thechamp_avatar', true) ?>" />
 				</div>
 				<div class="editfield field_name visibility-public field_type_textbox">
-					<label for="ss_large_avatar"><?php _e('Large Avatar', 'Super-Socializer') ?></label>
+					<label for="ss_large_avatar"><?php _e('Large Avatar', 'super-socializer') ?></label>
 					<input id="ss_large_avatar" type="text" name="ss_large_avatar" value="<?php echo isset($updatedLargeAvatar) ? $updatedLargeAvatar : get_user_meta($user_ID, 'thechamp_large_avatar', true) ?>" />
 				</div>
 				<div class="submit">
-					<input type="submit" value="<?php _e('Save Changes', 'Super-Socializer') ?>" />
+					<input type="submit" value="<?php _e('Save Changes', 'super-socializer') ?>" />
 				</div>
 			</form>
 		</div>
@@ -995,7 +957,7 @@ function heateor_ss_login_error_message($error){
 	global $heateorSsLoginAttempt;
 	//check if unverified user has attempted to login
 	if($heateorSsLoginAttempt == 1){
-		$error = __('Please verify your email address to login.', 'Super-Socializer');
+		$error = __('Please verify your email address to login.', 'super-socializer');
 	}
 	return $error;
 }

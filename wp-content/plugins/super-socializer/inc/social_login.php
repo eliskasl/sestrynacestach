@@ -407,10 +407,10 @@ function the_champ_sanitize_profile_data($profileData, $provider){
 		$temp['id'] = isset($profileData['id']) ? sanitize_text_field($profileData['id']) : '';
 	 	$temp['email'] = isset($profileData['email']) ? sanitize_email($profileData['email']) : '';
 		$temp['name'] = isset($profileData['name']) ? $profileData['name'] : '';
-		$temp['username'] = isset($profileData['username']) ? $profileData['username'] : '';
+		$temp['username'] = '';
 		$temp['first_name'] = isset($profileData['first_name']) ? $profileData['first_name'] : '';
 		$temp['last_name'] = isset($profileData['last_name']) ? $profileData['last_name'] : '';
-		$temp['bio'] = isset($profileData['about']) ? $profileData['about'] : '';
+		$temp['bio'] = '';
 		$temp['link'] = isset($profileData['link']) && heateor_ss_validate_url($profileData['link']) !== false ? trim($profileData['link']) : '';
 		$temp['avatar'] = "//graph.facebook.com/" . $profileData['id'] . "/picture?type=square";
 		$temp['large_avatar'] = "//graph.facebook.com/" . $profileData['id'] . "/picture?type=large";
@@ -425,28 +425,17 @@ function the_champ_sanitize_profile_data($profileData, $provider){
 		$temp['link'] = $temp['username'] != '' ? 'https://twitter.com/'.sanitize_user($temp['username']) : '';
 		$temp['avatar'] = isset($profileData -> profile_image_url) && heateor_ss_validate_url($profileData -> profile_image_url) !== false ? trim($profileData -> profile_image_url) : '';
 		$temp['large_avatar'] = $temp['avatar'] != '' ? str_replace('_normal', '', $temp['avatar']) : '';
-	}elseif($provider == 'twitch'){
-		$temp['id'] = isset($profileData['_id']) ? sanitize_text_field($profileData['_id']) : '';
-	 	$temp['email'] = isset($profileData['email']) && $profileData['email'] != null ? sanitize_email($profileData['email']) : '';
-		$temp['name'] = isset($profileData['name']) && $profileData['name'] != null ? $profileData['name'] : '';
-		$temp['username'] = isset($profileData['display_name']) && $profileData['display_name'] != null ? $profileData['display_name'] : '';
-		$temp['first_name'] = '';
-		$temp['last_name'] = '';
-		$temp['bio'] = isset($profileData['bio']) && $profileData['bio'] != null ? sanitize_text_field($profileData['bio']) : '';
-		$temp['link'] = '';
-		$temp['avatar'] = isset($profileData['logo']) && $profileData['logo'] != null && heateor_ss_validate_url($profileData['logo']) !== false ? trim($profileData['logo']) : '';
-		$temp['large_avatar'] = '';
 	}elseif($provider == 'steam'){
-		$temp['id'] = isset($profileData->steamID64) ? sanitize_text_field((string) $profileData->steamID64) : '';
+		$temp['id'] = isset($profileData->steamid) ? sanitize_text_field($profileData->steamid) : '';
 	 	$temp['email'] = '';
-		$temp['name'] = isset($profileData->realname) ? (string) $profileData->realname : '';
-		$temp['username'] = isset($profileData->steamID) ? (string) $profileData->steamID : '';
+		$temp['name'] = isset($profileData->realname) ? $profileData->realname : '';
+		$temp['username'] = isset($profileData->personaname) ? $profileData->personaname : '';
 		$temp['first_name'] = '';
 		$temp['last_name'] = '';
-		$temp['bio'] = isset($profileData->summary) ? sanitize_text_field((string) $profileData->summary) : '';
-		$temp['link'] = 'http://steamcommunity.com/profiles/' . $temp['id'];
-		$temp['avatar'] = isset($profileData->avatarMedium) && heateor_ss_validate_url((string) $profileData->avatarMedium) !== false ? (string) $profileData->avatarMedium : '';
-		$temp['large_avatar'] = isset($profileData->avatarFull) && heateor_ss_validate_url((string) $profileData->avatarFull) !== false ? (string) $profileData->avatarFull : '';
+		$temp['bio'] = '';
+		$temp['link'] = isset($profileData->profileurl) ? $profileData->profileurl : '';
+		$temp['avatar'] = isset($profileData->avatarmedium) && heateor_ss_validate_url($profileData->avatarmedium) !== false ? $profileData->avatarmedium : '';
+		$temp['large_avatar'] = isset($profileData->avatarfull) && heateor_ss_validate_url($profileData->avatarfull) !== false ? $profileData->avatarfull : '';
 	}elseif($provider == 'xing'){
 		$temp['id'] = isset($profileData -> id) ? sanitize_text_field($profileData -> id) : '';
 	 	$temp['email'] = isset($profileData -> active_email) ? sanitize_email($profileData -> active_email) : '';;
@@ -468,34 +457,28 @@ function the_champ_sanitize_profile_data($profileData, $provider){
 		$temp['bio'] = isset($profileData['headline']) ? sanitize_text_field($profileData['headline']) : '';
 		$temp['link'] = isset($profileData['publicProfileUrl']) && heateor_ss_validate_url($profileData['publicProfileUrl']) !== false ? trim($profileData['publicProfileUrl']) : '';
 		$temp['avatar'] = isset($profileData['pictureUrl']) && heateor_ss_validate_url($profileData['pictureUrl']) !== false ? trim($profileData['pictureUrl']) : '';
-		$temp['large_avatar'] = isset($profileData['pictureUrls']) && isset($profileData['pictureUrls']['values']) && isset($profileData['pictureUrls']['values'][0]) && heateor_ss_validate_url($profileData['pictureUrls']['values'][0]) !== false ? trim($profileData['pictureUrls']['values'][0]) : '';
+		$temp['large_avatar'] = '';
 	}elseif($provider == 'google'){
+		$temp['id'] = isset($profileData->id) ? sanitize_text_field($profileData->id) : '';
+		$temp['email'] = isset($profileData->email) ? sanitize_email($profileData->email) : '';
+		$temp['name'] = isset($profileData->name) ? $profileData->name : '';
+		$temp['username'] = '';
+		$temp['first_name'] = isset($profileData->givenName) ? $profileData->givenName : '';
+		$temp['last_name'] = isset($profileData->familyName) ? $profileData->familyName : '';
+		$temp['bio'] = '';
+		$temp['link'] = isset($profileData->link) ? $profileData->link : '';
+		$temp['large_avatar'] = isset($profileData->picture) && heateor_ss_validate_url($profileData->picture) !== false ? trim($profileData->picture) : '';
+		$temp['avatar'] = $temp['large_avatar'] != '' ? $temp['large_avatar'] . '?sz=50' : '';
+	}elseif($provider == 'vkontakte'){
 		$temp['id'] = isset($profileData['id']) ? sanitize_text_field($profileData['id']) : '';
 		$temp['email'] = '';
-		foreach($profileData['emails'] as $email){
-			if(isset($email['value']) && $email['value'] != ''){
-				$temp['email'] = sanitize_email($email['value']);
-				break;
-			}
-		}
-		$temp['name'] = isset($profileData['displayName']) ? $profileData['displayName'] : '';
-		$temp['username'] = '';
-		$temp['first_name'] = isset($profileData['name']) && isset($profileData['name']['givenName']) ? $profileData['name']['givenName'] : '';
-		$temp['last_name'] = isset($profileData['name']) && isset($profileData['name']['familyName']) ? $profileData['name']['familyName'] : '';
-		$temp['bio'] = '';
-		$temp['link'] = isset($profileData['url']) && heateor_ss_validate_url($profileData['url']) !== false ? trim($profileData['url']) : '';
-		$temp['avatar'] = isset($profileData['image']['url']) && heateor_ss_validate_url($profileData['image']['url']) !== false ? trim($profileData['image']['url']) : '';
-		$temp['large_avatar'] = $temp['avatar'] != '' ? str_replace('?sz=50', '', $temp['avatar']) : '';
-	}elseif($provider == 'vkontakte'){
-		$temp['id'] = isset($profileData['uid']) ? sanitize_text_field($profileData['uid']) : '';
-		$temp['email'] = '';
-		$temp['name'] = isset($profileData['nickname']) ? $profileData['nickname'] : '';
-		$temp['username'] = '';
+		$temp['name'] = '';
+		$temp['username'] = isset($profileData['screen_name']) ? $profileData['screen_name'] : '';
 		$temp['first_name'] = isset($profileData['first_name']) ? $profileData['first_name'] : '';
 		$temp['last_name'] = isset($profileData['last_name']) ? $profileData['last_name'] : '';
 		$temp['bio'] = '';
 		$temp['link'] = $temp['id'] != '' ? 'https://vk.com/id' . $temp['id'] : '';
-		$temp['avatar'] = isset($profileData['photo']) && heateor_ss_validate_url($profileData['photo']) !== false ? trim($profileData['photo']) : '';
+		$temp['avatar'] = isset($profileData['photo_rec']) && heateor_ss_validate_url($profileData['photo_rec']) !== false ? trim($profileData['photo_rec']) : '';
 		$temp['large_avatar'] = isset($profileData['photo_big']) && heateor_ss_validate_url($profileData['photo_big']) !== false ? trim($profileData['photo_big']) : '';
 	}elseif($provider == 'instagram'){
 		$temp['id'] = isset($profileData -> id) ? sanitize_text_field($profileData -> id) : '';
@@ -661,9 +644,6 @@ function the_champ_user_auth($profileData, $provider = 'facebook', $twitterRedir
 				$serializedProfileData = maybe_serialize($profileData);
 				$uniqueId = mt_rand();
 				update_user_meta($uniqueId, 'the_champ_temp_data', $serializedProfileData);
-				if(!in_array($profileData['provider'], array('twitter', 'instagram', 'xing', 'steam', 'liveJournal'))){
-					return array('status' => false, 'message' => 'ask email|' . $uniqueId);
-				}
 				the_champ_close_login_popup(esc_url(home_url()).'?SuperSocializerEmail=1&par='.$uniqueId);
 			}
 		}
@@ -722,35 +702,6 @@ function the_champ_link_account($socialId, $provider, $userId){
 }
 
 /**
- * User authentication ajax after Social login
- */
-function the_champ_user_auth_ajax(){
-	if(!isset($_POST['security'])){
-		the_champ_ajax_response(array('status' => 0, 'message' => 'Invalid request'));
-	}
-	if(!check_ajax_referer('the-champ-sl-ajax-token', 'security')){
-        the_champ_ajax_response(array('status' => 0, 'message' => 'Invalid request'));
-    }
-	if(isset($_POST['error'])){
-		the_champ_log_error(sanitize_text_field($_POST['error']));
-	}
-	if(!isset($_POST['profileData'])){
-		the_champ_ajax_response(array('status' => 0, 'message' => 'Invalid request'));
-	}
-	$profileData = $_POST['profileData'];
-	$redirectionUrl = esc_url(urldecode(trim($_POST['redirectionUrl'])));
-	if(heateor_ss_validate_url($redirectionUrl) === false){
-		$redirectionUrl = '';
-	}
-	$socialNetwork = sanitize_title($_POST['provider']);
-	$profileData = the_champ_sanitize_profile_data($profileData, $socialNetwork);
-	$response = the_champ_user_auth($profileData, $socialNetwork, $redirectionUrl);
-	the_champ_ajax_response($response);
-}
-add_action('wp_ajax_the_champ_user_auth', 'the_champ_user_auth_ajax');
-add_action('wp_ajax_nopriv_the_champ_user_auth', 'the_champ_user_auth_ajax');
-
-/**
  * Ask email in a popup
  */
 function the_champ_ask_email(){
@@ -760,11 +711,11 @@ function the_champ_ask_email(){
 		div.tb-close-icon{ display: none }
 	</style>
 	<div id="the_champ_error" style="margin: 2px 0px;"></div>
-	<div style="margin: 6px 0 15px 0;"><input placeholder="<?php _e('Email', 'Super-Socializer') ?>" type="text" id="the_champ_email" /></div>
-	<div style="margin: 6px 0 15px 0;"><input placeholder="<?php _e('Confirm email', 'Super-Socializer') ?>" type="text" id="the_champ_confirm_email" /></div>
+	<div style="margin: 6px 0 15px 0;"><input placeholder="<?php _e('Email', 'super-socializer') ?>" type="text" id="the_champ_email" /></div>
+	<div style="margin: 6px 0 15px 0;"><input placeholder="<?php _e('Confirm email', 'super-socializer') ?>" type="text" id="the_champ_confirm_email" /></div>
 	<div>
-		<button type="button" id="save" onclick="the_champ_save_email(this)"><?php _e('Save', 'Super-Socializer') ?></button>
-		<button type="button" id="cancel" onclick="the_champ_save_email(this)"><?php _e('Cancel', 'Super-Socializer') ?></button>
+		<button type="button" id="save" onclick="the_champ_save_email(this)"><?php _e('Save', 'super-socializer') ?></button>
+		<button type="button" id="cancel" onclick="the_champ_save_email(this)"><?php _e('Cancel', 'super-socializer') ?></button>
 	</div>
 	<?php
 	die;
@@ -822,7 +773,7 @@ function the_champ_save_email(){
 						}
 					}
 				}else{
-					the_champ_ajax_response(array('status' => 0, 'message' => isset($theChampLoginOptions['email_error_message']) ? __($theChampLoginOptions['email_error_message'], 'Super-Socializer') : ''));
+					the_champ_ajax_response(array('status' => 0, 'message' => isset($theChampLoginOptions['email_error_message']) ? __($theChampLoginOptions['email_error_message'], 'super-socializer') : ''));
 				}
 			}
 			// delete temporary data
@@ -838,9 +789,9 @@ add_action('wp_ajax_nopriv_the_champ_save_email', 'the_champ_save_email');
  * Send verification email to user.
  */
 function the_champ_send_verification_email($receiverEmail, $verificationKey){
-	$subject = "[".wp_specialchars_decode(trim(get_option('blogname')), ENT_QUOTES)."] " . __('Email Verification', 'Super-Socializer');
+	$subject = "[".wp_specialchars_decode(trim(get_option('blogname')), ENT_QUOTES)."] " . __('Email Verification', 'super-socializer');
 	$url = esc_url(home_url())."?SuperSocializerKey=".$verificationKey;
-	$message = __("Please click on the following link or paste it in browser to verify your email", 'Super-Socializer') . "\r\n" . $url;
+	$message = __("Please click on the following link or paste it in browser to verify your email", 'super-socializer') . "\r\n" . $url;
 	wp_mail($receiverEmail, $subject, $message);
 }
 
@@ -850,7 +801,11 @@ function the_champ_send_verification_email($receiverEmail, $verificationKey){
 function heateor_ss_disable_social_registration($profileData){
 	global $theChampLoginOptions;
 	if(isset($theChampLoginOptions['disable_reg'])){
-		the_champ_ajax_response(array('status' => false, 'message' => 'registration disabled'));
+		$redirectionUrl = home_url();
+		if(isset($theChampLoginOptions['disable_reg_redirect']) && $theChampLoginOptions['disable_reg_redirect'] != ''){
+			$redirectionUrl = $theChampLoginOptions['disable_reg_redirect'];
+		}
+		the_champ_close_login_popup($redirectionUrl);
 	}
 }
 add_action('the_champ_before_registration', 'heateor_ss_disable_social_registration', 10, 1);

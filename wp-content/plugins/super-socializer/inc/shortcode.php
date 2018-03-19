@@ -19,7 +19,7 @@ function the_champ_sharing_shortcode($params){
 			'title' => '',
 			'total_shares' => 'OFF'
 		), $params));
-		if(($type == 'horizontal' && !the_champ_horizontal_sharing_enabled()) || ($type == 'vertical' && !the_champ_vertical_sharing_enabled())){
+		if(($type == 'horizontal' && !the_champ_horizontal_sharing_enabled()) || ($type == 'vertical' && (the_champ_is_amp_page() || !the_champ_vertical_sharing_enabled()))){
 			return;
 		}
 		global $post;
@@ -64,7 +64,7 @@ function the_champ_sharing_shortcode($params){
 		}
 		$shareCountTransientId = heateor_ss_get_share_count_transient_id($targetUrl);
 		$cachedShareCount = heateor_ss_get_cached_share_count($shareCountTransientId);
-		$html = '<div class="the_champ_sharing_container the_champ_'.$type.'_sharing' . ( $type == 'vertical' && isset( $theChampSharingOptions['hide_mobile_sharing'] ) ? ' the_champ_hide_sharing' : '' ) . ( $type == 'vertical' && isset( $theChampSharingOptions['bottom_mobile_sharing'] ) ? ' the_champ_bottom_sharing' : '' ) . '" ss-offset="' . $alignmentOffset . '" super-socializer-data-href="'.$targetUrl.'" ' . ( $cachedShareCount === false ? "" : 'super-socializer-no-counts="1" ' );
+		$html = '<div class="the_champ_sharing_container the_champ_'.$type.'_sharing' . ( $type == 'vertical' && isset( $theChampSharingOptions['hide_mobile_sharing'] ) ? ' the_champ_hide_sharing' : '' ) . ( $type == 'vertical' && isset( $theChampSharingOptions['bottom_mobile_sharing'] ) ? ' the_champ_bottom_sharing' : '' ) . '" ss-offset="' . $alignmentOffset . '" ' . ( the_champ_is_amp_page() ? '' : 'super-socializer-data-href="' . $targetUrl . '"' ) . ( $cachedShareCount === false ? "" : 'super-socializer-no-counts="1" ' );
 		$verticalOffsets = '';
 		if($type == 'vertical'){
 			$verticalOffsets = $align . ': '.$$align.'px; top: '.$top.'px;width:' . ((isset($theChampSharingOptions['vertical_sharing_size']) ? $theChampSharingOptions['vertical_sharing_size'] : '35') + 4) . "px;";
@@ -194,7 +194,7 @@ function the_champ_login_shortcode($params){
 			$html .= "</div><div style='float:left; margin-left:10px'>";
 			$html .= str_replace('-', ' ', $userInfo -> user_login);
 			//do_action('the_champ_login_widget_hook', $userInfo -> user_login);
-			$html .= '<br/><a href="' . wp_logout_url(esc_url(home_url())) . '">' .__('Log Out', 'Super-Socializer') . '</a></div></div>';
+			$html .= '<br/><a href="' . wp_logout_url(esc_url(home_url())) . '">' .__('Log Out', 'super-socializer') . '</a></div></div>';
 		}else{
 			$html = '<div ';
 			// style 
@@ -236,7 +236,7 @@ function the_champ_fb_commenting_shortcode($params){
     $html .= ' data-numposts="' . $num_posts . '"';
     $html .= ' data-width="' . ($width == '' ? '100%' : $width) . '"';
     $html .= ' ></div></div><script type="text/javascript" src="//connect.facebook.net/' . $language . '/sdk.js
-    "></script><script>FB.init({xfbml:1,version: "v2.8"});</script>';
+    "></script><script>FB.init({xfbml:1,version: "v2.11"});</script>';
 	return $html;
 }
 add_shortcode('TheChamp-FB-Comments', 'the_champ_fb_commenting_shortcode');
@@ -278,6 +278,6 @@ function the_champ_social_linking_shortcode($params){
 		$html .= '</div>';
 		return $html;
 	}
-	return '<h3>' . __('Enable Social Login from "Basic Configuration" section at "Super Socializer > Social Login" page in admin panel', 'Super-Socializer') . '</h3>';
+	return '<h3>' . __('Enable Social Login from "Basic Configuration" section at "Super Socializer > Social Login" page in admin panel', 'super-socializer') . '</h3>';
 }
 add_shortcode('TheChamp-Social-Linking', 'the_champ_social_linking_shortcode');
