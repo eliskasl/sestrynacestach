@@ -2,6 +2,7 @@
  * Show more sharing services popup
  */
 function theChampMoreSharingPopup(elem, postUrl, postTitle, twitterTitle){
+	var shareContainer = elem.parentElement.parentElement.parentElement;
 	postUrl = encodeURIComponent(postUrl);
 	concate = '</ul></div><div class="footer-panel"><p></p></div></div>';
 	var theChampMoreSharingServices = {
@@ -562,7 +563,7 @@ function theChampMoreSharingPopup(elem, postUrl, postTitle, twitterTitle){
 		redirect_url: "//youmob.com/startmob.aspx?cookietest=true&mob=" + postUrl,
 	  }
 	}
-	var theChampMoreSharingServicesHtml = '<button id="the_champ_sharing_popup_close" class="close-button separated"><img src="'+ theChampCloseIconPath +'" /></button><div id="the_champ_sharing_more_content" data-href="'+ decodeURIComponent(postUrl) +'"><div class="filter"><input type="text" onkeyup="theChampFilterSharing(this.value.trim())" placeholder="Search" class="search"></div><div class="all-services"><ul class="mini">';
+	var theChampMoreSharingServicesHtml = '<button id="the_champ_sharing_popup_close" class="close-button separated"><img src="'+ theChampCloseIconPath +'" /></button><div id="the_champ_sharing_more_content" data-href="'+ decodeURIComponent(shareContainer.getAttribute('class').indexOf('the_champ_horizontal_sharing') != -1 ? heateorSsHorSharingShortUrl : heateorSsVerticalSharingShortUrl) +'"><div class="filter"><input type="text" onkeyup="theChampFilterSharing(this.value.trim())" placeholder="Search" class="search"></div><div class="all-services"><ul class="mini">';
 	for(var i in theChampMoreSharingServices){
 		var tempTitle = theChampCapitaliseFirstLetter(theChampMoreSharingServices[i].title.replace(/[_. ]/g, ""));
 		theChampMoreSharingServicesHtml += '<li><a rel="nofollow" class="theChamp'+i+'Share" title="'+ theChampMoreSharingServices[i].title +'" alt="'+ theChampMoreSharingServices[i].title +'" ';
@@ -837,6 +838,11 @@ jQuery(function(){
 			}else if(jQuery(trigger).hasClass('theChampCopyLinkSvg')){
 				var element = trigger.parentElement.parentElement.parentElement.parentElement;
 				var url = jQuery(element).attr("super-socializer-data-href") || "";
+				if(jQuery(element).hasClass('the_champ_horizontal_sharing') && typeof heateorSsHorSharingShortUrl != undefined){
+					var url = heateorSsHorSharingShortUrl;
+				}else if(jQuery(element).hasClass('the_champ_vertical_sharing') && typeof heateorSsVerticalSharingShortUrl != undefined){
+					var url = heateorSsVerticalSharingShortUrl;
+				}
 				if(!url){
 					var element = trigger.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
 					var url = jQuery(element).attr("data-href") || "";

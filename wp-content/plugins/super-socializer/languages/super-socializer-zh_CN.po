@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Super Socializer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-16 11:37+0530\n"
-"PO-Revision-Date: 2018-03-16 11:37+0530\n"
+"POT-Creation-Date: 2018-04-04 10:47+0530\n"
+"PO-Revision-Date: 2018-04-04 10:47+0530\n"
 "Last-Translator: Team Heateor <hello@heateor.com>\n"
 "Language-Team: Heateor <hello@heateor.com>\n"
 "Language: zh_CN\n"
@@ -16,15 +16,19 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../super_socializer.php:356 ../super_socializer.php:370
+#: ../super_socializer.php:389
+msgid "Problem fetching access token: "
+msgstr ""
+
+#: ../super_socializer.php:393 ../super_socializer.php:407
 msgid "Facebook SDK returned an error: "
 msgstr ""
 
-#: ../super_socializer.php:366
+#: ../super_socializer.php:403
 msgid "Graph returned an error: "
 msgstr ""
 
-#: ../super_socializer.php:510
+#: ../super_socializer.php:566
 #, fuzzy
 msgid ""
 "cURL is not enabled at your website server. Please contact your website "
@@ -32,7 +36,7 @@ msgid ""
 msgstr ""
 "请确保在您的网站服务器上启用了cURL。对此，请您与您的网站的服务器管理员核实。"
 
-#: ../super_socializer.php:537
+#: ../super_socializer.php:593
 #, php-format
 msgid ""
 "Enter exactly the following url in <strong>Website</strong> and "
@@ -41,122 +45,122 @@ msgstr ""
 "在Twitter 应用程序的选项中输入准确的<strong>网站</strong>和<strong>回调 Url</"
 "strong> 的url地址 (请参阅步骤 3 %s)"
 
-#: ../super_socializer.php:540
+#: ../super_socializer.php:596
 msgid ""
 "Make sure cURL is enabled at your website server. You may need to contact "
 "the server administrator of your website to verify this"
 msgstr ""
 "请确保在您的网站服务器上启用了cURL。对此，请您与您的网站的服务器管理员核实。"
 
-#: ../super_socializer.php:541
+#: ../super_socializer.php:597
 #, php-format
 msgid ""
 "Make sure that \"Enable Callback Locking\" option is disabled. See step 4 %s"
 msgstr ""
 
-#: ../super_socializer.php:808 ../helper.php:960
+#: ../super_socializer.php:863 ../helper.php:963
 msgid "Please verify your email address to login."
 msgstr "请验证您的电子邮件地址以便登录。"
 
-#: ../super_socializer.php:808
+#: ../super_socializer.php:863
 msgid "Your email has been verified. Now you can login to your account"
 msgstr "您的电子邮件已验证。现在你可以登录到您的帐户"
 
-#: ../super_socializer.php:812
+#: ../super_socializer.php:867
 msgid "Notification"
 msgstr "通知"
 
-#: ../super_socializer.php:830 ../admin/social_login.php:706
+#: ../super_socializer.php:885 ../admin/social_login.php:755
 msgid "Email required"
 msgstr "邮件地址（比选）"
 
-#: ../super_socializer.php:833
+#: ../super_socializer.php:888
 msgid "Please check your email inbox to complete the registration."
 msgstr "请检查您的电子邮件收件箱以完成注册。"
 
-#: ../super_socializer.php:840 ../helper.php:500
+#: ../super_socializer.php:895 ../helper.php:503
 msgid "Enter your LiveJournal username"
 msgstr ""
 
-#: ../super_socializer.php:902
+#: ../super_socializer.php:957
 msgid "Leave a reply"
 msgstr "回复"
 
-#: ../super_socializer.php:914 ../inc/social_sharing.php:233
+#: ../super_socializer.php:969 ../inc/social_sharing.php:233
 msgid "Shares"
 msgstr ""
 
-#: ../super_socializer.php:914 ../inc/social_sharing.php:233
+#: ../super_socializer.php:969 ../inc/social_sharing.php:233
 msgid "Share"
 msgstr ""
 
-#: ../super_socializer.php:914
+#: ../super_socializer.php:969
 #, fuzzy
 msgid "Link copied."
 msgstr "LinkedIn"
 
-#: ../super_socializer.php:1101
+#: ../super_socializer.php:1204
 msgid "Super Socializer - General Options"
 msgstr "Super Socializer-常规选项"
 
-#: ../super_socializer.php:1101 ../admin/general_options.php:11
+#: ../super_socializer.php:1204 ../admin/general_options.php:11
 #: ../admin/social_commenting.php:43
 msgid "General Options"
 msgstr "常规选项"
 
-#: ../super_socializer.php:1169 ../helper.php:882
+#: ../super_socializer.php:1272 ../helper.php:885
 msgid "Social Avatar"
 msgstr "社会化头像"
 
-#: ../super_socializer.php:1172
+#: ../super_socializer.php:1275
 msgid "Small Avatar Url"
 msgstr "小头像 Url"
 
-#: ../super_socializer.php:1176
+#: ../super_socializer.php:1279
 msgid "Large Avatar Url"
 msgstr "大头像 Url"
 
-#: ../super_socializer.php:1180 ../helper.php:885
+#: ../super_socializer.php:1283 ../helper.php:888
 msgid ""
 "Do not fetch and update social avatar from my profile, next time I Social "
 "Login"
 msgstr "不从我的个人资料里获取及更新社会化头像，下次社会化登录"
 
-#: ../super_socializer.php:1184 ../helper.php:886
+#: ../super_socializer.php:1287 ../helper.php:889
 msgid "Update social avatar, next time I Social Login"
 msgstr "更新社会化头像，下次社会化登录"
 
-#: ../super_socializer.php:1257 ../super_socializer.php:1639
+#: ../super_socializer.php:1360 ../super_socializer.php:1743
 msgid ""
 "Your browser is blocking some features of this website. Please follow the "
 "instructions at {support_url} to unblock these."
 msgstr ""
 
-#: ../super_socializer.php:1263
+#: ../super_socializer.php:1366
 msgid "Login with your Social ID"
 msgstr ""
 
-#: ../super_socializer.php:1264
+#: ../super_socializer.php:1367
 msgid "Email you entered is already registered or invalid"
 msgstr "您输入的电子邮件已经注册或无效"
 
-#: ../super_socializer.php:1269
+#: ../super_socializer.php:1372
 msgid "Please enter a valid email address. You might be required to verify it"
 msgstr "请输入一个有效的电子邮件地址。您可能需要验证它"
 
-#: ../super_socializer.php:1488
+#: ../super_socializer.php:1591
 #, php-format
 msgid ""
 "To continue using Steam login save Steam API key <a href=\"%s\">here</a>"
 msgstr ""
 
-#: ../super_socializer.php:1503
+#: ../super_socializer.php:1607
 #, php-format
 msgid ""
 "To continue using Social Login, save the secret keys <a href=\"%s\">here</a>"
 msgstr ""
 
-#: ../super_socializer.php:1527
+#: ../super_socializer.php:1631
 #, php-format
 msgid ""
 "Add %s in \"Valid OAuth redirect URIs\" option in your Facebook app settings "
@@ -164,12 +168,12 @@ msgid ""
 "target=\"_blank\">here</a>"
 msgstr ""
 
-#: ../super_socializer.php:1527 ../super_socializer.php:1552
-#: ../super_socializer.php:1577 ../super_socializer.php:1601
+#: ../super_socializer.php:1631 ../super_socializer.php:1656
+#: ../super_socializer.php:1681 ../super_socializer.php:1705
 msgid "Okay"
 msgstr ""
 
-#: ../super_socializer.php:1552
+#: ../super_socializer.php:1656
 #, php-format
 msgid ""
 "Add %s in \"Authorized Redirect URLs\" option in your Linkedin app settings "
@@ -177,7 +181,7 @@ msgid ""
 "target=\"_blank\">here</a>"
 msgstr ""
 
-#: ../super_socializer.php:1577
+#: ../super_socializer.php:1681
 #, php-format
 msgid ""
 "Add %s in \"Authorized redirect URIs\" option in your Google client settings "
@@ -185,7 +189,7 @@ msgid ""
 "target=\"_blank\">here</a>"
 msgstr ""
 
-#: ../super_socializer.php:1601
+#: ../super_socializer.php:1705
 #, php-format
 msgid ""
 "Your website visitors will see a popup notification (only once) if their "
@@ -203,99 +207,99 @@ msgstr "设置已保存"
 msgid "Dismiss this notice"
 msgstr "关闭该通知"
 
-#: ../helper.php:156
+#: ../helper.php:159
 msgid "Click to show help"
 msgstr "单击以显示帮助"
 
-#: ../helper.php:156
+#: ../helper.php:159
 msgid "Click to hide help"
 msgstr "单击隐藏帮助"
 
-#: ../helper.php:249
+#: ../helper.php:252
 #, fuzzy
 msgid "Add-Ons"
 msgstr "其他加载项"
 
-#: ../helper.php:250
+#: ../helper.php:253
 msgid "Support Documentation"
 msgstr ""
 
-#: ../helper.php:251
+#: ../helper.php:254
 msgid "Settings"
 msgstr "设置"
 
-#: ../helper.php:549
+#: ../helper.php:552
 msgid "Account linked successfully"
 msgstr "成功关联帐户"
 
-#: ../helper.php:553
+#: ../helper.php:556
 msgid "Account already exists or linked"
 msgstr "帐户已经存在或被链接"
 
-#: ../helper.php:573
+#: ../helper.php:576
 msgid "Link your social account to login to your account at this website"
 msgstr "链接你的社会化媒体帐户登录您本站账号"
 
-#: ../helper.php:611 ../helper.php:617
+#: ../helper.php:614 ../helper.php:620
 msgid "Currently"
 msgstr "目前："
 
-#: ../helper.php:611 ../helper.php:617
+#: ../helper.php:614 ../helper.php:620
 msgid "Connected with"
 msgstr ""
 
-#: ../helper.php:611 ../helper.php:617
+#: ../helper.php:614 ../helper.php:620
 msgid "Remove"
 msgstr "删除"
 
-#: ../helper.php:688
+#: ../helper.php:691
 #, fuzzy
 msgid "Social Account Linking"
 msgstr "社会评论"
 
-#: ../helper.php:738
+#: ../helper.php:741
 msgid "Disable Standard Social Sharing on this "
 msgstr "在此禁用社会化共享"
 
-#: ../helper.php:743
+#: ../helper.php:746
 msgid "Disable Floating Social Sharing on this "
 msgstr "在此禁用社会共享的浮动效果"
 
-#: ../helper.php:748
+#: ../helper.php:751
 msgid "Disable Standard like buttons on this "
 msgstr "在此禁用喜欢按钮"
 
-#: ../helper.php:753
+#: ../helper.php:756
 msgid "Disable Floating like buttons on this "
 msgstr "在此禁用喜欢按钮的浮动效果"
 
-#: ../helper.php:758
+#: ../helper.php:761
 msgid "Disable Social Commenting on this "
 msgstr "在此禁用社会化评论"
 
-#: ../helper.php:767
+#: ../helper.php:770
 msgid "Standard Sharing Interface"
 msgstr "标准共享界面"
 
-#: ../helper.php:773 ../helper.php:792
+#: ../helper.php:776 ../helper.php:795
 msgid "Starting share count for "
 msgstr "开始共享计数"
 
-#: ../helper.php:786
+#: ../helper.php:789
 msgid "Floating Sharing Interface"
 msgstr "浮动共享界面"
 
-#: ../helper.php:889
+#: ../helper.php:892
 msgid "Small Avatar"
 msgstr "小头像"
 
-#: ../helper.php:893
+#: ../helper.php:896
 msgid "Large Avatar"
 msgstr "大头像"
 
-#: ../helper.php:897 ../admin/general_options.php:128
+#: ../helper.php:900 ../admin/general_options.php:128
 #: ../admin/social_sharing.php:1973 ../admin/social_commenting.php:487
-#: ../admin/social_login.php:1025 ../admin/like_buttons.php:822
+#: ../admin/social_login.php:1074 ../admin/like_buttons.php:822
 msgid "Save Changes"
 msgstr "保存更改"
 
@@ -358,14 +362,14 @@ msgid "You can specify any additional CSS rules (without &lt;style&gt; tag)"
 msgstr "您可以指定任何额外的 CSS 规则(无需 &lt;style&gt; tag)"
 
 #: ../admin/general_options.php:139 ../admin/social_sharing.php:1978
-#: ../admin/social_commenting.php:492 ../admin/social_login.php:1030
+#: ../admin/social_commenting.php:492 ../admin/social_login.php:1079
 #: ../admin/like_buttons.php:827
 #, fuzzy
 msgid "Instagram Shoutout"
 msgstr "Instagram"
 
 #: ../admin/general_options.php:141 ../admin/social_sharing.php:1980
-#: ../admin/social_commenting.php:494 ../admin/social_login.php:1032
+#: ../admin/social_commenting.php:494 ../admin/social_login.php:1081
 #: ../admin/like_buttons.php:829
 msgid ""
 "If you can send (to hello@heateor.com) how our plugin is helping your "
@@ -374,7 +378,7 @@ msgid ""
 msgstr ""
 
 #: ../admin/general_options.php:142 ../admin/social_sharing.php:1981
-#: ../admin/social_commenting.php:495 ../admin/social_login.php:1033
+#: ../admin/social_commenting.php:495 ../admin/social_login.php:1082
 #: ../admin/like_buttons.php:830
 msgid ""
 "<b>Example</b> - Blah-Blah Online Coaching teaches various programming "
@@ -385,7 +389,7 @@ msgid ""
 msgstr ""
 
 #: ../admin/general_options.php:143 ../admin/social_sharing.php:1982
-#: ../admin/social_commenting.php:496 ../admin/social_login.php:1034
+#: ../admin/social_commenting.php:496 ../admin/social_login.php:1083
 #: ../admin/like_buttons.php:831
 msgid ""
 "@blahblahonlinecoaching proudly use #SuperSocializer to enable social "
@@ -525,7 +529,7 @@ msgstr ""
 
 #: ../admin/social_sharing.php:52 ../admin/social_sharing.php:1905
 #: ../admin/social_sharing.php:1907 ../admin/social_login.php:40
-#: ../admin/social_login.php:992 ../admin/like_buttons.php:47
+#: ../admin/social_login.php:1041 ../admin/like_buttons.php:47
 #: ../admin/like_buttons.php:793
 msgid "Shortcode & Widget"
 msgstr "簡碼和小工具"
@@ -536,7 +540,7 @@ msgstr "排错"
 
 #: ../admin/social_sharing.php:54 ../admin/social_sharing.php:1938
 #: ../admin/social_commenting.php:36 ../admin/social_commenting.php:471
-#: ../admin/social_login.php:41 ../admin/social_login.php:1006
+#: ../admin/social_login.php:41 ../admin/social_login.php:1055
 #: ../admin/like_buttons.php:48 ../admin/like_buttons.php:806
 msgid "FAQ"
 msgstr "常见问题解答"
@@ -762,7 +766,7 @@ msgstr "自定义 URL"
 msgid "Url to share"
 msgstr "要分享的网址"
 
-#: ../admin/social_sharing.php:731 ../admin/social_login.php:469
+#: ../admin/social_sharing.php:731 ../admin/social_login.php:518
 #: ../admin/like_buttons.php:105 ../inc/widget.php:901
 msgid "Title"
 msgstr "标题"
@@ -848,7 +852,7 @@ msgid "Placement"
 msgstr "放置"
 
 #: ../admin/social_sharing.php:968 ../admin/social_sharing.php:1431
-#: ../admin/social_login.php:787 ../admin/social_login.php:817
+#: ../admin/social_login.php:836 ../admin/social_login.php:866
 #: ../admin/like_buttons.php:222 ../admin/like_buttons.php:507
 msgid "Homepage"
 msgstr "主页"
@@ -1267,7 +1271,7 @@ msgstr ""
 "(指 Facebook 分享工作不正常的地址):"
 
 #: ../admin/social_sharing.php:1940 ../admin/social_commenting.php:473
-#: ../admin/social_login.php:1008
+#: ../admin/social_login.php:1057
 msgid ""
 "<strong>Note:</strong> Plugin will not work on local server. You should have "
 "an online website for the plugin to function properly."
@@ -1295,7 +1299,7 @@ msgid ""
 msgstr ""
 
 #: ../admin/social_sharing.php:1947 ../admin/social_commenting.php:476
-#: ../admin/social_login.php:1014
+#: ../admin/social_login.php:1063
 msgid "Why is my browser blocking some features of the plugin?"
 msgstr ""
 
@@ -1625,7 +1629,7 @@ msgstr "基本配置"
 msgid "Advanced Configuration"
 msgstr "基本配置"
 
-#: ../admin/social_login.php:38 ../admin/social_login.php:943
+#: ../admin/social_login.php:38 ../admin/social_login.php:992
 msgid "XProfile Integration"
 msgstr ""
 
@@ -1691,18 +1695,23 @@ msgid "Steam"
 msgstr ""
 
 #: ../admin/social_login.php:134
+#, fuzzy
+msgid "Twitch"
+msgstr "Twitter"
+
+#: ../admin/social_login.php:139
 msgid "LiveJournal"
 msgstr ""
 
-#: ../admin/social_login.php:142
+#: ../admin/social_login.php:147
 msgid "Select Social ID provider to enable in Social Login"
 msgstr "选择社会ID提供商以启用社会化登录"
 
-#: ../admin/social_login.php:150
+#: ../admin/social_login.php:155
 msgid "Facebook App ID"
 msgstr "Facebook 应用 ID"
 
-#: ../admin/social_login.php:160
+#: ../admin/social_login.php:165
 #, php-format
 msgid ""
 "Required for Facebook Social Login to work. Please follow the documentation "
@@ -1711,17 +1720,17 @@ msgstr ""
 "需要Facebook社交登录。请按照在<a href=“%s” target=“_blank”>的链接 </a>得到"
 "Facebook的应用程序ID"
 
-#: ../admin/social_login.php:162 ../admin/social_login.php:184
+#: ../admin/social_login.php:167 ../admin/social_login.php:189
 msgid ""
 "Paste following url in <strong>Site URL</strong> option at the link mentioned"
 msgstr "在提到的链接选项中粘贴以下url<strong>网站URL</strong>"
 
-#: ../admin/social_login.php:172
+#: ../admin/social_login.php:177
 #, fuzzy
 msgid "Facebook App Secret"
 msgstr "Facebook 应用 ID"
 
-#: ../admin/social_login.php:182
+#: ../admin/social_login.php:187
 #, fuzzy, php-format
 msgid ""
 "Required for Facebook Social Login to work. Please follow the documentation "
@@ -1730,11 +1739,11 @@ msgstr ""
 "需要Facebook社交登录。请按照在<a href=“%s” target=“_blank”>的链接 </a>得到"
 "Facebook的应用程序ID"
 
-#: ../admin/social_login.php:194
+#: ../admin/social_login.php:199
 msgid "Twitter API Key"
 msgstr "Twitter API密钥"
 
-#: ../admin/social_login.php:204
+#: ../admin/social_login.php:209
 #, php-format
 msgid ""
 "Required for Twitter Social Login to work. Please follow the documentation "
@@ -1743,7 +1752,7 @@ msgstr ""
 "需要Twitter社交登录。请按照在<a href=“%s” target=“_blank”>的链接</a>得到"
 "Twitter的API密钥"
 
-#: ../admin/social_login.php:206 ../admin/social_login.php:228
+#: ../admin/social_login.php:211 ../admin/social_login.php:233
 msgid ""
 "Paste following url in <strong>Website</strong> and <strong>Callback URL</"
 "strong> options at the link mentioned"
@@ -1751,11 +1760,11 @@ msgstr ""
 "在提到的链接，粘贴以下url <strong>网站</strong> 以及<strong>回调 URL</"
 "strong> 的选项"
 
-#: ../admin/social_login.php:216
+#: ../admin/social_login.php:221
 msgid "Twitter API Secret"
 msgstr "Twitter API Secret"
 
-#: ../admin/social_login.php:226
+#: ../admin/social_login.php:231
 #, php-format
 msgid ""
 "Required for Twitter Social Login to work. Please follow the documentation "
@@ -1764,12 +1773,12 @@ msgstr ""
 "需要Twitter社交登录。请按照在<a href=“%s” target=“_blank”>的链接</a>得到"
 "Twitter的API密钥"
 
-#: ../admin/social_login.php:238
+#: ../admin/social_login.php:243
 #, fuzzy
 msgid "LinkedIn Client ID"
 msgstr "LinkedIn"
 
-#: ../admin/social_login.php:248
+#: ../admin/social_login.php:253
 #, fuzzy, php-format
 msgid ""
 "Required for LinkedIn Social Login to work. Please follow the documentation "
@@ -1778,18 +1787,18 @@ msgstr ""
 "需要LinkedIn社交登录。请按照文件在<a href=“%s” target=“_blank”>这个链接</a>得"
 "到LinkedIn的API密钥"
 
-#: ../admin/social_login.php:250 ../admin/social_login.php:272
-#: ../admin/social_login.php:382
+#: ../admin/social_login.php:255 ../admin/social_login.php:277
+#: ../admin/social_login.php:387
 msgid ""
 "Paste following url in <strong>Website URL</strong> option at the link "
 "mentioned"
 msgstr "在提到的链接选项中粘贴以下url<strong>网站URL</strong>"
 
-#: ../admin/social_login.php:260
+#: ../admin/social_login.php:265
 msgid "LinkedIn Client Secret "
 msgstr ""
 
-#: ../admin/social_login.php:270
+#: ../admin/social_login.php:275
 #, fuzzy, php-format
 msgid ""
 "Required for LinkedIn Social Login to work. Please follow the documentation "
@@ -1799,11 +1808,11 @@ msgstr ""
 "需要LinkedIn社交登录。请按照文件在<a href=“%s” target=“_blank”>这个链接</a>得"
 "到LinkedIn的API密钥"
 
-#: ../admin/social_login.php:282
+#: ../admin/social_login.php:287
 msgid "Google+ Client ID"
 msgstr "Google+ 客户端ID"
 
-#: ../admin/social_login.php:292
+#: ../admin/social_login.php:297
 #, php-format
 msgid ""
 "Required for GooglePlus Social Login to work. Please follow the "
@@ -1813,19 +1822,19 @@ msgstr ""
 "需要GOOGLEPLUS社会登录工作。请按照文件在<a href=“%s” target=“_blank”>这个链接"
 "</a>得到GOOGLEPLUS客户端ID"
 
-#: ../admin/social_login.php:294 ../admin/social_login.php:316
+#: ../admin/social_login.php:299 ../admin/social_login.php:321
 #, fuzzy
 msgid ""
 "Paste following url in <strong>AUTHORIZED REDIRECT URI</strong> option at "
 "the link mentioned"
 msgstr "在提到的链接选项中粘贴以下url<strong>网站URL</strong>"
 
-#: ../admin/social_login.php:304
+#: ../admin/social_login.php:309
 #, fuzzy
 msgid "Google+ Client Secret"
 msgstr "Google+ 客户端ID"
 
-#: ../admin/social_login.php:314
+#: ../admin/social_login.php:319
 #, fuzzy, php-format
 msgid ""
 "Required for GooglePlus Social Login to work. Please follow the "
@@ -1835,11 +1844,11 @@ msgstr ""
 "需要GOOGLEPLUS社会登录工作。请按照文件在<a href=“%s” target=“_blank”>这个链接"
 "</a>得到GOOGLEPLUS客户端ID"
 
-#: ../admin/social_login.php:326
+#: ../admin/social_login.php:331
 msgid "Vkontakte Application ID"
 msgstr "VKontakte应用程序ID"
 
-#: ../admin/social_login.php:336 ../admin/social_login.php:358
+#: ../admin/social_login.php:341 ../admin/social_login.php:363
 #, php-format
 msgid ""
 "Required for Vkontakte Social Login to work. Please follow the documentation "
@@ -1849,22 +1858,22 @@ msgstr ""
 "要求Vkontakte社会登录。请按照文件在<a href=“%s” target=“_blank”>这个环节</a>"
 "得到的Vkontakte应用程序ID"
 
-#: ../admin/social_login.php:338 ../admin/social_login.php:360
+#: ../admin/social_login.php:343 ../admin/social_login.php:365
 msgid ""
 "Paste following url in <strong>Site address</strong> option at the link "
 "mentioned"
 msgstr "在<strong>网站地址</strong>选项里（该选项在链接里提到）粘贴以下网址"
 
-#: ../admin/social_login.php:348
+#: ../admin/social_login.php:353
 #, fuzzy
 msgid "Vkontakte Secure key"
 msgstr "Vkontakte"
 
-#: ../admin/social_login.php:370
+#: ../admin/social_login.php:375
 msgid "Instagram Client ID"
 msgstr "Instagram客户端ID"
 
-#: ../admin/social_login.php:380
+#: ../admin/social_login.php:385
 #, php-format
 msgid ""
 "Required for Instagram Social Login to work. Please follow the documentation "
@@ -1873,11 +1882,11 @@ msgstr ""
 "需要Instagram的社交登录。请按照文件在<a href=“%s” target=“_blank”>这个环节</"
 "a>得到的Instagram客户端ID"
 
-#: ../admin/social_login.php:392
+#: ../admin/social_login.php:397
 msgid "Xing Consumer Key"
 msgstr "Xing Consumer Key"
 
-#: ../admin/social_login.php:402
+#: ../admin/social_login.php:407
 #, php-format
 msgid ""
 "Required for Xing Social Login to work. Please follow the documentation at "
@@ -1886,17 +1895,17 @@ msgstr ""
 "需要Xing社会化登录。请按照文件在<a href=“%s” target=“_blank”>这个环节</a>得到"
 "消费者邢重点"
 
-#: ../admin/social_login.php:404 ../admin/social_login.php:426
+#: ../admin/social_login.php:409 ../admin/social_login.php:431
 msgid ""
 "Paste following url in <strong>Callback domain</strong> option at the link "
 "mentioned"
 msgstr "在<strong>回调域</strong>选项（该选项在链接里提到），粘贴以下url"
 
-#: ../admin/social_login.php:414
+#: ../admin/social_login.php:419
 msgid "Xing Consumer Secret"
 msgstr "Xing Consumer Secret"
 
-#: ../admin/social_login.php:424
+#: ../admin/social_login.php:429
 #, php-format
 msgid ""
 "Required for Xing Social Login to work. Please follow the documentation at "
@@ -1905,12 +1914,12 @@ msgstr ""
 "需要Xing社会化登录。请按照文件在<a href=“%s” target=“_blank”>这个环节</a>得到"
 "xing Consumer Secret"
 
-#: ../admin/social_login.php:436
+#: ../admin/social_login.php:441
 #, fuzzy
 msgid "Steam API Key"
 msgstr "Twitter API密钥"
 
-#: ../admin/social_login.php:446
+#: ../admin/social_login.php:451
 #, fuzzy, php-format
 msgid ""
 "Required for Steam Social Login to work. Get it at <a href=\"%s\" target="
@@ -1919,54 +1928,80 @@ msgstr ""
 "需要Twitter社交登录。请按照在<a href=“%s” target=“_blank”>的链接</a>得到"
 "Twitter的API密钥"
 
-#: ../admin/social_login.php:447
+#: ../admin/social_login.php:452
 #, fuzzy
 msgid "Save following <strong>domain</strong> to get the key"
 msgstr "在<strong>回调域</strong>选项（该选项在链接里提到），粘贴以下url"
 
-#: ../admin/social_login.php:463
+#: ../admin/social_login.php:461
+#, fuzzy
+msgid "Twitch Client ID"
+msgstr "Instagram客户端ID"
+
+#: ../admin/social_login.php:471 ../admin/social_login.php:493
+#, fuzzy, php-format
+msgid ""
+"Required for Twitch Social Login to work. Please follow the documentation at "
+"<a href=\"%s\" target=\"_blank\">this link</a> to get it"
+msgstr ""
+"需要Twitter社交登录。请按照在<a href=“%s” target=“_blank”>的链接</a>得到"
+"Twitter的API密钥"
+
+#: ../admin/social_login.php:473 ../admin/social_login.php:495
+#, fuzzy
+msgid ""
+"Paste following url in <strong>Redirect URI</strong> option at the link "
+"mentioned"
+msgstr "在提到的链接选项中粘贴以下url<strong>网站URL</strong>"
+
+#: ../admin/social_login.php:483
+#, fuzzy
+msgid "Twitch Client Secret"
+msgstr "Instagram客户端ID"
+
+#: ../admin/social_login.php:512
 #, fuzzy
 msgid "Social Login Options"
 msgstr "社交账户登陆"
 
-#: ../admin/social_login.php:479
+#: ../admin/social_login.php:528
 msgid "Text to display above the Social Login interface"
 msgstr "文本显示社会登录界面的上方"
 
-#: ../admin/social_login.php:488
+#: ../admin/social_login.php:537
 msgid "Enable at login page"
 msgstr "在登录页面启用"
 
-#: ../admin/social_login.php:498
+#: ../admin/social_login.php:547
 msgid ""
 "Social Login interface will get enabled at the login page of your website"
 msgstr "社会登录界面会在你的网站的登录页面启用"
 
-#: ../admin/social_login.php:506
+#: ../admin/social_login.php:555
 msgid "Enable at register page"
 msgstr "在注册页面启用"
 
-#: ../admin/social_login.php:516
+#: ../admin/social_login.php:565
 msgid ""
 "Social Login interface will get enabled at the registration page of your "
 "website"
 msgstr "社会登录界面会在你的网站的注册页面启用"
 
-#: ../admin/social_login.php:524
+#: ../admin/social_login.php:573
 msgid "Enable at comment form"
 msgstr "在评论表单启用"
 
-#: ../admin/social_login.php:534
+#: ../admin/social_login.php:583
 msgid "Social Login interface will get enabled at your Wordpress Comment form"
 msgstr "社会登录界面会在您的WordPress评论的表单启用"
 
-#: ../admin/social_login.php:543
+#: ../admin/social_login.php:592
 #, fuzzy
 msgid ""
 "Link social account to already existing account, if email address matches"
 msgstr "链接你的社会化媒体帐户登录您本站账号"
 
-#: ../admin/social_login.php:553
+#: ../admin/social_login.php:602
 msgid ""
 "If email address of the user's Social Account matches with an already "
 "existing account at your website, that social account will be linked to "
@@ -1974,39 +2009,39 @@ msgid ""
 "Linking interface at their profile page."
 msgstr ""
 
-#: ../admin/social_login.php:567
+#: ../admin/social_login.php:616
 msgid "Enable before WooCommerce Customer Login Form"
 msgstr "WooCommerce客户登录表单前启用"
 
-#: ../admin/social_login.php:577
+#: ../admin/social_login.php:626
 msgid ""
 "Social Login Interface will get enabled before the customer login form at "
 "WooCommerce My Account page"
 msgstr "社会登录界面将在WooCommerce我的帐户页面客户登录表单之前启用"
 
-#: ../admin/social_login.php:585
+#: ../admin/social_login.php:634
 msgid "Enable after WooCommerce Customer Login Form"
 msgstr "在WooCommerce客户登录表单后启用"
 
-#: ../admin/social_login.php:595
+#: ../admin/social_login.php:644
 msgid ""
 "Social Login Interface will get enabled after the customer login form at "
 "WooCommerce My Account page"
 msgstr "社会登录界面将在WooCommerce我的帐户页面客户登录表单后启用"
 
-#: ../admin/social_login.php:603
+#: ../admin/social_login.php:652
 msgid "Enable at WooCommerce checkout page"
 msgstr "在WooCommerce “结算”页面启用"
 
-#: ../admin/social_login.php:613
+#: ../admin/social_login.php:662
 msgid "Social Login Interface will get enabled at WooCommerce checkout page"
 msgstr "社会登录界面将在WooCommerce结帐页面启用"
 
-#: ../admin/social_login.php:624
+#: ../admin/social_login.php:673
 msgid "Auto-approve comments made by Social Login users"
 msgstr "自动批准社会登录用户评论"
 
-#: ../admin/social_login.php:634
+#: ../admin/social_login.php:683
 msgid ""
 "If this option is enabled, and WordPress comment is made by Social Login "
 "user, comment will get approved immediately without keeping in moderation."
@@ -2014,42 +2049,42 @@ msgstr ""
 "如果启用该选项，已经WordPress评论由社会登录用户发出，评论将会在不需要批准的情"
 "况下立即批准。"
 
-#: ../admin/social_login.php:635
+#: ../admin/social_login.php:684
 msgid "Note: This is not related to Facebook comments"
 msgstr "注：这Facebook的评论无关"
 
-#: ../admin/social_login.php:645
+#: ../admin/social_login.php:694
 msgid "Enable social avatar"
 msgstr "启用社交头像"
 
-#: ../admin/social_login.php:655
+#: ../admin/social_login.php:704
 msgid ""
 "Social profile pictures of the logged in user will be displayed as profile "
 "avatar"
 msgstr "登录用户的社交资料图片将显示为个人头像"
 
-#: ../admin/social_login.php:665
+#: ../admin/social_login.php:714
 msgid "Avatar quality"
 msgstr "头像质量"
 
-#: ../admin/social_login.php:668
+#: ../admin/social_login.php:717
 msgid "Average"
 msgstr "一般"
 
-#: ../admin/social_login.php:669
+#: ../admin/social_login.php:718
 msgid "Best"
 msgstr "最好"
 
-#: ../admin/social_login.php:676
+#: ../admin/social_login.php:725
 msgid "Choose avatar quality"
 msgstr "选择头像质量"
 
-#: ../admin/social_login.php:685
+#: ../admin/social_login.php:734
 msgid ""
 "Show option for users to update social avatar at BuddyPress profile page"
 msgstr "在BuddyPress的个人资料页面显示更新显示社会化头像选项"
 
-#: ../admin/social_login.php:695
+#: ../admin/social_login.php:744
 msgid ""
 "If enabled, users would be able to update their social avatar from \"Profile "
 "photo\" section in BuddyPress profile at front-end"
@@ -2057,7 +2092,7 @@ msgstr ""
 "如果启用，用户将能够在前端从BuddyPress的个人档案“个人资料照片”部分更新社会化"
 "头像"
 
-#: ../admin/social_login.php:716
+#: ../admin/social_login.php:765
 msgid ""
 "If enabled and Social ID provider does not provide user's email address on "
 "login, user will be asked to provide his/her email address. Otherwise, a "
@@ -2066,11 +2101,11 @@ msgstr ""
 "如果启用，当登录时如果社会化ID提供商不提供或支持用户的电子邮件地址，用户将被"
 "要求提供他/她的电子邮件地址。否则，将产生一个虚拟的电子邮件"
 
-#: ../admin/social_login.php:725
+#: ../admin/social_login.php:774
 msgid "Send post-registration email to user to set account password"
 msgstr ""
 
-#: ../admin/social_login.php:735
+#: ../admin/social_login.php:784
 msgid ""
 "If enabled, an email will be sent to user after registration through Social "
 "Login, regarding his/her login credentials (username-password to be able to "
@@ -2079,12 +2114,12 @@ msgstr ""
 "如果启用，通过社会化注册登录后，将给用户发送一封email; 包括他/她的登录凭据"
 "（用户名，密码，能够通过传统的登录表单登录）"
 
-#: ../admin/social_login.php:743
+#: ../admin/social_login.php:792
 #, fuzzy
 msgid "Send new user registration notification email to admin"
 msgstr "禁用社会登录用户注册"
 
-#: ../admin/social_login.php:753
+#: ../admin/social_login.php:802
 #, fuzzy
 msgid ""
 "If enabled, an email will be sent to admin after new user registers through "
@@ -2093,84 +2128,84 @@ msgstr ""
 "如果启用，通过社会化注册登录后，将给用户发送一封email; 包括他/她的登录凭据"
 "（用户名，密码，能够通过传统的登录表单登录）"
 
-#: ../admin/social_login.php:762
+#: ../admin/social_login.php:811
 msgid "Enable social account linking at BuddyPress profile page"
 msgstr "在BuddyPress的个人资料页面启用社交帐户链接"
 
-#: ../admin/social_login.php:772
+#: ../admin/social_login.php:821
 msgid ""
 "Enable this option to show social account linking interface at BuddyPress "
 "profile page"
 msgstr "启用该选项，以在BuddyPress的个人资料页显示社交帐户连结界面"
 
-#: ../admin/social_login.php:781
+#: ../admin/social_login.php:830
 msgid "Login redirection"
 msgstr "登录重定向"
 
-#: ../admin/social_login.php:785
+#: ../admin/social_login.php:834
 msgid "Same page where user logged in"
 msgstr "用户登录同样的页面"
 
-#: ../admin/social_login.php:789 ../admin/social_login.php:819
+#: ../admin/social_login.php:838 ../admin/social_login.php:868
 msgid "Account dashboard"
 msgstr "帐户信息中心"
 
-#: ../admin/social_login.php:792 ../admin/social_login.php:822
+#: ../admin/social_login.php:841 ../admin/social_login.php:871
 msgid "BuddyPress profile page"
 msgstr "BuddyPress 档案"
 
-#: ../admin/social_login.php:795 ../admin/social_login.php:825
+#: ../admin/social_login.php:844 ../admin/social_login.php:874
 msgid "Custom Url"
 msgstr "自定义 URL"
 
-#: ../admin/social_login.php:803
+#: ../admin/social_login.php:852
 msgid "User will be redirected to the selected page after Social Login"
 msgstr "用户社会登录后会被重定向到选择的页面"
 
-#: ../admin/social_login.php:811
+#: ../admin/social_login.php:860
 msgid "Registration redirection"
 msgstr "注册重定向"
 
-#: ../admin/social_login.php:815
+#: ../admin/social_login.php:864
 msgid "Same page from where user registered"
 msgstr "用户注册同样的页面"
 
-#: ../admin/social_login.php:833
+#: ../admin/social_login.php:882
 msgid ""
 "User will be redirected to the selected page after registration (first "
 "Social Login) through Social Login"
 msgstr ""
 "注册之后，通过社会化登录（第一个社会化登录）后，用户将被重定向到所选择的页面"
 
-#: ../admin/social_login.php:841
+#: ../admin/social_login.php:890
 msgid "Email popup options"
 msgstr "电子邮件弹出选项"
 
-#: ../admin/social_login.php:847
+#: ../admin/social_login.php:896
 msgid "Text on 'Email required' popup"
 msgstr "在“电子邮件必填”弹出口显示的文本"
 
-#: ../admin/social_login.php:857
+#: ../admin/social_login.php:906
 msgid ""
 "This text will be displayed on email required popup. Leave empty if not "
 "required."
 msgstr "在电子邮件必填弹出口将显示的文本。如果不需要请留空。"
 
-#: ../admin/social_login.php:866
+#: ../admin/social_login.php:915
 msgid "Error message for 'Email required' popup"
 msgstr "“电子邮件必填”弹出口的错误信息"
 
-#: ../admin/social_login.php:876
+#: ../admin/social_login.php:925
 msgid ""
 "This message will be displayed to user if it provides invalid or already "
 "registered email"
 msgstr "如果无效及已经注册的email地址，这个信息将显示给用户"
 
-#: ../admin/social_login.php:885
+#: ../admin/social_login.php:934
 msgid "Email popup height"
 msgstr "电子邮件弹出口高度"
 
-#: ../admin/social_login.php:895
+#: ../admin/social_login.php:944
 msgid ""
 "If you are seeing vertical scrollbar in the \"Email required\" popup, you "
 "can increase the height of popup by specifying in this option. Leave empty "
@@ -2179,11 +2214,11 @@ msgstr ""
 "如果在“电子邮件必填”弹出窗口中看到垂直滚动条，你可以通过这个选项指定加大弹出"
 "的高度。留空为默认。"
 
-#: ../admin/social_login.php:903
+#: ../admin/social_login.php:952
 msgid "Enable email verification"
 msgstr "启用电子邮件验证"
 
-#: ../admin/social_login.php:913
+#: ../admin/social_login.php:962
 msgid ""
 "If enabled, email provided by the user will be verified by sending a "
 "confirmation link to that email. User would not be able to login without "
@@ -2192,30 +2227,30 @@ msgstr ""
 "如果启用，将向用户的email地址发送一个确认链接进行验证。不验证，用户将无法登"
 "录。"
 
-#: ../admin/social_login.php:963 ../inc/widget.php:248 ../inc/widget.php:414
+#: ../admin/social_login.php:1012 ../inc/widget.php:248 ../inc/widget.php:414
 #: ../inc/widget.php:578 ../inc/widget.php:726
 msgid "Select"
 msgstr "选择"
 
-#: ../admin/social_login.php:994
+#: ../admin/social_login.php:1043
 msgid "Social Login Shortcode & Widget"
 msgstr "社会化登录简码＆小工具"
 
-#: ../admin/social_login.php:995
+#: ../admin/social_login.php:1044
 msgid "Social Linking Shortcode"
 msgstr "社会链接简码"
 
-#: ../admin/social_login.php:1010
+#: ../admin/social_login.php:1059
 msgid "Why is social login not working?"
 msgstr ""
 
-#: ../admin/social_login.php:1011
+#: ../admin/social_login.php:1060
 msgid ""
 "Make sure that App ID and Secret (Client ID and Secret) keys you have saved, "
 "belong to the same app"
 msgstr ""
 
-#: ../admin/social_login.php:1013
+#: ../admin/social_login.php:1062
 msgid ""
 "Why the user is not appearing logged in even after Social Login until the "
 "webpage is refreshed manually?"
@@ -2437,28 +2472,28 @@ msgstr "无效请求。"
 msgid "Providers not selected"
 msgstr "未选定的供应商"
 
-#: ../inc/social_login.php:714
+#: ../inc/social_login.php:725
 msgid "Email"
 msgstr ""
 
-#: ../inc/social_login.php:715
+#: ../inc/social_login.php:726
 msgid "Confirm email"
 msgstr ""
 
-#: ../inc/social_login.php:717
+#: ../inc/social_login.php:728
 msgid "Save"
 msgstr ""
 
-#: ../inc/social_login.php:718
+#: ../inc/social_login.php:729
 msgid "Cancel"
 msgstr ""
 
-#: ../inc/social_login.php:792
+#: ../inc/social_login.php:803
 #, fuzzy
 msgid "Email Verification"
 msgstr "启用电子邮件验证"
 
-#: ../inc/social_login.php:794
+#: ../inc/social_login.php:805
 msgid ""
 "Please click on the following link or paste it in browser to verify your "
 "email"
@@ -2717,24 +2752,8 @@ msgstr ""
 #~ "Follow steps 11 and 12 at GooglePlus app configuration page, about to open"
 #~ msgstr "在 GooglePlus 的应用程序配置页跟随步骤 11 和 12 来打开 "
 
-#, fuzzy
-#~ msgid "Twitch"
-#~ msgstr "Twitter"
-
 #~ msgid "LinkedIn API Key"
 #~ msgstr "LlinkedIn App 的 API 密钥:"
-
-#, fuzzy
-#~ msgid "Twitch Client ID"
-#~ msgstr "Instagram客户端ID"
-
-#, fuzzy
-#~ msgid ""
-#~ "Required for Twitch Social Login to work. Please follow the documentation "
-#~ "at <a href=\"%s\" target=\"_blank\">this link</a> to get Twitch Client ID"
-#~ msgstr ""
-#~ "需要Twitter社交登录。请按照在<a href=“%s” target=“_blank”>的链接</a>得到"
-#~ "Twitter的API密钥"
 
 #~ msgid "Donate"
 #~ msgstr "捐赠"

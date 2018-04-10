@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Super Socializer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-18 10:04+0530\n"
-"PO-Revision-Date: 2017-12-18 10:04+0530\n"
-"Last-Translator: The Champ <lordofthechamps@gmail.com>\n"
+"POT-Creation-Date: 2018-04-04 10:48+0530\n"
+"PO-Revision-Date: 2018-04-04 10:48+0530\n"
+"Last-Translator: Team Heateor <hello@heateor.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,19 @@ msgstr ""
 "%10<=4 &&(n%100<10||n%100 >= 20)? 1 : 2);\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../super_socializer.php:327
+#: ../super_socializer.php:389
+msgid "Problem fetching access token: "
+msgstr ""
+
+#: ../super_socializer.php:393 ../super_socializer.php:407
+msgid "Facebook SDK returned an error: "
+msgstr ""
+
+#: ../super_socializer.php:403
+msgid "Graph returned an error: "
+msgstr ""
+
+#: ../super_socializer.php:566
 msgid ""
 "cURL is not enabled at your website server. Please contact your website "
 "server administrator to enable it."
@@ -25,7 +37,7 @@ msgstr ""
 "Curl  не включен в вашем веб-сайте. Вам, возможно, потребуется обратиться к "
 "администратору  вашего сайта, чтобы включить это."
 
-#: ../super_socializer.php:354
+#: ../super_socializer.php:593
 #, php-format
 msgid ""
 "Enter exactly the following url in <strong>Website</strong> and "
@@ -34,7 +46,7 @@ msgstr ""
 "Введите действующую ссылку для <strong>сайта</strong> и <strong>обратную "
 "ссылку</strong> в вашем приложении Твиттера (смотрите шаг 3 %s)"
 
-#: ../super_socializer.php:357
+#: ../super_socializer.php:596
 msgid ""
 "Make sure cURL is enabled at your website server. You may need to contact "
 "the server administrator of your website to verify this"
@@ -42,7 +54,7 @@ msgstr ""
 "Убедитесь Curl включен в вашем веб-сайте сервера. Вы, возможно, потребуется "
 "обратиться к администратору сервера вашего сайта, чтобы убедиться, это"
 
-#: ../super_socializer.php:358
+#: ../super_socializer.php:597
 #, php-format
 msgid ""
 "Make sure that \"Enable Callback Locking\" option is disabled. See step 4 %s"
@@ -50,76 +62,69 @@ msgstr ""
 "Убедитесь, что «Включить Блокировку обратного вызова » параметр отключен. "
 "Смотрите шаг 4 %s"
 
-#: ../super_socializer.php:624 ../helper.php:998
+#: ../super_socializer.php:863 ../helper.php:963
 msgid "Please verify your email address to login."
 msgstr "Пожалуйста, подтвердите ваш адрес электронной почты."
 
-#: ../super_socializer.php:624
+#: ../super_socializer.php:863
 msgid "Your email has been verified. Now you can login to your account"
 msgstr "Ваше сообщение было проверено. Теперь вы можете войти в свой аккаунт"
 
-#: ../super_socializer.php:628
+#: ../super_socializer.php:867
 msgid "Notification"
 msgstr "Уведомления"
 
-#: ../super_socializer.php:646 ../admin/social_login.php:622
+#: ../super_socializer.php:885 ../admin/social_login.php:755
 msgid "Email required"
 msgstr "Email (Обязательно)"
 
-#: ../super_socializer.php:649
+#: ../super_socializer.php:888
 msgid "Please check your email inbox to complete the registration."
 msgstr "Пожалуйста, проверьте свой почтовый ящик для завершения регистрации."
 
-#: ../super_socializer.php:656 ../helper.php:500
+#: ../super_socializer.php:895 ../helper.php:503
 msgid "Enter your LiveJournal username"
 msgstr "Введите ваше имя пользователя LiveJournal"
 
-#: ../super_socializer.php:668
-msgid ""
-"Follow steps 11 and 12 at GooglePlus app configuration page, about to open"
-msgstr ""
-"Выполните шаги 11 и 12 на странице конфигурации приложения GooglePlus, чтобы "
-"открыть"
-
-#: ../super_socializer.php:752
+#: ../super_socializer.php:957
 msgid "Leave a reply"
 msgstr "Оставить ответ"
 
-#: ../super_socializer.php:764 ../inc/social_sharing.php:214
+#: ../super_socializer.php:969 ../inc/social_sharing.php:233
 msgid "Shares"
 msgstr "Поделились"
 
-#: ../super_socializer.php:764 ../inc/social_sharing.php:214
+#: ../super_socializer.php:969 ../inc/social_sharing.php:233
 msgid "Share"
 msgstr "Поделиться"
 
-#: ../super_socializer.php:764
+#: ../super_socializer.php:969
 #, fuzzy
 msgid "Link copied."
 msgstr "LinkedIn"
 
-#: ../super_socializer.php:951
+#: ../super_socializer.php:1204
 msgid "Super Socializer - General Options"
 msgstr "Super Socializer - Общие настройки"
 
-#: ../super_socializer.php:951 ../admin/general_options.php:11
+#: ../super_socializer.php:1204 ../admin/general_options.php:11
 #: ../admin/social_commenting.php:43
 msgid "General Options"
 msgstr "Основные настройки"
 
-#: ../super_socializer.php:1019 ../helper.php:920
+#: ../super_socializer.php:1272 ../helper.php:885
 msgid "Social Avatar"
 msgstr "Социальный аватар"
 
-#: ../super_socializer.php:1022
+#: ../super_socializer.php:1275
 msgid "Small Avatar Url"
 msgstr "Ссылка для маленького аватара"
 
-#: ../super_socializer.php:1026
+#: ../super_socializer.php:1279
 msgid "Large Avatar Url"
 msgstr "Ссылка для большого аватара"
 
-#: ../super_socializer.php:1030 ../helper.php:923
+#: ../super_socializer.php:1283 ../helper.php:888
 msgid ""
 "Do not fetch and update social avatar from my profile, next time I Social "
 "Login"
@@ -127,13 +132,13 @@ msgstr ""
 "Не получать и обновлять социальный аватар из моего профиля, в следующий раз "
 "я  когда я использую вход через соцсети"
 
-#: ../super_socializer.php:1034 ../helper.php:924
+#: ../super_socializer.php:1287 ../helper.php:889
 msgid "Update social avatar, next time I Social Login"
 msgstr ""
 "Обновление аватара соцсетей в следующий раз при использовании входа через "
 "соцсети"
 
-#: ../super_socializer.php:1107 ../super_socializer.php:1360
+#: ../super_socializer.php:1360 ../super_socializer.php:1743
 msgid ""
 "Your browser is blocking some features of this website. Please follow the "
 "instructions at {support_url} to unblock these."
@@ -141,22 +146,63 @@ msgstr ""
 "Ваш браузер блокирует некоторые функции данного веб-сайта. Пожалуйста, "
 "следуйте инструкциям в {support_url}, чтобы разблокировать функции."
 
-#: ../super_socializer.php:1113
+#: ../super_socializer.php:1366
 msgid "Login with your Social ID"
 msgstr "Войти, используя социальный аккаунт"
 
-#: ../super_socializer.php:1114
+#: ../super_socializer.php:1367
 msgid "Email you entered is already registered or invalid"
 msgstr ""
 "Электронная почта, которую вы ввели, уже зарегистрирована или недействительна"
 
-#: ../super_socializer.php:1119
+#: ../super_socializer.php:1372
 msgid "Please enter a valid email address. You might be required to verify it"
 msgstr ""
 "Пожалуйста, введите действительный адрес электронной почты. Вам, возможно, "
 "потребуется проверить его"
 
-#: ../super_socializer.php:1322
+#: ../super_socializer.php:1591
+#, php-format
+msgid ""
+"To continue using Steam login save Steam API key <a href=\"%s\">here</a>"
+msgstr ""
+
+#: ../super_socializer.php:1607
+#, php-format
+msgid ""
+"To continue using Social Login, save the secret keys <a href=\"%s\">here</a>"
+msgstr ""
+
+#: ../super_socializer.php:1631
+#, php-format
+msgid ""
+"Add %s in \"Valid OAuth redirect URIs\" option in your Facebook app settings "
+"for Facebook login to work. For more details, check step 9 <a href=\"%s\" "
+"target=\"_blank\">here</a>"
+msgstr ""
+
+#: ../super_socializer.php:1631 ../super_socializer.php:1656
+#: ../super_socializer.php:1681 ../super_socializer.php:1705
+msgid "Okay"
+msgstr "Окей"
+
+#: ../super_socializer.php:1656
+#, php-format
+msgid ""
+"Add %s in \"Authorized Redirect URLs\" option in your Linkedin app settings "
+"for Linkedin login to work. For more details, check step 4 <a href=\"%s\" "
+"target=\"_blank\">here</a>"
+msgstr ""
+
+#: ../super_socializer.php:1681
+#, php-format
+msgid ""
+"Add %s in \"Authorized redirect URIs\" option in your Google client settings "
+"for Google login to work. For more details, check step 11 <a href=\"%s\" "
+"target=\"_blank\">here</a>"
+msgstr ""
+
+#: ../super_socializer.php:1705
 #, php-format
 msgid ""
 "Your website visitors will see a popup notification (only once) if their "
@@ -172,10 +218,6 @@ msgstr ""
 "пользователей, если их браузеры блокируют функции плагина» <a href=\"%s"
 "\">здесь</a>"
 
-#: ../super_socializer.php:1322
-msgid "Okay"
-msgstr "Окей"
-
 #: ../helper.php:8
 msgid "Settings saved"
 msgstr "Параметры сохранены"
@@ -184,99 +226,99 @@ msgstr "Параметры сохранены"
 msgid "Dismiss this notice"
 msgstr "Закрыть это уведомление"
 
-#: ../helper.php:156
+#: ../helper.php:159
 msgid "Click to show help"
 msgstr "Нажмите, чтобы получить помощь"
 
-#: ../helper.php:156
+#: ../helper.php:159
 msgid "Click to hide help"
 msgstr "Нажмите, чтобы скрыть помощь"
 
-#: ../helper.php:249
+#: ../helper.php:252
 msgid "Add-Ons"
 msgstr "Дополнения"
 
-#: ../helper.php:250
+#: ../helper.php:253
 msgid "Support Documentation"
 msgstr "Техническая документация"
 
-#: ../helper.php:251
+#: ../helper.php:254
 msgid "Settings"
 msgstr "Настройки"
 
-#: ../helper.php:587
+#: ../helper.php:552
 msgid "Account linked successfully"
 msgstr "Аккаунт успешно связан"
 
-#: ../helper.php:591
+#: ../helper.php:556
 msgid "Account already exists or linked"
 msgstr "Аккаунт уже существует или связан"
 
-#: ../helper.php:611
+#: ../helper.php:576
 msgid "Link your social account to login to your account at this website"
 msgstr ""
 "Введите ссылку на ваш аккаут в социальных сетях чтобы войти в аккаунт на "
 "этом сайте"
 
-#: ../helper.php:649 ../helper.php:655
+#: ../helper.php:614 ../helper.php:620
 msgid "Currently"
 msgstr "На данный момент"
 
-#: ../helper.php:649 ../helper.php:655
+#: ../helper.php:614 ../helper.php:620
 msgid "Connected with"
 msgstr "Авторизоваться с помощью"
 
-#: ../helper.php:649 ../helper.php:655
+#: ../helper.php:614 ../helper.php:620
 msgid "Remove"
 msgstr "Удалить"
 
-#: ../helper.php:726
+#: ../helper.php:691
 msgid "Social Account Linking"
 msgstr "Ссылки на социальный аккаунт"
 
-#: ../helper.php:776
+#: ../helper.php:741
 msgid "Disable Standard Social Sharing on this "
 msgstr "Отключить стандартный блок Поделиться на этом"
 
-#: ../helper.php:781
+#: ../helper.php:746
 msgid "Disable Floating Social Sharing on this "
 msgstr "Отключить плавающий блок Поделиться на этом"
 
-#: ../helper.php:786
+#: ../helper.php:751
 msgid "Disable Standard like buttons on this "
 msgstr "Откдючить стандартные кнопки Нравится на этом"
 
-#: ../helper.php:791
+#: ../helper.php:756
 msgid "Disable Floating like buttons on this "
 msgstr "Откдючить плавающие кнопки Нравится на этом"
 
-#: ../helper.php:796
+#: ../helper.php:761
 msgid "Disable Social Commenting on this "
 msgstr "Деактивировать социальное комментироване"
 
-#: ../helper.php:805
+#: ../helper.php:770
 msgid "Standard Sharing Interface"
 msgstr "Стандартный интерфейс Поделиться"
 
-#: ../helper.php:811 ../helper.php:830
+#: ../helper.php:776 ../helper.php:795
 msgid "Starting share count for "
 msgstr "Запустить счетчик поделиться для"
 
-#: ../helper.php:824
+#: ../helper.php:789
 msgid "Floating Sharing Interface"
 msgstr "Плавающий интерфейс Поделиться"
 
-#: ../helper.php:927
+#: ../helper.php:892
 msgid "Small Avatar"
 msgstr "Небольшой аватар"
 
-#: ../helper.php:931
+#: ../helper.php:896
 msgid "Large Avatar"
 msgstr "Большой аватар"
 
-#: ../helper.php:935 ../admin/general_options.php:128
+#: ../helper.php:900 ../admin/general_options.php:128
 #: ../admin/social_sharing.php:1973 ../admin/social_commenting.php:487
-#: ../admin/social_login.php:938 ../admin/like_buttons.php:822
+#: ../admin/social_login.php:1074 ../admin/like_buttons.php:822
 msgid "Save Changes"
 msgstr "Сохранить изменения"
 
@@ -353,14 +395,14 @@ msgstr ""
 "Можно указать любые дополнительные правила CSS (без тега &lt; style &gt;)"
 
 #: ../admin/general_options.php:139 ../admin/social_sharing.php:1978
-#: ../admin/social_commenting.php:492 ../admin/social_login.php:943
+#: ../admin/social_commenting.php:492 ../admin/social_login.php:1079
 #: ../admin/like_buttons.php:827
 #, fuzzy
 msgid "Instagram Shoutout"
 msgstr "Instagram"
 
 #: ../admin/general_options.php:141 ../admin/social_sharing.php:1980
-#: ../admin/social_commenting.php:494 ../admin/social_login.php:945
+#: ../admin/social_commenting.php:494 ../admin/social_login.php:1081
 #: ../admin/like_buttons.php:829
 msgid ""
 "If you can send (to hello@heateor.com) how our plugin is helping your "
@@ -369,7 +411,7 @@ msgid ""
 msgstr ""
 
 #: ../admin/general_options.php:142 ../admin/social_sharing.php:1981
-#: ../admin/social_commenting.php:495 ../admin/social_login.php:946
+#: ../admin/social_commenting.php:495 ../admin/social_login.php:1082
 #: ../admin/like_buttons.php:830
 msgid ""
 "<b>Example</b> - Blah-Blah Online Coaching teaches various programming "
@@ -380,7 +422,7 @@ msgid ""
 msgstr ""
 
 #: ../admin/general_options.php:143 ../admin/social_sharing.php:1982
-#: ../admin/social_commenting.php:496 ../admin/social_login.php:947
+#: ../admin/social_commenting.php:496 ../admin/social_login.php:1083
 #: ../admin/like_buttons.php:831
 msgid ""
 "@blahblahonlinecoaching proudly use #SuperSocializer to enable social "
@@ -410,52 +452,48 @@ msgstr ""
 "обслуживанием в сердце. Мы любим то, что мы делаем. Для получения "
 "дополнительной информации присоединиться к нам на"
 
-#: ../admin/help.php:18
-msgid "Donate"
-msgstr "Поддержать разработку"
-
-#: ../admin/help.php:20
-msgid ""
-"You can help us continue the development of this free plugin by donating"
-msgstr "Вы можете помочь нам продолжить развитие этого бесплатного плагина"
-
-#: ../admin/help.php:21
+#: ../admin/help.php:19
 msgid "Donate Now"
 msgstr "Пожертвовать"
 
-#: ../admin/help.php:27
+#: ../admin/help.php:25
 msgid "Plugin Demo"
 msgstr "Демо плагина"
 
-#: ../admin/help.php:33
+#: ../admin/help.php:31
 msgid "Translate Plugin"
 msgstr ""
 
-#: ../admin/help.php:39
+#: ../admin/help.php:37 ../admin/social_login.php:52
+#, fuzzy
+msgid "Customize Social Login Icons"
+msgstr "Параметры входа через соцсети"
+
+#: ../admin/help.php:43
 msgid "Integrate with Google Analytics"
 msgstr "Интеграция с Google Analytics"
 
-#: ../admin/help.php:45
+#: ../admin/help.php:49
 msgid "Boost sharing by awarding points"
 msgstr "Повысьте обмен, наградив точек"
 
-#: ../admin/help.php:51
+#: ../admin/help.php:55
 msgid "Award points for Social Login"
 msgstr "Премии пунктов для социального Логин"
 
-#: ../admin/help.php:57
+#: ../admin/help.php:61
 msgid "Other Add-ons"
 msgstr "Другие дополнения"
 
-#: ../admin/help.php:63
+#: ../admin/help.php:67
 msgid "Support Forum"
 msgstr "Форум поддержки"
 
-#: ../admin/help.php:68
+#: ../admin/help.php:72
 msgid "Need Help?"
 msgstr "Требуется помощь?"
 
-#: ../admin/help.php:70
+#: ../admin/help.php:74
 msgid ""
 "If you <strong>have any query</strong>, need help regarding <strong>plugin "
 "setup</strong>, want <strong>custom features</strong> in the plugin or "
@@ -468,22 +506,22 @@ msgstr ""
 "внести в плагин, напишите нам на почту<a href=\"mailto:support@heateor.com"
 "\">support@heateor.com</a>"
 
-#: ../admin/help.php:75
+#: ../admin/help.php:79
 msgid "Testimonial"
 msgstr ""
 
-#: ../admin/help.php:77
+#: ../admin/help.php:81
 msgid ""
 "You can send us testimonial at <a href=\"mailto:testimonials@heateor.com"
 "\">testimonials@heateor.com</a>"
 msgstr ""
 
-#: ../admin/help.php:82
+#: ../admin/help.php:86
 msgid "Support Us"
 msgstr "Поддержите нас"
 
-#: ../admin/help.php:85 ../admin/help.php:88 ../admin/help.php:89
-#: ../admin/help.php:90 ../admin/help.php:91 ../admin/help.php:92
+#: ../admin/help.php:89 ../admin/help.php:92 ../admin/help.php:93
+#: ../admin/help.php:94 ../admin/help.php:95 ../admin/help.php:96
 msgid "Rate 5-star"
 msgstr "Оценить 5-бальной шкале"
 
@@ -527,7 +565,7 @@ msgstr "XProfile интеграция"
 
 #: ../admin/social_sharing.php:52 ../admin/social_sharing.php:1905
 #: ../admin/social_sharing.php:1907 ../admin/social_login.php:40
-#: ../admin/social_login.php:908 ../admin/like_buttons.php:47
+#: ../admin/social_login.php:1041 ../admin/like_buttons.php:47
 #: ../admin/like_buttons.php:793
 msgid "Shortcode & Widget"
 msgstr "Шорткод и виджет"
@@ -538,7 +576,7 @@ msgstr "Устранение неисправностей"
 
 #: ../admin/social_sharing.php:54 ../admin/social_sharing.php:1938
 #: ../admin/social_commenting.php:36 ../admin/social_commenting.php:471
-#: ../admin/social_login.php:41 ../admin/social_login.php:922
+#: ../admin/social_login.php:41 ../admin/social_login.php:1055
 #: ../admin/like_buttons.php:48 ../admin/like_buttons.php:806
 msgid "FAQ"
 msgstr "Часто задаваемые вопросы (FAQ)"
@@ -564,12 +602,12 @@ msgid "Shape"
 msgstr "Форма"
 
 #: ../admin/social_sharing.php:150 ../admin/social_sharing.php:458
-#: ../inc/widget.php:906
+#: ../inc/widget.php:907
 msgid "Round"
 msgstr "Круглая"
 
 #: ../admin/social_sharing.php:152 ../admin/social_sharing.php:460
-#: ../inc/widget.php:907
+#: ../inc/widget.php:908
 msgid "Square"
 msgstr "Квадратная"
 
@@ -770,8 +808,8 @@ msgstr "Пользовательская ссылка"
 msgid "Url to share"
 msgstr "Ссылка чтобы Поделиться"
 
-#: ../admin/social_sharing.php:731 ../admin/social_login.php:385
-#: ../admin/like_buttons.php:105 ../inc/widget.php:900
+#: ../admin/social_sharing.php:731 ../admin/social_login.php:518
+#: ../admin/like_buttons.php:105 ../inc/widget.php:901
 msgid "Title"
 msgstr "Заголовок"
 
@@ -856,7 +894,7 @@ msgid "Placement"
 msgstr "Размещение"
 
 #: ../admin/social_sharing.php:968 ../admin/social_sharing.php:1431
-#: ../admin/social_login.php:703 ../admin/social_login.php:733
+#: ../admin/social_login.php:836 ../admin/social_login.php:866
 #: ../admin/like_buttons.php:222 ../admin/like_buttons.php:507
 msgid "Homepage"
 msgstr "Главная"
@@ -929,13 +967,12 @@ msgid "Show share counts"
 msgstr "Показать счетчик кнопок Поделиться"
 
 #: ../admin/social_sharing.php:1045 ../admin/social_sharing.php:1489
-#, fuzzy
 msgid ""
 "Share counts are supported for Facebook, Twitter, Linkedin, Buffer, Reddit, "
-"Pinterest, Stumbleupon and Vkontakte"
+"Pinterest, Stumbleupon, Odnoklassniki and Vkontakte"
 msgstr ""
 "Поддерживаются Facebook, Linkedin, GooglePlus, Delicious, Buffer, Reddit, "
-"Pinterest, Stumbleupon и Vkontakte"
+"Pinterest, Stumbleupon, Odnoklassniki и Vkontakte"
 
 #: ../admin/social_sharing.php:1062 ../admin/social_sharing.php:1497
 #, php-format
@@ -1156,27 +1193,17 @@ msgstr "Мастер управления сокращения ссылок че
 msgid "bit.ly Login"
 msgstr "bit.ly логин"
 
-#: ../admin/social_sharing.php:1677
-#, php-format
-msgid ""
-"Login to your bit.ly account and navigate to <a href=\"%s\" target=\"_blank"
-"\">this link</a> to get bit.ly login"
+#: ../admin/social_sharing.php:1677 ../admin/social_sharing.php:1696
+#, fuzzy, php-format
+msgid "More details on how to get it <a href=\"%s\" target=\"_blank\">here</a>"
 msgstr ""
-"Войти в ваш bit.ly аккаунт и перейдите по <a href=\"%s\" target=\"_blank"
-"\">этой ссылке</a> , чтобы получить имя пользователя bit.ly"
+"Необходимо для входа через Twitter. Пожалуйста, посмотрите документацию <a "
+"href=\"%s\" target=\"_blank\">здесь</a> для получения ключа приложения "
+"Twitter."
 
 #: ../admin/social_sharing.php:1686 ../admin/like_buttons.php:649
 msgid "bit.ly API Key"
 msgstr "bit.ly ключ приложения"
-
-#: ../admin/social_sharing.php:1696 ../admin/like_buttons.php:659
-#, php-format
-msgid ""
-"Login to your bit.ly account and navigate to <a href=\"%s\" target=\"_blank"
-"\">this link</a> to get your API key"
-msgstr ""
-"Войти в ваш bit.ly аккаунт и перейдите по <a href=\"%s\" target=\"_blank"
-"\">этой ссылке</a> , чтобы получить ваш ключ API"
 
 #: ../admin/social_sharing.php:1705 ../admin/like_buttons.php:668
 msgid "Clear Bitly Cache"
@@ -1317,7 +1344,7 @@ msgstr ""
 "\"Получение информации о новой поломке\" ."
 
 #: ../admin/social_sharing.php:1940 ../admin/social_commenting.php:473
-#: ../admin/social_login.php:924
+#: ../admin/social_login.php:1057
 msgid ""
 "<strong>Note:</strong> Plugin will not work on local server. You should have "
 "an online website for the plugin to function properly."
@@ -1345,7 +1372,7 @@ msgid ""
 msgstr ""
 
 #: ../admin/social_sharing.php:1947 ../admin/social_commenting.php:476
-#: ../admin/social_login.php:927
+#: ../admin/social_login.php:1063
 msgid "Why is my browser blocking some features of the plugin?"
 msgstr "Почему мой браузер блокирует некоторые функции плагина?"
 
@@ -1705,15 +1732,15 @@ msgstr "Основные настройки"
 msgid "Advanced Configuration"
 msgstr "Расширенная конфигурация"
 
-#: ../admin/social_login.php:38 ../admin/social_login.php:859
+#: ../admin/social_login.php:38 ../admin/social_login.php:992
 msgid "XProfile Integration"
 msgstr "XProfile интеграция"
 
-#: ../admin/social_login.php:55
+#: ../admin/social_login.php:58
 msgid "Disable user registration via Social Login"
 msgstr "Регистрация Отключить пользователя через социального Логин"
 
-#: ../admin/social_login.php:65
+#: ../admin/social_login.php:68
 msgid ""
 "After enabling this option, new users will not be able to login through "
 "social login. Only existing users will be able to social login."
@@ -1722,11 +1749,11 @@ msgstr ""
 "социальные входе в систему. Только существующие пользователи смогут "
 "социальной входе в систему."
 
-#: ../admin/social_login.php:74
+#: ../admin/social_login.php:77
 msgid "Redirection url"
 msgstr "Перенаправления входа"
 
-#: ../admin/social_login.php:84
+#: ../admin/social_login.php:87
 msgid ""
 "User will be redirected to this page after unsuccessful registration attempt "
 "via Social Login. You can specify the url of registration form or of a page "
@@ -1737,59 +1764,60 @@ msgstr ""
 "формы или страница, показывающая сообщения о отключить регистрацию через "
 "систему социального Логин."
 
-#: ../admin/social_login.php:93
-msgid "Select providers"
+#: ../admin/social_login.php:96
+#, fuzzy
+msgid "Select Social Networks"
 msgstr "Выберите сервисы"
 
-#: ../admin/social_login.php:98
+#: ../admin/social_login.php:101
 msgid "Facebook"
 msgstr "Facebook"
 
-#: ../admin/social_login.php:102
+#: ../admin/social_login.php:105
 msgid "Twitter"
 msgstr "Twitter"
 
-#: ../admin/social_login.php:106
+#: ../admin/social_login.php:109
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
-#: ../admin/social_login.php:110
+#: ../admin/social_login.php:113
 msgid "Google+"
 msgstr "Google+"
 
-#: ../admin/social_login.php:114
+#: ../admin/social_login.php:117
 msgid "Vkontakte"
 msgstr "Вконтакте"
 
-#: ../admin/social_login.php:118
+#: ../admin/social_login.php:121
 msgid "Instagram"
 msgstr "Instagram"
 
-#: ../admin/social_login.php:122
+#: ../admin/social_login.php:125
 msgid "Xing"
 msgstr "Xing"
 
-#: ../admin/social_login.php:126
+#: ../admin/social_login.php:129
 msgid "Steam"
 msgstr "Steam"
 
-#: ../admin/social_login.php:131
+#: ../admin/social_login.php:134
 msgid "Twitch"
 msgstr "Twitch"
 
-#: ../admin/social_login.php:136
+#: ../admin/social_login.php:139
 msgid "LiveJournal"
 msgstr "ЖивойЖурнал"
 
-#: ../admin/social_login.php:144
+#: ../admin/social_login.php:147
 msgid "Select Social ID provider to enable in Social Login"
 msgstr "Выберите социальные сети чтобы активировать вход через социальные сети"
 
-#: ../admin/social_login.php:152
+#: ../admin/social_login.php:155
 msgid "Facebook App ID"
 msgstr "Facebook App ID"
 
-#: ../admin/social_login.php:162
+#: ../admin/social_login.php:165
 #, php-format
 msgid ""
 "Required for Facebook Social Login to work. Please follow the documentation "
@@ -1798,18 +1826,32 @@ msgstr ""
 "Необходимо для входа через Facebook. Пожалуйста, посмотрите документацию <a "
 "href=\"%s\" target=\"_blank\">здесь</a> для получения ID приложения Facebook."
 
-#: ../admin/social_login.php:164
+#: ../admin/social_login.php:167 ../admin/social_login.php:189
 msgid ""
 "Paste following url in <strong>Site URL</strong> option at the link mentioned"
 msgstr ""
 "Вставьте следующий URL-адрес в <strong>URL-адрес сайта</strong> для "
 "упоминания ссылки."
 
-#: ../admin/social_login.php:174
+#: ../admin/social_login.php:177
+#, fuzzy
+msgid "Facebook App Secret"
+msgstr "Facebook App ID"
+
+#: ../admin/social_login.php:187
+#, fuzzy, php-format
+msgid ""
+"Required for Facebook Social Login to work. Please follow the documentation "
+"at <a href=\"%s\" target=\"_blank\">this link</a> to get Facebook App Secret"
+msgstr ""
+"Необходимо для входа через Facebook. Пожалуйста, посмотрите документацию <a "
+"href=\"%s\" target=\"_blank\">здесь</a> для получения ID приложения Facebook."
+
+#: ../admin/social_login.php:199
 msgid "Twitter API Key"
 msgstr "Twitter API ключ"
 
-#: ../admin/social_login.php:184
+#: ../admin/social_login.php:209
 #, php-format
 msgid ""
 "Required for Twitter Social Login to work. Please follow the documentation "
@@ -1819,7 +1861,7 @@ msgstr ""
 "href=\"%s\" target=\"_blank\">здесь</a> для получения ключа приложения "
 "Twitter."
 
-#: ../admin/social_login.php:186 ../admin/social_login.php:208
+#: ../admin/social_login.php:211 ../admin/social_login.php:233
 msgid ""
 "Paste following url in <strong>Website</strong> and <strong>Callback URL</"
 "strong> options at the link mentioned"
@@ -1827,11 +1869,11 @@ msgstr ""
 "Вставьте следующий URL-адрес в <strong>веб-сайта</strong> и <strong>URL "
 "обратного вызова</strong> для упоминания ссылки."
 
-#: ../admin/social_login.php:196
+#: ../admin/social_login.php:221
 msgid "Twitter API Secret"
 msgstr "Twitter API секретный ключ"
 
-#: ../admin/social_login.php:206
+#: ../admin/social_login.php:231
 #, php-format
 msgid ""
 "Required for Twitter Social Login to work. Please follow the documentation "
@@ -1841,21 +1883,23 @@ msgstr ""
 "href=\"%s\" target=\"_blank\">здесь</a> для получения секретного ключа "
 "приложения Facebook."
 
-#: ../admin/social_login.php:218
-msgid "LinkedIn API Key"
-msgstr "Секретный ключ приложения LinkedIn"
+#: ../admin/social_login.php:243
+#, fuzzy
+msgid "LinkedIn Client ID"
+msgstr "LinkedIn"
 
-#: ../admin/social_login.php:228
-#, php-format
+#: ../admin/social_login.php:253
+#, fuzzy, php-format
 msgid ""
 "Required for LinkedIn Social Login to work. Please follow the documentation "
-"at <a href=\"%s\" target=\"_blank\">this link</a> to get LinkedIn API Key"
+"at <a href=\"%s\" target=\"_blank\">this link</a> to get LinkedIn Client ID"
 msgstr ""
 "Необходимо для входа через LinkedIn. Пожалуйста, посмотрите документацию <a "
 "href=\"%s\" target=\"_blank\">здесь</a> для получения ключа приложения "
 "LinkedIn."
 
-#: ../admin/social_login.php:230 ../admin/social_login.php:296
+#: ../admin/social_login.php:255 ../admin/social_login.php:277
+#: ../admin/social_login.php:387
 msgid ""
 "Paste following url in <strong>Website URL</strong> option at the link "
 "mentioned"
@@ -1863,11 +1907,26 @@ msgstr ""
 "Вставьте следующий URL-адрес в <strong>URL веб-сайта</strong> для упоминания "
 "ссылки"
 
-#: ../admin/social_login.php:240
+#: ../admin/social_login.php:265
+msgid "LinkedIn Client Secret "
+msgstr ""
+
+#: ../admin/social_login.php:275
+#, fuzzy, php-format
+msgid ""
+"Required for LinkedIn Social Login to work. Please follow the documentation "
+"at <a href=\"%s\" target=\"_blank\">this link</a> to get LinkedIn Client "
+"Secret"
+msgstr ""
+"Необходимо для входа через LinkedIn. Пожалуйста, посмотрите документацию <a "
+"href=\"%s\" target=\"_blank\">здесь</a> для получения ключа приложения "
+"LinkedIn."
+
+#: ../admin/social_login.php:287
 msgid "Google+ Client ID"
 msgstr "Google+ ID клиента"
 
-#: ../admin/social_login.php:250
+#: ../admin/social_login.php:297
 #, php-format
 msgid ""
 "Required for GooglePlus Social Login to work. Please follow the "
@@ -1877,17 +1936,35 @@ msgstr ""
 "Необходимо для входа через Google+. Пожалуйста, посмотрите документацию <a "
 "href=\"%s\" target=\"_blank\">здесь</a> для  получения ID клиента в  Google+."
 
-#: ../admin/social_login.php:252
+#: ../admin/social_login.php:299 ../admin/social_login.php:321
+#, fuzzy
 msgid ""
-"Paste following url in <strong>AUTHORIZED JAVASCRIPT ORIGINS</strong> and "
-"<strong>AUTHORIZED REDIRECT URI</strong> options at the link mentioned"
-msgstr "JavaScript для авторизации"
+"Paste following url in <strong>AUTHORIZED REDIRECT URI</strong> option at "
+"the link mentioned"
+msgstr ""
+"Вставьте следующий URL-адрес в <strong>URL-адрес сайта</strong> для "
+"упоминания ссылки."
 
-#: ../admin/social_login.php:262
+#: ../admin/social_login.php:309
+#, fuzzy
+msgid "Google+ Client Secret"
+msgstr "Google+ ID клиента"
+
+#: ../admin/social_login.php:319
+#, fuzzy, php-format
+msgid ""
+"Required for GooglePlus Social Login to work. Please follow the "
+"documentation at <a href=\"%s\" target=\"_blank\">this link</a> to get "
+"GooglePlus Client Secret"
+msgstr ""
+"Необходимо для входа через Google+. Пожалуйста, посмотрите документацию <a "
+"href=\"%s\" target=\"_blank\">здесь</a> для  получения ID клиента в  Google+."
+
+#: ../admin/social_login.php:331
 msgid "Vkontakte Application ID"
 msgstr " ID приложения Vkontakte"
 
-#: ../admin/social_login.php:272
+#: ../admin/social_login.php:341 ../admin/social_login.php:363
 #, php-format
 msgid ""
 "Required for Vkontakte Social Login to work. Please follow the documentation "
@@ -1898,7 +1975,7 @@ msgstr ""
 "href=\"%s\" target=\"_blank\">здесь</a> для получения ID приложения "
 "Vkontakte."
 
-#: ../admin/social_login.php:274
+#: ../admin/social_login.php:343 ../admin/social_login.php:365
 msgid ""
 "Paste following url in <strong>Site address</strong> option at the link "
 "mentioned"
@@ -1906,11 +1983,16 @@ msgstr ""
 "Вставьте следующий URL-адрес в <strong>URL-адрес сайта</strong> для "
 "упоминания ссылки."
 
-#: ../admin/social_login.php:284
+#: ../admin/social_login.php:353
+#, fuzzy
+msgid "Vkontakte Secure key"
+msgstr "Вконтакте"
+
+#: ../admin/social_login.php:375
 msgid "Instagram Client ID"
 msgstr "Instagram ID клиента"
 
-#: ../admin/social_login.php:294
+#: ../admin/social_login.php:385
 #, php-format
 msgid ""
 "Required for Instagram Social Login to work. Please follow the documentation "
@@ -1920,11 +2002,11 @@ msgstr ""
 "href=\"%s\" target=\"_blank\">здесь</a> для  получения ID клиента в  "
 "Instagram."
 
-#: ../admin/social_login.php:306
+#: ../admin/social_login.php:397
 msgid "Xing Consumer Key"
 msgstr "Ключ потребителя Xing"
 
-#: ../admin/social_login.php:316
+#: ../admin/social_login.php:407
 #, php-format
 msgid ""
 "Required for Xing Social Login to work. Please follow the documentation at "
@@ -1933,7 +2015,7 @@ msgstr ""
 "Необходимо для входа через Xing. Пожалуйста, посмотрите документацию <a href="
 "\"%s\" target=\"_blank\">здесь</a> для  получения ключа потребителя Xing."
 
-#: ../admin/social_login.php:318 ../admin/social_login.php:340
+#: ../admin/social_login.php:409 ../admin/social_login.php:431
 msgid ""
 "Paste following url in <strong>Callback domain</strong> option at the link "
 "mentioned"
@@ -1941,11 +2023,11 @@ msgstr ""
 "Вставьте следующий URL-адрес в <strong>URL веб-сайта</strong> для упоминания "
 "ссылки"
 
-#: ../admin/social_login.php:328
+#: ../admin/social_login.php:419
 msgid "Xing Consumer Secret"
 msgstr "Секретный ключ потребителя  Xing"
 
-#: ../admin/social_login.php:338
+#: ../admin/social_login.php:429
 #, php-format
 msgid ""
 "Required for Xing Social Login to work. Please follow the documentation at "
@@ -1955,21 +2037,44 @@ msgstr ""
 "\"%s\" target=\"_blank\">здесь</a> для  получения секретного ключа "
 "потребителя Xing."
 
-#: ../admin/social_login.php:350
+#: ../admin/social_login.php:441
+#, fuzzy
+msgid "Steam API Key"
+msgstr "Twitter API ключ"
+
+#: ../admin/social_login.php:451
+#, fuzzy, php-format
+msgid ""
+"Required for Steam Social Login to work. Get it at <a href=\"%s\" target="
+"\"_blank\">this link</a>"
+msgstr ""
+"Необходимо для входа через Twitter. Пожалуйста, посмотрите документацию <a "
+"href=\"%s\" target=\"_blank\">здесь</a> для получения ключа приложения "
+"Twitter."
+
+#: ../admin/social_login.php:452
+#, fuzzy
+msgid "Save following <strong>domain</strong> to get the key"
+msgstr ""
+"Вставьте следующий URL-адрес в <strong>URL веб-сайта</strong> для упоминания "
+"ссылки"
+
+#: ../admin/social_login.php:461
 msgid "Twitch Client ID"
 msgstr "Добавьте ваш Twitch Client ID здесь"
 
-#: ../admin/social_login.php:360
-#, php-format
+#: ../admin/social_login.php:471 ../admin/social_login.php:493
+#, fuzzy, php-format
 msgid ""
 "Required for Twitch Social Login to work. Please follow the documentation at "
-"<a href=\"%s\" target=\"_blank\">this link</a> to get Twitch Client ID"
+"<a href=\"%s\" target=\"_blank\">this link</a> to get it"
 msgstr ""
 "Необходимо для входа через Twitch. Пожалуйста, посмотрите документацию <a "
 "href=\"%s\" target=\"_blank\">здесь</a> для получения ключа приложения "
 "Twitch."
 
-#: ../admin/social_login.php:362
+#: ../admin/social_login.php:473 ../admin/social_login.php:495
+#, fuzzy
 msgid ""
 "Paste following url in <strong>Redirect URI</strong> option at the link "
 "mentioned"
@@ -1977,51 +2082,56 @@ msgstr ""
 "Вставьте следующий URL-адрес в <strong>URL-адрес сайта</strong> для "
 "упоминания ссылки."
 
-#: ../admin/social_login.php:379
+#: ../admin/social_login.php:483
+#, fuzzy
+msgid "Twitch Client Secret"
+msgstr "Добавьте ваш Twitch Client ID здесь"
+
+#: ../admin/social_login.php:512
 msgid "Social Login Options"
 msgstr "Параметры входа через соцсети"
 
-#: ../admin/social_login.php:395
+#: ../admin/social_login.php:528
 msgid "Text to display above the Social Login interface"
 msgstr "Текст, отображаемый над интерфейсом входа через социальные сети"
 
-#: ../admin/social_login.php:404
+#: ../admin/social_login.php:537
 msgid "Enable at login page"
 msgstr "Включить страницу входа"
 
-#: ../admin/social_login.php:414
+#: ../admin/social_login.php:547
 msgid ""
 "Social Login interface will get enabled at the login page of your website"
 msgstr ""
 "Интерфейс входа через социальные сети будет активирован на странице входа "
 
-#: ../admin/social_login.php:422
+#: ../admin/social_login.php:555
 msgid "Enable at register page"
 msgstr "Включить на странице регистрации"
 
-#: ../admin/social_login.php:432
+#: ../admin/social_login.php:565
 msgid ""
 "Social Login interface will get enabled at the registration page of your "
 "website"
 msgstr "Интерфейс входа через социальные сети будет активирован на странице"
 
-#: ../admin/social_login.php:440
+#: ../admin/social_login.php:573
 msgid "Enable at comment form"
 msgstr "Включить в форму комментирования"
 
-#: ../admin/social_login.php:450
+#: ../admin/social_login.php:583
 msgid "Social Login interface will get enabled at your Wordpress Comment form"
 msgstr ""
 "Интерфейс входа через социальные сети будет активирован в вашей форме "
 "комментирования Wordpress"
 
-#: ../admin/social_login.php:459
+#: ../admin/social_login.php:592
 msgid ""
 "Link social account to already existing account, if email address matches"
 msgstr ""
 "Связывает аккаунт соцсетей с существующим аккаунтом если почта совпадает."
 
-#: ../admin/social_login.php:469
+#: ../admin/social_login.php:602
 #, fuzzy
 msgid ""
 "If email address of the user's Social Account matches with an already "
@@ -2034,11 +2144,11 @@ msgstr ""
 "связан с существующей учетной записью. Пользователь сможет управлять этим на "
 "странице профиля."
 
-#: ../admin/social_login.php:483
+#: ../admin/social_login.php:616
 msgid "Enable before WooCommerce Customer Login Form"
 msgstr "Активировать перед  формой входа покупателя в WooCommerce"
 
-#: ../admin/social_login.php:493
+#: ../admin/social_login.php:626
 msgid ""
 "Social Login Interface will get enabled before the customer login form at "
 "WooCommerce My Account page"
@@ -2046,11 +2156,11 @@ msgstr ""
 "Интерфейс входа через социальные сети будет активирован перед формой входа "
 "для покупателя на странице Мой Аккаунт в WooCommerce"
 
-#: ../admin/social_login.php:501
+#: ../admin/social_login.php:634
 msgid "Enable after WooCommerce Customer Login Form"
 msgstr "Включить после формы входа клиента WooCommerce"
 
-#: ../admin/social_login.php:511
+#: ../admin/social_login.php:644
 msgid ""
 "Social Login Interface will get enabled after the customer login form at "
 "WooCommerce My Account page"
@@ -2058,22 +2168,22 @@ msgstr ""
 "Интерфейс входа через социальные сети будет активирован после  формы входа "
 "для покупателя на странице Мой Аккаунт в WooCommerce"
 
-#: ../admin/social_login.php:519
+#: ../admin/social_login.php:652
 msgid "Enable at WooCommerce checkout page"
 msgstr "Включить на странице оформления заказа WooCommerce"
 
-#: ../admin/social_login.php:529
+#: ../admin/social_login.php:662
 msgid "Social Login Interface will get enabled at WooCommerce checkout page"
 msgstr ""
 "Интерфейс входа через социальные сети будет активирован на странице "
 "оформления заказа в WooCommerce"
 
-#: ../admin/social_login.php:540
+#: ../admin/social_login.php:673
 msgid "Auto-approve comments made by Social Login users"
 msgstr ""
 "Автоодобрение комментариев для пользователей, вошедших через социальные сети"
 
-#: ../admin/social_login.php:550
+#: ../admin/social_login.php:683
 msgid ""
 "If this option is enabled, and WordPress comment is made by Social Login "
 "user, comment will get approved immediately without keeping in moderation."
@@ -2082,15 +2192,15 @@ msgstr ""
 "который вошел через социальные сети, то комментарий будет опубликован сразу "
 "без модерации."
 
-#: ../admin/social_login.php:551
+#: ../admin/social_login.php:684
 msgid "Note: This is not related to Facebook comments"
 msgstr "Примечание: Это не связано с комментариями от Facebook"
 
-#: ../admin/social_login.php:561
+#: ../admin/social_login.php:694
 msgid "Enable social avatar"
 msgstr "Включение социальных аватар"
 
-#: ../admin/social_login.php:571
+#: ../admin/social_login.php:704
 msgid ""
 "Social profile pictures of the logged in user will be displayed as profile "
 "avatar"
@@ -2098,30 +2208,30 @@ msgstr ""
 "Изображения пользователя в социальных сетях будет использоваться как "
 "изображение профиля на сайте"
 
-#: ../admin/social_login.php:581
+#: ../admin/social_login.php:714
 msgid "Avatar quality"
 msgstr "Качество аватары"
 
-#: ../admin/social_login.php:584
+#: ../admin/social_login.php:717
 msgid "Average"
 msgstr "Среднее"
 
-#: ../admin/social_login.php:585
+#: ../admin/social_login.php:718
 msgid "Best"
 msgstr "лучший"
 
-#: ../admin/social_login.php:592
+#: ../admin/social_login.php:725
 msgid "Choose avatar quality"
 msgstr "Выберите качество аватара"
 
-#: ../admin/social_login.php:601
+#: ../admin/social_login.php:734
 msgid ""
 "Show option for users to update social avatar at BuddyPress profile page"
 msgstr ""
 "Показать вариант для пользователей для обновления социального аватара на "
 "странице профиля BuddyPress"
 
-#: ../admin/social_login.php:611
+#: ../admin/social_login.php:744
 msgid ""
 "If enabled, users would be able to update their social avatar from \"Profile "
 "photo\" section in BuddyPress profile at front-end"
@@ -2129,7 +2239,7 @@ msgstr ""
 "Если этот параметр включен, пользователи смогут обновить свой социальный "
 "аватар из раздела «Профиль» фото в профиле BuddyPress "
 
-#: ../admin/social_login.php:632
+#: ../admin/social_login.php:765
 msgid ""
 "If enabled and Social ID provider does not provide user's email address on "
 "login, user will be asked to provide his/her email address. Otherwise, a "
@@ -2139,13 +2249,13 @@ msgstr ""
 "для входа, пользователю потребуется ввести свою почту. В противном же "
 "случае, почта будет создана по образцу."
 
-#: ../admin/social_login.php:641
+#: ../admin/social_login.php:774
 msgid "Send post-registration email to user to set account password"
 msgstr ""
 "Отправить после регистрации по электронной почте пользователю письмо чтобы "
 "установить пароль учетной записи"
 
-#: ../admin/social_login.php:651
+#: ../admin/social_login.php:784
 msgid ""
 "If enabled, an email will be sent to user after registration through Social "
 "Login, regarding his/her login credentials (username-password to be able to "
@@ -2155,13 +2265,13 @@ msgstr ""
 "социальные  сети будет отправлено письмо с именем и пароль чтобы была "
 "возможность зайти черед стандартную форму авторизации"
 
-#: ../admin/social_login.php:659
+#: ../admin/social_login.php:792
 msgid "Send new user registration notification email to admin"
 msgstr ""
 "Отправить уведомление о регистрации нового пользователя по электронной почте "
 "администратору"
 
-#: ../admin/social_login.php:669
+#: ../admin/social_login.php:802
 msgid ""
 "If enabled, an email will be sent to admin after new user registers through "
 "Social Login, notifying admin about the new user registration"
@@ -2169,11 +2279,11 @@ msgstr ""
 "Если опция включена, на почту администратора прийдет уведомление о "
 "регистрации нового пользователя через соцсети."
 
-#: ../admin/social_login.php:678
+#: ../admin/social_login.php:811
 msgid "Enable social account linking at BuddyPress profile page"
 msgstr "Интегрирует социальный аккаунт на странице профиля BuddyPress"
 
-#: ../admin/social_login.php:688
+#: ../admin/social_login.php:821
 msgid ""
 "Enable this option to show social account linking interface at BuddyPress "
 "profile page"
@@ -2181,41 +2291,41 @@ msgstr ""
 "Активируйте эту функцию чтобы интегрировать социальный аккаунт на странице "
 "профиля BuddyPress"
 
-#: ../admin/social_login.php:697
+#: ../admin/social_login.php:830
 msgid "Login redirection"
 msgstr "Перенаправления входа"
 
-#: ../admin/social_login.php:701
+#: ../admin/social_login.php:834
 msgid "Same page where user logged in"
 msgstr "Та же страница, на которой пользователь произвел вход "
 
-#: ../admin/social_login.php:705 ../admin/social_login.php:735
+#: ../admin/social_login.php:838 ../admin/social_login.php:868
 msgid "Account dashboard"
 msgstr "Страница управления моим аккаунтом"
 
-#: ../admin/social_login.php:708 ../admin/social_login.php:738
+#: ../admin/social_login.php:841 ../admin/social_login.php:871
 msgid "BuddyPress profile page"
 msgstr "Страница профиля BuddyPress"
 
-#: ../admin/social_login.php:711 ../admin/social_login.php:741
+#: ../admin/social_login.php:844 ../admin/social_login.php:874
 msgid "Custom Url"
 msgstr "Пользовательская ссылка"
 
-#: ../admin/social_login.php:719
+#: ../admin/social_login.php:852
 msgid "User will be redirected to the selected page after Social Login"
 msgstr ""
 "Пользователь будет перенаправлен на выбранную страницу после входа через "
 "социальные сети"
 
-#: ../admin/social_login.php:727
+#: ../admin/social_login.php:860
 msgid "Registration redirection"
 msgstr "Перенаправлении регистрации"
 
-#: ../admin/social_login.php:731
+#: ../admin/social_login.php:864
 msgid "Same page from where user registered"
 msgstr "URL целевой страницы, на которой зарегистрирован пользователь"
 
-#: ../admin/social_login.php:749
+#: ../admin/social_login.php:882
 msgid ""
 "User will be redirected to the selected page after registration (first "
 "Social Login) through Social Login"
@@ -2223,15 +2333,15 @@ msgstr ""
 "Пользователь будет перенаправлен на выбранную страницу после регистрации "
 "(первый вход чере социальные сети) через социальные логин"
 
-#: ../admin/social_login.php:757
+#: ../admin/social_login.php:890
 msgid "Email popup options"
 msgstr "Параметры всплывающей электронной Почты"
 
-#: ../admin/social_login.php:763
+#: ../admin/social_login.php:896
 msgid "Text on 'Email required' popup"
 msgstr "Текст на всплывающем окне «Электронная почта требуется» "
 
-#: ../admin/social_login.php:773
+#: ../admin/social_login.php:906
 msgid ""
 "This text will be displayed on email required popup. Leave empty if not "
 "required."
@@ -2239,11 +2349,11 @@ msgstr ""
 "Этот текст будет отображаться на всплывающем окне. требующем почту. Оставьте "
 "поле пустым если не требуется."
 
-#: ../admin/social_login.php:782
+#: ../admin/social_login.php:915
 msgid "Error message for 'Email required' popup"
 msgstr "Сообщение ошибки во всплывающем окне \"Требуется почта\""
 
-#: ../admin/social_login.php:792
+#: ../admin/social_login.php:925
 msgid ""
 "This message will be displayed to user if it provides invalid or already "
 "registered email"
@@ -2251,11 +2361,11 @@ msgstr ""
 "Это сообщение будет показано пользователю, если он предоставил неверную или "
 "уже используемую почту"
 
-#: ../admin/social_login.php:801
+#: ../admin/social_login.php:934
 msgid "Email popup height"
 msgstr "Высота высплывающего окна"
 
-#: ../admin/social_login.php:811
+#: ../admin/social_login.php:944
 msgid ""
 "If you are seeing vertical scrollbar in the \"Email required\" popup, you "
 "can increase the height of popup by specifying in this option. Leave empty "
@@ -2265,11 +2375,11 @@ msgstr ""
 "\", то вы можете увеличить высотку всплывающего окна. Оставьте пустым для "
 "базового значения."
 
-#: ../admin/social_login.php:819
+#: ../admin/social_login.php:952
 msgid "Enable email verification"
 msgstr "Включить проверку электронной почты"
 
-#: ../admin/social_login.php:829
+#: ../admin/social_login.php:962
 msgid ""
 "If enabled, email provided by the user will be verified by sending a "
 "confirmation link to that email. User would not be able to login without "
@@ -2278,28 +2388,35 @@ msgstr ""
 "Если опция включена, то на почту, которую указал пользователь, придет письмо "
 "с подтверждением. Пользователь не сможет зайти без подтверждения своей почты."
 
-#: ../admin/social_login.php:879 ../inc/widget.php:248 ../inc/widget.php:414
+#: ../admin/social_login.php:1012 ../inc/widget.php:248 ../inc/widget.php:414
 #: ../inc/widget.php:578 ../inc/widget.php:726
 msgid "Select"
 msgstr "Выбор"
 
-#: ../admin/social_login.php:910
+#: ../admin/social_login.php:1043
 msgid "Social Login Shortcode & Widget"
 msgstr "Шорткод и виджет для входа через социальные сети "
 
-#: ../admin/social_login.php:911
+#: ../admin/social_login.php:1044
 msgid "Social Linking Shortcode"
 msgstr "Шорткод социальных ссылок"
 
-#: ../admin/social_login.php:925
+#: ../admin/social_login.php:1059
+#, fuzzy
+msgid "Why is social login not working?"
+msgstr "Почему Facebook логин не работает?"
+
+#: ../admin/social_login.php:1060
+msgid ""
+"Make sure that App ID and Secret (Client ID and Secret) keys you have saved, "
+"belong to the same app"
+msgstr ""
+
+#: ../admin/social_login.php:1062
 msgid ""
 "Why the user is not appearing logged in even after Social Login until the "
 "webpage is refreshed manually?"
 msgstr ""
-
-#: ../admin/social_login.php:926
-msgid "Why is Facebook login not working?"
-msgstr "Почему Facebook логин не работает?"
 
 #: ../admin/like_buttons.php:16
 msgid "Enable Like Buttons"
@@ -2453,6 +2570,15 @@ msgstr ""
 "Войти в ваш bit.ly аккаунт и перейдите по <a href=\"%s\" target=\"_blank"
 "\">этой ссылке</a> , чтобы получить имя пользователя bit.ly"
 
+#: ../admin/like_buttons.php:659
+#, php-format
+msgid ""
+"Login to your bit.ly account and navigate to <a href=\"%s\" target=\"_blank"
+"\">this link</a> to get your API key"
+msgstr ""
+"Войти в ваш bit.ly аккаунт и перейдите по <a href=\"%s\" target=\"_blank"
+"\">этой ссылке</a> , чтобы получить ваш ключ API"
+
 #: ../admin/like_buttons.php:704
 #, php-format
 msgid ""
@@ -2509,45 +2635,45 @@ msgstr ""
 "странице \"Super Socializer > Вход через социальные сети\" в панели админ-"
 "панели"
 
-#: ../inc/social_sharing.php:23 ../inc/social_sharing.php:291
+#: ../inc/social_sharing.php:23 ../inc/social_sharing.php:311
 msgid "Search for"
 msgstr "Искать"
 
 #: ../inc/social_sharing.php:28 ../inc/social_sharing.php:30
-#: ../inc/social_sharing.php:32 ../inc/social_sharing.php:296
-#: ../inc/social_sharing.php:298 ../inc/social_sharing.php:300
+#: ../inc/social_sharing.php:32 ../inc/social_sharing.php:316
+#: ../inc/social_sharing.php:318 ../inc/social_sharing.php:320
 msgid "Archives"
 msgstr "Архивы "
 
-#: ../inc/social_sharing.php:842 ../inc/social_sharing.php:1046
+#: ../inc/social_sharing.php:861 ../inc/social_sharing.php:1098
 msgid "Invalid request"
 msgstr "Неверный Запрос!"
 
-#: ../inc/social_sharing.php:849
+#: ../inc/social_sharing.php:868
 msgid "Providers not selected"
 msgstr "Сервисы не выбраны"
 
-#: ../inc/social_login.php:720
+#: ../inc/social_login.php:725
 msgid "Email"
 msgstr "Email"
 
-#: ../inc/social_login.php:721
+#: ../inc/social_login.php:726
 msgid "Confirm email"
 msgstr "Подтвердить e-mail"
 
-#: ../inc/social_login.php:723
+#: ../inc/social_login.php:728
 msgid "Save"
 msgstr "Сохранить"
 
-#: ../inc/social_login.php:724
+#: ../inc/social_login.php:729
 msgid "Cancel"
 msgstr "Отменить"
 
-#: ../inc/social_login.php:798
+#: ../inc/social_login.php:803
 msgid "Email Verification"
 msgstr "Подтверждение адреса электронной почты"
 
-#: ../inc/social_login.php:800
+#: ../inc/social_login.php:805
 msgid ""
 "Please click on the following link or paste it in browser to verify your "
 "email"
@@ -2589,12 +2715,12 @@ msgid "Title (after login):"
 msgstr "Название (после логина):"
 
 #: ../inc/widget.php:87 ../inc/widget.php:254 ../inc/widget.php:584
-#: ../inc/widget.php:898
+#: ../inc/widget.php:899
 msgid "Before widget content:"
 msgstr "Перед содержимым виджета"
 
 #: ../inc/widget.php:89 ../inc/widget.php:256 ../inc/widget.php:586
-#: ../inc/widget.php:960
+#: ../inc/widget.php:961
 msgid "After widget content:"
 msgstr "После содержимого виджета"
 
@@ -2715,88 +2841,116 @@ msgstr "Super Socializer - Вход"
 msgid "These icons link to your Social Media accounts"
 msgstr "Вход через соцсети"
 
-#: ../inc/widget.php:902
+#: ../inc/widget.php:903
 #, fuzzy
 msgid "Size of icons"
 msgstr "Размер кнопок Поделиться"
 
-#: ../inc/widget.php:904
+#: ../inc/widget.php:905
 #, fuzzy
 msgid "Icon Shape"
 msgstr "Форма"
 
-#: ../inc/widget.php:909
+#: ../inc/widget.php:910
 #, fuzzy
 msgid "Facebook ID:"
 msgstr "Facebook App ID"
 
-#: ../inc/widget.php:912
+#: ../inc/widget.php:913
 #, fuzzy
 msgid "Twitter ID:"
 msgstr "Twitter"
 
-#: ../inc/widget.php:915
+#: ../inc/widget.php:916
 #, fuzzy
 msgid "Instagram ID:"
 msgstr "Instagram"
 
-#: ../inc/widget.php:918
+#: ../inc/widget.php:919
 msgid "Pinterest ID:"
 msgstr ""
 
-#: ../inc/widget.php:921
+#: ../inc/widget.php:922
 msgid "Behance ID:"
 msgstr ""
 
-#: ../inc/widget.php:924
+#: ../inc/widget.php:925
 msgid "Flickr ID:"
 msgstr ""
 
-#: ../inc/widget.php:927
+#: ../inc/widget.php:928
 msgid "Foursquare ID:"
 msgstr ""
 
-#: ../inc/widget.php:930
+#: ../inc/widget.php:931
 msgid "Github ID:"
 msgstr ""
 
-#: ../inc/widget.php:933
+#: ../inc/widget.php:934
 #, fuzzy
 msgid "Google+ ID:"
 msgstr "Google+"
 
-#: ../inc/widget.php:936
+#: ../inc/widget.php:937
 #, fuzzy
 msgid "LinkedIn ID:"
 msgstr "LinkedIn"
 
-#: ../inc/widget.php:939
+#: ../inc/widget.php:940
 msgid "LinkedIn Company ID:"
 msgstr ""
 
-#: ../inc/widget.php:942
+#: ../inc/widget.php:943
 msgid "Snapchat ID:"
 msgstr ""
 
-#: ../inc/widget.php:945
+#: ../inc/widget.php:946
 msgid "Tumblr ID:"
 msgstr ""
 
-#: ../inc/widget.php:948
+#: ../inc/widget.php:949
 msgid "Vimeo ID:"
 msgstr ""
 
-#: ../inc/widget.php:951
+#: ../inc/widget.php:952
 msgid "Youtube ID:"
 msgstr ""
 
-#: ../inc/widget.php:954
+#: ../inc/widget.php:955
 msgid "Youtube Channel ID:"
 msgstr ""
 
-#: ../inc/widget.php:957
+#: ../inc/widget.php:958
 msgid "RSS Feed URL:"
 msgstr ""
+
+#~ msgid ""
+#~ "Login to your bit.ly account and navigate to <a href=\"%s\" target="
+#~ "\"_blank\">this link</a> to get bit.ly login"
+#~ msgstr ""
+#~ "Войти в ваш bit.ly аккаунт и перейдите по <a href=\"%s\" target=\"_blank"
+#~ "\">этой ссылке</a> , чтобы получить имя пользователя bit.ly"
+
+#~ msgid ""
+#~ "Paste following url in <strong>AUTHORIZED JAVASCRIPT ORIGINS</strong> and "
+#~ "<strong>AUTHORIZED REDIRECT URI</strong> options at the link mentioned"
+#~ msgstr "JavaScript для авторизации"
+
+#~ msgid ""
+#~ "Follow steps 11 and 12 at GooglePlus app configuration page, about to open"
+#~ msgstr ""
+#~ "Выполните шаги 11 и 12 на странице конфигурации приложения GooglePlus, "
+#~ "чтобы открыть"
+
+#~ msgid "LinkedIn API Key"
+#~ msgstr "Секретный ключ приложения LinkedIn"
+
+#~ msgid "Donate"
+#~ msgstr "Поддержать разработку"
+
+#~ msgid ""
+#~ "You can help us continue the development of this free plugin by donating"
+#~ msgstr "Вы можете помочь нам продолжить развитие этого бесплатного плагина"
 
 #~ msgid "Why are Share Counts Not Updating?"
 #~ msgstr "Почему счетчики поделиться не обновляются?"

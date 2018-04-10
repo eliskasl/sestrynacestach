@@ -1,10 +1,10 @@
 ﻿=== WordPress Social Share, Social Login and Social Comments Plugin - Super Socializer ===
 Contributors: Heateor, the_champ, Hungarian Translator: László Tavaszi http://kerekmese.hu, Chinese Translator: Alex Li plpkj.com, Portuguese Translator: Paulo Purkyt https://www.linkedin.com/in/ppurkyt, Italian Translator: FG3D (Freedom's Gate) https://fg3d.net, Spanish translator: Ignacio Iglesias http://trespies.com, Arabic Translator: http://www.ArabsSM.com, Russian/Ukrainian Translator: Nicholas Lagunov
 Donate link: https://www.heateor.com/donate?action=Super+Socializer
-Tags: social login, social share, social commenting, social comments, social plugin, profile data, social analytics, online identity, social profile storage, single sign-on, social media follow, facebook login
+Tags: social login, social share, social commenting, social comments, social plugin, profile data, social analytics, online identity, social profile storage, single sign-on, social media follow, facebook login, Twitch login
 Requires at least: 2.5.0
-Tested up to: 4.9.4
-Stable tag: 7.11.6
+Tested up to: 4.9.5
+Stable tag: 7.11.8
 License: GPLv2 or later
 
 The unique Social Plugin to let you integrate Social Login, Social Share, Social Comments and Social Media follow at your website
@@ -38,7 +38,7 @@ Integrate Social Login, Social Share and Social Comments at your website easiest
 * Mobile responsive sharing interface
 * Compatible with AMP
 * Enable/Disable vertical/floating sharing interface on mobile device
-* Social Login from 9 Social Networks - Facebook, Google, Linkedin, Twitter, Vkontakte, Instagram, Xing, Steam and LiveJournal
+* Social Login from 10 Social Networks - Facebook, Google, Linkedin, Twitter, Vkontakte, Instagram, Xing, Steam, Twitch and LiveJournal
 * Enable Social Login interface at WordPress Login, Register pages and comment form
 * Syncs user's basic social profile data with WordPress profile
 * Enable Social Login at WooCommerce checkout page and customer login form
@@ -209,6 +209,15 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 8. **Social Commenting**: Disqus Commenting selected
 
 == Changelog ==
+= 7.11.8 =
+* [Bugfix] Google login stopped working due to some changes in Google OAuth process
+* [Bugfix] Facebook login window was needed to be streched to see the content inside, in a few cases
+* [Bugfix] Short url option was not working for Copy Link icon
+
+= 7.11.7 =
+* [Bugfix] Redirection to same page was not working for Facebook and Vkontakte social login
+* [Improvement] Added Twitch in social login networks
+
 = 7.11.6 =
 * [Improvement] Link to get bit.ly login and API key was broken at the plugin options page in admin
 * [Bugfix] PHP error was being generated with Yoast SEO plugin active, in a few cases
@@ -1480,3 +1489,12 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 * [Bugfix] PHP error was being generated with Yoast SEO plugin active, in a few cases
 * [Bugfix] New users were seeing a not so user-friendly message in social login popup when user registration via social login kept disabled
 * [Bugfix] "Pinterest Save" official share button was appearing misaligned in the standard social share bar
+
+= 7.11.7 =
+* [Bugfix] Redirection to same page was not working for Facebook and Vkontakte social login
+* [Improvement] Added Twitch in social login networks
+
+= 7.11.8 =
+* [Bugfix] Google login stopped working due to some changes in Google OAuth process
+* [Bugfix] Facebook login window was needed to be streched to see the content inside, in a few cases
+* [Bugfix] Short url option was not working for Copy Link icon
