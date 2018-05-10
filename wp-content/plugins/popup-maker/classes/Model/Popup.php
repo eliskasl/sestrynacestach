@@ -124,7 +124,7 @@ class PUM_Model_Popup extends PUM_Model_Post {
 	 */
 	public function get_settings( $force = false ) {
 		if ( ! isset( $this->settings ) || $force ) {
-			$this->settings = $this->get_meta( 'popup_settings', true, $force );
+			$this->settings = $this->get_meta( 'popup_settings' );
 
 			if ( ! is_array( $this->settings ) ) {
 				$this->settings = array();
@@ -257,7 +257,7 @@ class PUM_Model_Popup extends PUM_Model_Post {
 				}
 			}
 
-			if ( ! $has_click_trigger ) {
+			if ( ! $has_click_trigger && apply_filters( 'pum_add_default_click_trigger', true, $this->ID ) ) {
 				$triggers[] = array(
 					'type'     => 'click_open',
 					'settings' => array(

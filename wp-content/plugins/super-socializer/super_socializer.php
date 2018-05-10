@@ -3,7 +3,7 @@
 Plugin Name: Super Socializer
 Plugin URI: https://super-socializer-wordpress.heateor.com
 Description: A complete 360 degree solution to provide all the social features like Social Login, Social Commenting, Social Sharing, Social Media follow and more.
-Version: 7.11.8
+Version: 7.11.11
 Author: Team Heateor
 Author URI: https://www.heateor.com
 Text Domain: super-socializer
@@ -11,7 +11,7 @@ Domain Path: /languages
 License: GPL2+
 */
 defined('ABSPATH') or die("Cheating........Uh!!");
-define('THE_CHAMP_SS_VERSION', '7.11.8');
+define('THE_CHAMP_SS_VERSION', '7.11.11');
 
 require 'helper.php';
 
@@ -296,7 +296,7 @@ function the_champ_connect(){
 					}
 				}
 				$success = $linkedinClient->Finalize($success);
-				if(is_object($user) && isset($user->id)){
+				if(isset($user) && is_object($user) && isset($user->id)){
 					$profileData = the_champ_sanitize_profile_data((array)$user, 'linkedin');
 					if(isset($_GET['heateorMSEnabled'])){
 						$profileData['mc_subscribe'] = 1;
@@ -447,11 +447,12 @@ function the_champ_connect(){
 			require_once 'library/Google/Utils.php';
 			require_once 'library/Google/Http/Request.php';
 			require_once 'library/Google/Auth/Abstract.php';
+			require_once 'library/Google/Exception.php';
+			require_once 'library/Google/Auth/Exception.php';
 			require_once 'library/Google/Auth/OAuth2.php';
 			require_once 'library/Google/Http/CacheParser.php';
 			require_once 'library/Google/IO/Abstract.php';
 			require_once 'library/Google/Task/Retryable.php';
-			require_once 'library/Google/Exception.php';
 			require_once 'library/Google/IO/Exception.php';
 			require_once 'library/Google/IO/Curl.php';
 			require_once 'library/Google/Logger/Abstract.php';
@@ -462,7 +463,7 @@ function the_champ_connect(){
 		    $googleClient->setClientId($theChampLoginOptions['google_key']);
 		    $googleClient->setClientSecret($theChampLoginOptions['google_secret']);
 		    $googleClient->setRedirectUri(home_url());
-		    $googleClient->setScopes(array('https://www.googleapis.com/auth/plus.login', 'https://www.googleapis.com/auth/userinfo.email'));
+		    $googleClient->setScopes(array('https://www.googleapis.com/auth/userinfo.email'));
 		    //Send Client Request
 		    $objOAuthService = new Google_Service_Oauth2($googleClient);
 		    $gpAuthUrl = $googleClient->createAuthUrl() . '&state=' . (isset($_GET['super_socializer_redirect_to']) ? esc_url(trim($_GET['super_socializer_redirect_to'])) : '');
@@ -797,6 +798,7 @@ function the_champ_get_login_redirection_url($twitterRedirect = '', $register = 
 	}else{
 		$option = 'login';
 	}
+	$redirectionUrl = esc_url(home_url());
 	if(isset($theChampLoginOptions[$option.'_redirection'])){
 		if($theChampLoginOptions[$option.'_redirection'] == 'same'){
 			$http = the_champ_get_http();
@@ -805,21 +807,20 @@ function the_champ_get_login_redirection_url($twitterRedirect = '', $register = 
 			}else{
 				$url = html_entity_decode(esc_url($http.$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]));
 			}
-			return the_champ_get_valid_url($url);
+			$redirectionUrl = the_champ_get_valid_url($url);
 		}elseif($theChampLoginOptions[$option.'_redirection'] == 'homepage'){
-			return esc_url(home_url());
+			$redirectionUrl = esc_url(home_url());
 		}elseif($theChampLoginOptions[$option.'_redirection'] == 'account'){
-			return admin_url();
+			$redirectionUrl = admin_url();
 		}elseif($theChampLoginOptions[$option.'_redirection'] == 'custom' && $theChampLoginOptions[$option.'_redirection_url'] != ''){
-			return esc_url($theChampLoginOptions[$option.'_redirection_url']);
+			$redirectionUrl = esc_url($theChampLoginOptions[$option.'_redirection_url']);
 		}elseif($theChampLoginOptions[$option.'_redirection'] == 'bp_profile' && $user_ID != 0){
-			return function_exists('bp_core_get_user_domain') ? bp_core_get_user_domain($user_ID) : admin_url();
-		}else{
-			return esc_url(home_url());
+			$redirectionUrl = function_exists('bp_core_get_user_domain') ? bp_core_get_user_domain($user_ID) : admin_url();
 		}
-	}else{
-		return esc_url(home_url());
 	}
+	$redirectionUrl = apply_filters('heateor_ss_login_redirection_url_filter', $redirectionUrl, $theChampLoginOptions, $user_ID, $twitterRedirect, $register);
+
+	return $redirectionUrl;
 }
 
 /**
@@ -970,13 +971,14 @@ function the_champ_frontend_scripts(){
 		<?php
 		if(isset($theChampSharingOptions['horizontal_re_providers']) && (isset($theChampSharingOptions['horizontal_more']) || in_array('Copy_Link', $theChampSharingOptions['horizontal_re_providers']))){
 			if(isset($theChampSharingOptions['horizontal_target_url']) && $theChampSharingOptions['horizontal_target_url'] == 'default'){
+				$postId = 0;
+				$postUrl = html_entity_decode(esc_url(the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]));
 				if(isset($theChampSharingOptions['horizontal_target_url'])){
 					if($theChampSharingOptions['horizontal_target_url'] == 'default'){
-						$postUrl = get_permalink($post->ID);
-						if((isset($_SERVER['QUERY_STRING']) && $_SERVER['QUERY_STRING']) || $postUrl == ''){
-							$postUrl = html_entity_decode(esc_url(the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]));
+						if($post){
+							$postUrl = get_permalink($post->ID);
+							$postId = $post->ID;
 						}
-						$postId = $post->ID;
 					}elseif($theChampSharingOptions['horizontal_target_url'] == 'home'){
 						$postUrl = esc_url(home_url());
 						$postId = 0;
@@ -985,7 +987,10 @@ function the_champ_frontend_scripts(){
 						$postId = 0;
 					}
 				}else{
-					$postUrl = get_permalink($post->ID);
+					if($post){
+						$postUrl = get_permalink($post->ID);
+						$postId = $post->ID;
+					}
 				}
 				$postUrl = heateor_ss_apply_target_share_url_filter($postUrl, 'horizontal', false);
 				$sharingShortUrl = the_champ_generate_social_sharing_short_url($postUrl, $postId);
@@ -994,13 +999,14 @@ function the_champ_frontend_scripts(){
 		}
 		if(isset($theChampSharingOptions['vertical_re_providers']) && (isset($theChampSharingOptions['vertical_more']) || in_array('Copy_Link', $theChampSharingOptions['vertical_re_providers']))){
 			if(isset($theChampSharingOptions['vertical_target_url']) && $theChampSharingOptions['vertical_target_url'] == 'default'){
+				$postId = 0;
+				$postUrl = html_entity_decode(esc_url(the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]));
 				if(isset($theChampSharingOptions['vertical_target_url'])){
 					if($theChampSharingOptions['vertical_target_url'] == 'default'){
-						$postUrl = get_permalink($post->ID);
-						if((isset($_SERVER['QUERY_STRING']) && $_SERVER['QUERY_STRING']) || $postUrl == ''){
-							$postUrl = html_entity_decode(esc_url(the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]));
+						if($post){
+							$postUrl = get_permalink($post->ID);
+							$postId = $post->ID;
 						}
-						$postId = $post->ID;
 					}elseif($theChampSharingOptions['vertical_target_url'] == 'home'){
 						$postUrl = esc_url(home_url());
 						$postId = 0;
@@ -1009,7 +1015,10 @@ function the_champ_frontend_scripts(){
 						$postId = 0;
 					}
 				}else{
-					$postUrl = get_permalink($post->ID);
+					if($post){
+						$postUrl = get_permalink($post->ID);
+						$postId = $post->ID;
+					}
 				}
 				$postUrl = heateor_ss_apply_target_share_url_filter($postUrl, 'vertical', false);
 				$sharingShortUrl = the_champ_generate_social_sharing_short_url($postUrl, $postId);

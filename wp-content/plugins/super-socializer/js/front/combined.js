@@ -259,7 +259,7 @@ function theChampMoreSharingPopup(elem, postUrl, postTitle, twitterTitle){
 	  whatsapp: {
 		title: "Whatsapp",
 		locale: "en-US",
-		redirect_url: "whatsapp://send?text=" + postTitle + " " + postUrl,
+		redirect_url: "https://api.whatsapp.com/send?text=" + postTitle + " " + postUrl,
 	  },
 	  diigo: {
 		title: "Diigo",
@@ -480,7 +480,7 @@ function theChampMoreSharingPopup(elem, postUrl, postTitle, twitterTitle){
 	  Mail_Ru: {
 		title: "Mail.Ru",
 		locale: "en-US",
-		redirect_url: "http://connect.mail.ru/share?share_url=" + postUrl,
+		redirect_url: "https://connect.mail.ru/share?share_url=" + postUrl,
 	  },
 	  Mendeley: {
 		title: "Mendeley",

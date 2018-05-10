@@ -4,7 +4,7 @@ Donate link: https://www.heateor.com/donate?action=Super+Socializer
 Tags: social login, social share, social commenting, social comments, social plugin, profile data, social analytics, online identity, social profile storage, single sign-on, social media follow, facebook login, Twitch login
 Requires at least: 2.5.0
 Tested up to: 4.9.5
-Stable tag: 7.11.8
+Stable tag: 7.11.11
 License: GPLv2 or later
 
 The unique Social Plugin to let you integrate Social Login, Social Share, Social Comments and Social Media follow at your website
@@ -209,6 +209,23 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 8. **Social Commenting**: Disqus Commenting selected
 
 == Changelog ==
+= 7.11.11 =
+* [Bugfix] Facebook login was not working for new users
+* [Bugfix] Google login was not working with <a href="https://wordpress.org/plugins/wp-mail-smtp/" target="_blank">WP Mail SMTP</a> plugin active in a few cases
+* [Bugfix] PHP warning was being generated when using Linkedin login
+* [Bugfix] AMP validation error was being generated with <a href="https://wordpress.org/plugins/accelerated-mobile-pages/" target="_blank">AMPforWP</a> plugin because of the "super-socializer-no-counts" attribute
+* [Improvement] Whatsapp sharing is now compatible with Whatsapp web app
+
+= 7.11.10 =
+* [Improvement] Added filter to customize the redirection after social login
+
+= 7.11.9 =
+* [Bugfix] Steam login stopped working due to the endpoint related changes introduced by Steam
+* [Bugfix] Social Login was not working with Google ReCaptcha active
+* [Bugfix] PHP warning was being generated at the login page in the HTML source if Copy Link icon was enabled
+* [Improvement] Removed the Google+ Login scope from Google social login, as language and age of users are not required
+* [Improvement] Removed 'authenticate' filter from social login
+
 = 7.11.8 =
 * [Bugfix] Google login stopped working due to some changes in Google OAuth process
 * [Bugfix] Facebook login window was needed to be streched to see the content inside, in a few cases
@@ -1498,3 +1515,20 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 * [Bugfix] Google login stopped working due to some changes in Google OAuth process
 * [Bugfix] Facebook login window was needed to be streched to see the content inside, in a few cases
 * [Bugfix] Short url option was not working for Copy Link icon
+
+= 7.11.9 =
+* [Bugfix] Steam login stopped working due to the endpoint related changes introduced by Steam
+* [Bugfix] Social Login was not working with Google ReCaptcha active
+* [Bugfix] PHP warning was being generated at the login page in the HTML source if Copy Link icon was enabled
+* [Improvement] Removed the Google+ Login scope from Google social login, as language and age of users are not required
+* [Improvement] Removed 'authenticate' filter from social login
+
+= 7.11.10 =
+* [Improvement] Added filter to customize the redirection after social login
+
+= 7.11.11 =
+* [Bugfix] Facebook login was not working for new users
+* [Bugfix] Google login was not working with <a href="https://wordpress.org/plugins/wp-mail-smtp/" target="_blank">WP Mail SMTP</a> plugin active in a few cases
+* [Bugfix] PHP warning was being generated when using Linkedin login
+* [Bugfix] AMP validation error was being generated with <a href="https://wordpress.org/plugins/accelerated-mobile-pages/" target="_blank">AMPforWP</a> plugin because of the "super-socializer-no-counts" attribute
+* [Improvement] Whatsapp sharing is now compatible with Whatsapp web app

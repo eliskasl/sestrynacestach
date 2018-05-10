@@ -91,23 +91,6 @@ if(isset($theChampLoginOptions['enable_wc_checkout']) && $theChampLoginOptions['
 function the_champ_login_user($userId, $profileData = array(), $socialId = '', $update = false){
 	$user = get_user_by('id', $userId);
 	
-	// Ultimate Member - Email confirmation
-	$umEmailActivation = false;
-	if(function_exists('um_fetch_user')){
-		um_fetch_user($userId);
-		$status = um_user('account_status');
-		if($status == 'awaiting_email_confirmation'){
-			$umEmailActivation = true;
-		}
-	}
-	// skip if Ultimate Member - Email confirmation is required
-	if(!$umEmailActivation){
-		$user = apply_filters('authenticate', $user, $user -> user_login, '');
-		if(is_wp_error($user)){
-			return 0;
-		}
-	}
-
 	if($update && !get_user_meta($userId, 'thechamp_dontupdate_avatar', true)){
 		if(isset($profileData['avatar']) && $profileData['avatar'] != ''){
 			update_user_meta($userId, 'thechamp_avatar', $profileData['avatar']);
@@ -411,7 +394,7 @@ function the_champ_sanitize_profile_data($profileData, $provider){
 		$temp['first_name'] = isset($profileData['first_name']) ? $profileData['first_name'] : '';
 		$temp['last_name'] = isset($profileData['last_name']) ? $profileData['last_name'] : '';
 		$temp['bio'] = '';
-		$temp['link'] = isset($profileData['link']) && heateor_ss_validate_url($profileData['link']) !== false ? trim($profileData['link']) : '';
+		$temp['link'] = '';
 		$temp['avatar'] = "//graph.facebook.com/" . $profileData['id'] . "/picture?type=square";
 		$temp['large_avatar'] = "//graph.facebook.com/" . $profileData['id'] . "/picture?type=large";
 	}elseif($provider == 'twitter'){

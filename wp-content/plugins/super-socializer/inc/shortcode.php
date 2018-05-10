@@ -64,7 +64,7 @@ function the_champ_sharing_shortcode($params){
 		}
 		$shareCountTransientId = heateor_ss_get_share_count_transient_id($targetUrl);
 		$cachedShareCount = heateor_ss_get_cached_share_count($shareCountTransientId);
-		$html = '<div class="the_champ_sharing_container the_champ_'.$type.'_sharing' . ( $type == 'vertical' && isset( $theChampSharingOptions['hide_mobile_sharing'] ) ? ' the_champ_hide_sharing' : '' ) . ( $type == 'vertical' && isset( $theChampSharingOptions['bottom_mobile_sharing'] ) ? ' the_champ_bottom_sharing' : '' ) . '" ss-offset="' . $alignmentOffset . '" ' . ( the_champ_is_amp_page() ? '' : 'super-socializer-data-href="' . $targetUrl . '"' ) . ( $cachedShareCount === false ? "" : 'super-socializer-no-counts="1" ' );
+		$html = '<div class="the_champ_sharing_container the_champ_'.$type.'_sharing' . ( $type == 'vertical' && isset( $theChampSharingOptions['hide_mobile_sharing'] ) ? ' the_champ_hide_sharing' : '' ) . ( $type == 'vertical' && isset( $theChampSharingOptions['bottom_mobile_sharing'] ) ? ' the_champ_bottom_sharing' : '' ) . '" ' . ( the_champ_is_amp_page() ? '' : 'ss-offset="' . $alignmentOffset . '" ' ) . ( the_champ_is_amp_page() ? '' : 'super-socializer-data-href="' . $targetUrl . '"' ) . ( $cachedShareCount === false || the_champ_is_amp_page() ? "" : 'super-socializer-no-counts="1" ' );
 		$verticalOffsets = '';
 		if($type == 'vertical'){
 			$verticalOffsets = $align . ': '.$$align.'px; top: '.$top.'px;width:' . ((isset($theChampSharingOptions['vertical_sharing_size']) ? $theChampSharingOptions['vertical_sharing_size'] : '35') + 4) . "px;";
@@ -142,7 +142,7 @@ function the_champ_counter_shortcode($params){
 			$alignmentOffset = $right;
 		}
 		global $theChampCounterOptions;
-		$html = '<div class="the_champ_counter_container the_champ_'.$type.'_counter' . ( $type == 'vertical' && isset( $theChampCounterOptions['hide_mobile_likeb'] ) ? ' the_champ_hide_sharing' : '' ) . '" ss-offset="' . $alignmentOffset . '" ';
+		$html = '<div class="the_champ_counter_container the_champ_'.$type.'_counter' . ( $type == 'vertical' && isset( $theChampCounterOptions['hide_mobile_likeb'] ) ? ' the_champ_hide_sharing' : '' ) . '" ' . ( the_champ_is_amp_page() ? '' : 'ss-offset="' . $alignmentOffset . '" ' );
 		$verticalOffsets = '';
 		if($type == 'vertical'){
 			$verticalOffsets = $align . ': '.$$align.'px; top: '.$top.'px;';
