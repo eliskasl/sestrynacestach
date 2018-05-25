@@ -34,11 +34,12 @@
 			<ul>
 				<li style="margin-left:9px"><a style="margin:0; line-height:auto !important; height:23px" class="nav-tab" href="#tabs-1"><?php _e('Basic Configuration', 'super-socializer') ?></a></li>
 				<li style="margin-left:9px"><a style="margin:0; line-height:auto !important; height:23px" class="nav-tab" href="#tabs-2"><?php _e('Advanced Configuration', 'super-socializer') ?></a></li>
+				<li style="margin-left:9px"><a style="margin:0; line-height:auto !important; height:23px" class="nav-tab" href="#tabs-3"><?php _e('GDPR', 'super-socializer') ?></a></li>
 				<?php if($theChampIsBpActive){ ?>
-				<li style="margin-left:9px"><a style="margin:0; line-height:auto !important; height:23px" class="nav-tab" href="#tabs-3"><?php _e('XProfile Integration', 'super-socializer') ?></a></li>
+				<li style="margin-left:9px"><a style="margin:0; line-height:auto !important; height:23px" class="nav-tab" href="#tabs-4"><?php _e('XProfile Integration', 'super-socializer') ?></a></li>
 				<?php } ?>
-				<li style="margin-left:9px"><a style="margin:0; height:23px" class="nav-tab" href="#tabs-4"><?php _e('Shortcode & Widget', 'super-socializer') ?></a></li>
-				<li style="margin-left:9px"><a style="margin:0; height:23px" class="nav-tab" href="#tabs-5"><?php _e('FAQ', 'super-socializer') ?></a></li>
+				<li style="margin-left:9px"><a style="margin:0; height:23px" class="nav-tab" href="#tabs-5"><?php _e('Shortcode & Widget', 'super-socializer') ?></a></li>
+				<li style="margin-left:9px"><a style="margin:0; height:23px" class="nav-tab" href="#tabs-6"><?php _e('FAQ', 'super-socializer') ?></a></li>
 			</ul>
 			</h2>
 			<div class="menu_containt_div" id="tabs-1">
@@ -970,6 +971,73 @@
 				<?php include 'help.php'; ?>
 			</div>
 			
+			<div class="menu_containt_div" id="tabs-3">
+				<div class="clear"></div>
+				<div class="the_champ_left_column">
+				<div class="stuffbox">
+					<h3><label><?php _e('GDPR', 'super-socializer');?></label></h3>
+					<div class="inside">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form-table editcomment menu_content_table">
+						<tr>
+							<th>
+							<img id="the_champ_privacy_policy_optin_text_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
+							<label for="the_champ_privacy_policy_optin_text"><?php _e("Opt-in text", 'super-socializer'); ?></label>
+							</th>
+							<td>
+							<textarea rows="7" cols="63" id="the_champ_privacy_policy_optin_text" name="the_champ_login[privacy_policy_optin_text]"><?php echo isset( $theChampLoginOptions['privacy_policy_optin_text'] ) ? $theChampLoginOptions['privacy_policy_optin_text'] : '' ?></textarea>
+							</td>
+						</tr>
+
+						<tr class="the_champ_help_content" id="the_champ_privacy_policy_optin_text_help_cont">
+							<td colspan="2">
+							<div>
+							<?php _e('Text for the opt-in appearing above the social login icons', 'super-socializer') ?>
+							</div>
+							</td>
+						</tr>
+
+						<tr>
+							<th>
+								<img id="the_champ_privacy_ppu_placeholder_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
+								<label><?php _e("Text to link to Privacy Policy page", 'super-socializer'); ?></label>
+							</th>
+							<td>
+								<input id="the_champ_privacy_ppu_placeholder" name="the_champ_login[ppu_placeholder]" type="text" value="<?php echo $theChampLoginOptions['ppu_placeholder'] ?>" />
+							</td>
+						</tr>
+
+						<tr class="the_champ_help_content" id="the_champ_privacy_ppu_placeholder_help_cont">
+							<td colspan="2">
+							<div>
+							<?php _e('Word(s) in the opt-in text to be linked to privacy policy page', 'super-socializer') ?>
+							</div>
+							</td>
+						</tr>
+
+						<tr>
+							<th>
+								<img id="the_champ_privacy_policy_url_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
+								<label><?php _e("Privacy Policy Url", 'super-socializer'); ?></label>
+							</th>
+							<td>
+								<input id="the_champ_privacy_policy_url" name="the_champ_login[privacy_policy_url]" type="text" value="<?php echo $theChampLoginOptions['privacy_policy_url'] ?>" />
+							</td>
+						</tr>
+
+						<tr class="the_champ_help_content" id="the_champ_privacy_policy_url_help_cont">
+							<td colspan="2">
+							<div>
+							<?php _e('Url of the privacy policy page of your website', 'super-socializer') ?>
+							</div>
+							</td>
+						</tr>
+					</table>
+					</div>
+				</div>
+				</div>
+				<?php include 'help.php'; ?>
+			</div>
+
 			<?php if($theChampIsBpActive){
 				$profileFields = array(
 					'Social ID' => 'id',
@@ -985,7 +1053,7 @@
 					'Large Social Avatar Url' => 'large_avatar'
 				);
 			?>
-			<div class="menu_containt_div" id="tabs-3">
+			<div class="menu_containt_div" id="tabs-4">
 				<div class="clear"></div>
 				<div class="the_champ_left_column">
 				<div class="stuffbox">
@@ -1034,7 +1102,7 @@
 			</div>
 			<?php } ?>
 			
-			<div class="menu_containt_div" id="tabs-4">
+			<div class="menu_containt_div" id="tabs-5">
 				<div class="clear"></div>
 				<div class="the_champ_left_column">
 				<div class="stuffbox">
@@ -1048,7 +1116,7 @@
 				<?php include 'help.php'; ?>
 			</div>
 
-			<div class="menu_containt_div" id="tabs-5">
+			<div class="menu_containt_div" id="tabs-6">
 				<div class="clear"></div>
 				<div class="the_champ_left_column">
 				<div class="stuffbox">

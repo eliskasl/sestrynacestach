@@ -22,7 +22,9 @@ function the_champ_login_button($widget = false){
 					$html .= '<div class="the_champ_social_login_title">'. $theChampLoginOptions['title'] .'</div>';
 				}
 			}
-			$html .= '<div class="the_champ_login_container"><ul class="the_champ_login_ul">';
+			$html .= '<div class="the_champ_login_container">';
+			$html .= '<div class="heateor_ss_sl_optin_container"><label><input type="checkbox" class="heateor_ss_social_login_optin" value="1" />'. str_replace($theChampLoginOptions['ppu_placeholder'], '<a href="'. $theChampLoginOptions['privacy_policy_url'] .'" target="_blank">'. $theChampLoginOptions['ppu_placeholder'] .'</a>', wp_strip_all_tags($theChampLoginOptions['privacy_policy_optin_text'])) .'</label></div>';
+			$html .= '<ul class="the_champ_login_ul">';
 			if(isset($theChampLoginOptions['providers']) && is_array($theChampLoginOptions['providers']) && count($theChampLoginOptions['providers']) > 0){
 				foreach($theChampLoginOptions['providers'] as $provider){
 					$html .= '<li><i ';

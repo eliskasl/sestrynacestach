@@ -3,7 +3,7 @@
 Plugin Name: Super Socializer
 Plugin URI: https://super-socializer-wordpress.heateor.com
 Description: A complete 360 degree solution to provide all the social features like Social Login, Social Commenting, Social Sharing, Social Media follow and more.
-Version: 7.11.11
+Version: 7.11.12
 Author: Team Heateor
 Author URI: https://www.heateor.com
 Text Domain: super-socializer
@@ -11,7 +11,7 @@ Domain Path: /languages
 License: GPL2+
 */
 defined('ABSPATH') or die("Cheating........Uh!!");
-define('THE_CHAMP_SS_VERSION', '7.11.11');
+define('THE_CHAMP_SS_VERSION', '7.11.12');
 
 require 'helper.php';
 
@@ -121,7 +121,7 @@ function the_champ_sync_woocom_profile($userId, $userdata, $profileData){
 
 function the_champ_load_event(){
 	?>
-	<script>function theChampLoadEvent(e){var t=window.onload;if(typeof window.onload!="function"){window.onload=e}else{window.onload=function(){t();e()}}}</script>
+	<script type="text/javascript">function theChampLoadEvent(e){var t=window.onload;if(typeof window.onload!="function"){window.onload=e}else{window.onload=function(){t();e()}}}</script>
 	<?php
 }
 
@@ -954,8 +954,20 @@ function the_champ_frontend_scripts(){
 				$labels['fb'] .= ' (<fb:comments-count href='. $commentUrl .'></fb:comments-count>)';
 				$labels['googleplus'] = $theChampFacebookOptions['label_googleplus_comments'] != '' ? htmlspecialchars($theChampFacebookOptions['label_googleplus_comments'], ENT_QUOTES) : 'GooglePlus Comments';
 				$labels['disqus'] = $theChampFacebookOptions['label_disqus_comments'] != '' ? htmlspecialchars($theChampFacebookOptions['label_disqus_comments'], ENT_QUOTES) : 'Disqus Comments';
+				if(defined('HEATEOR_FB_COM_MOD_VERSION') && version_compare('1.2.3', HEATEOR_FB_COM_MOD_VERSION) < 0){
+					global $heateor_fcm_options;
+					?>
+					<script type="text/javascript">var theChampFacebookCommentsOptinText = '<?php echo str_replace($heateor_fcm_options['ppu_placeholder'], '<a href="'. $heateor_fcm_options['privacy_policy_url'] .'" target="_blank">'. $heateor_fcm_options['ppu_placeholder'] .'</a>', wp_strip_all_tags($heateor_fcm_options['privacy_policy_optin_text'])) ?>';</script>
+					<?php
+				}
+				if(defined('HEATEOR_FB_COM_NOT_VERSION') && version_compare('1.1.5', HEATEOR_FB_COM_NOT_VERSION) < 0){
+					global $heateor_fcn_options;
+					?>
+					<script type="text/javascript">var theChampFacebookCommentsNotifierOptinText = '<?php echo str_replace($heateor_fcn_options['ppu_placeholder'], '<a href="'. $heateor_fcn_options['privacy_policy_url'] .'" target="_blank">'. $heateor_fcn_options['ppu_placeholder'] .'</a>', wp_strip_all_tags($heateor_fcn_options['privacy_policy_optin_text'])) ?>';</script>
+					<?php
+				}
 				?>
-				<script>var theChampFBCommentUrl = '<?php echo $commentUrl ?>'; var theChampFBCommentColor = '<?php echo (isset($theChampFacebookOptions['comment_color']) && $theChampFacebookOptions['comment_color'] != '') ? $theChampFacebookOptions["comment_color"] : ''; ?>'; var theChampFBCommentNumPosts = '<?php echo (isset($theChampFacebookOptions['comment_numposts']) && $theChampFacebookOptions['comment_numposts'] != '') ? $theChampFacebookOptions["comment_numposts"] : ''; ?>'; var theChampFBCommentWidth = '<?php echo (isset($theChampFacebookOptions['comment_width']) && $theChampFacebookOptions['comment_width'] != '') ? $theChampFacebookOptions["comment_width"] : '100%'; ?>'; var theChampFBCommentOrderby = '<?php echo (isset($theChampFacebookOptions['comment_orderby']) && $theChampFacebookOptions['comment_orderby'] != '') ? $theChampFacebookOptions["comment_orderby"] : ''; ?>'; var theChampCommentingTabs = "<?php echo isset($theChampFacebookOptions['commenting_order']) ? $theChampFacebookOptions['commenting_order'] : ''; ?>", theChampGpCommentsUrl = '<?php echo isset($theChampFacebookOptions['gpcomments_url']) && $theChampFacebookOptions['gpcomments_url'] != '' ? $theChampFacebookOptions['gpcomments_url'] : $commentUrl; ?>', theChampDisqusShortname = '<?php echo isset($theChampFacebookOptions['dq_shortname']) ? $theChampFacebookOptions['dq_shortname'] : ''; ?>', theChampScEnabledTabs = '<?php echo implode(',', $enabledTabs) ?>', theChampScLabel = '<?php echo $theChampFacebookOptions['commenting_label'] != '' ? htmlspecialchars(wp_specialchars_decode($theChampFacebookOptions['commenting_label'], ENT_QUOTES), ENT_QUOTES) : __('Leave a reply', 'super-socializer'); ?>', theChampScTabLabels = <?php echo json_encode($labels) ?>, theChampGpCommentsWidth = <?php echo isset($theChampFacebookOptions['gpcomments_width']) && $theChampFacebookOptions['gpcomments_width'] != '' ? $theChampFacebookOptions['gpcomments_width'] : 0; ?>, theChampCommentingId = '<?php echo isset($theChampFacebookOptions['commenting_id']) && $theChampFacebookOptions['commenting_id'] != '' ? $theChampFacebookOptions['commenting_id'] : 'respond' ?>'</script>
+				<script type="text/javascript">var theChampFBCommentUrl = '<?php echo $commentUrl ?>'; var theChampFBCommentColor = '<?php echo (isset($theChampFacebookOptions['comment_color']) && $theChampFacebookOptions['comment_color'] != '') ? $theChampFacebookOptions["comment_color"] : ''; ?>'; var theChampFBCommentNumPosts = '<?php echo (isset($theChampFacebookOptions['comment_numposts']) && $theChampFacebookOptions['comment_numposts'] != '') ? $theChampFacebookOptions["comment_numposts"] : ''; ?>'; var theChampFBCommentWidth = '<?php echo (isset($theChampFacebookOptions['comment_width']) && $theChampFacebookOptions['comment_width'] != '') ? $theChampFacebookOptions["comment_width"] : '100%'; ?>'; var theChampFBCommentOrderby = '<?php echo (isset($theChampFacebookOptions['comment_orderby']) && $theChampFacebookOptions['comment_orderby'] != '') ? $theChampFacebookOptions["comment_orderby"] : ''; ?>'; var theChampCommentingTabs = "<?php echo isset($theChampFacebookOptions['commenting_order']) ? $theChampFacebookOptions['commenting_order'] : ''; ?>", theChampGpCommentsUrl = '<?php echo isset($theChampFacebookOptions['gpcomments_url']) && $theChampFacebookOptions['gpcomments_url'] != '' ? $theChampFacebookOptions['gpcomments_url'] : $commentUrl; ?>', theChampDisqusShortname = '<?php echo isset($theChampFacebookOptions['dq_shortname']) ? $theChampFacebookOptions['dq_shortname'] : ''; ?>', theChampScEnabledTabs = '<?php echo implode(',', $enabledTabs) ?>', theChampScLabel = '<?php echo $theChampFacebookOptions['commenting_label'] != '' ? htmlspecialchars(wp_specialchars_decode($theChampFacebookOptions['commenting_label'], ENT_QUOTES), ENT_QUOTES) : __('Leave a reply', 'super-socializer'); ?>', theChampScTabLabels = <?php echo json_encode($labels) ?>, theChampGpCommentsWidth = <?php echo isset($theChampFacebookOptions['gpcomments_width']) && $theChampFacebookOptions['gpcomments_width'] != '' ? $theChampFacebookOptions['gpcomments_width'] : 0; ?>, theChampCommentingId = '<?php echo isset($theChampFacebookOptions['commenting_id']) && $theChampFacebookOptions['commenting_id'] != '' ? $theChampFacebookOptions['commenting_id'] : 'respond' ?>'</script>
 				<?php
 				if(!$combinedScript){
 					wp_enqueue_script('the_champ_fb_commenting', plugins_url('js/front/facebook/commenting.js', __FILE__), false, THE_CHAMP_SS_VERSION, $inFooter);
@@ -1367,7 +1379,7 @@ function the_champ_save_default_options(){
 	   'delete_options' => '1',
 	   'browser_msg_enable' => '1',
 	   'browser_msg' => __('Your browser is blocking some features of this website. Please follow the instructions at {support_url} to unblock these.', 'super-socializer'),
-	   'custom_css' => ''
+	   'custom_css' => '',
 	));
 
 	// login options
@@ -1382,7 +1394,10 @@ function the_champ_save_default_options(){
 	   'enableAtLogin' => 1,
 	   'enableAtRegister' => 1,
 	   'enableAtComment' => 1,
-	   'link_account' => 1
+	   'link_account' => 1,
+	   'privacy_policy_url' => '',
+	   'privacy_policy_optin_text' => 'I agree to my personal data being stored and used as per Privacy Policy',
+	   'ppu_placeholder' => 'Privacy Policy'
 	));
 	
 	// social commenting options
@@ -1534,6 +1549,15 @@ function heateor_ss_browser_notification_read(){
 add_action('wp_ajax_heateor_ss_browser_notification_read', 'heateor_ss_browser_notification_read');
 
 /**
+ * Set flag in database if GDPR notification has been read
+ */
+function heateor_ss_gdpr_notification_read(){
+	update_option('heateor_ss_gdpr_notification_read', '1');
+	die;
+}
+add_action('wp_ajax_heateor_ss_gdpr_notification_read', 'heateor_ss_gdpr_notification_read');
+
+/**
  * Set flag in database if Facebook redirection notification has been read
  */
 function heateor_ss_fb_redirection_notification_read(){
@@ -1566,11 +1590,38 @@ add_action('wp_ajax_heateor_ss_google_redirection_notification_read', 'heateor_s
 function the_champ_addon_update_notification(){
 	if(current_user_can('manage_options')){
 		global $theChampLoginOptions;
+		if(defined('HEATEOR_FB_COM_MOD_VERSION') && version_compare('1.2.4', HEATEOR_FB_COM_MOD_VERSION) > 0){
+			?>
+			<div class="error notice">
+				<h3>Facebook Comments Moderation</h3>
+				<p><?php _e('Update "Facebook Comments Moderation" add-on for compatibility with current version of Super Socialzer', 'super-socializer') ?></p>
+			</div>
+			<?php
+		}
+
+		if(defined('HEATEOR_FB_COM_NOT_VERSION') && version_compare('1.1.6', HEATEOR_FB_COM_NOT_VERSION) > 0){
+			?>
+			<div class="error notice">
+				<h3>Facebook Comments Notifier</h3>
+				<p><?php _e('Update "Facebook Comments Notifier" add-on for compatibility with current version of Super Socialzer', 'super-socializer') ?></p>
+			</div>
+			<?php
+		}
+
+		if(defined('HEATEOR_SOCIAL_LOGIN_BUTTONS_VERSION') && version_compare('1.1.1', HEATEOR_SOCIAL_LOGIN_BUTTONS_VERSION) > 0){
+			?>
+			<div class="error notice">
+				<h3>Social Login Buttons</h3>
+				<p><?php _e('Update "Social Login Buttons" add-on for compatibility with current version of Super Socialzer', 'super-socializer') ?></p>
+			</div>
+			<?php
+		}
+
 		if(defined('HEATEOR_SOCIAL_SHARE_MYCRED_INTEGRATION_VERSION') && version_compare('1.3.3', HEATEOR_SOCIAL_SHARE_MYCRED_INTEGRATION_VERSION) > 0){
 			?>
 			<div class="error notice">
 				<h3>Social Share - myCRED Integration</h3>
-				<p>Update "Social Share myCRED Integration" add-on for maximum compatibility with current version of Super Socialzer</p>
+				<p><?php _e('Update "Social Share myCRED Integration" add-on for maximum compatibility with current version of Super Socialzer', 'super-socializer') ?></p>
 			</div>
 			<?php
 		}
@@ -1579,14 +1630,14 @@ function the_champ_addon_update_notification(){
 			?>
 			<div class="error notice">
 				<h3>Social Login - myCRED Integration</h3>
-				<p>Update "Social Login myCRED Integration" add-on for maximum compatibility with current version of Super Socialzer</p>
+				<p><?php _e('Update "Social Login myCRED Integration" add-on for maximum compatibility with current version of Super Socialzer', 'super-socializer') ?></p>
 			</div>
 			<?php
 		}elseif(defined('HEATEOR_SOCIAL_LOGIN_MYCRED_INTEGRATION_VERSION') && version_compare('1.2.7', HEATEOR_SOCIAL_LOGIN_MYCRED_INTEGRATION_VERSION) > 0){
 			?>
 			<div class="error notice">
 				<h3>Social Login - myCRED Integration</h3>
-				<p>Update "Social Login myCRED Integration" add-on for compatibility with LiveJournal Login of Super Socialzer</p>
+				<p><?php _e('Update "Social Login myCRED Integration" add-on for compatibility with LiveJournal Login of Super Socialzer', 'super-socializer') ?></p>
 			</div>
 			<?php
 		}
@@ -1618,7 +1669,7 @@ function the_champ_addon_update_notification(){
 			<?php
 		}
 
-		if(version_compare('7.11', $currentVersion) <= 0 && isset($theChampLoginOptions['enable']) && in_array('facebook', $theChampLoginOptions['providers'])){
+		if(version_compare('7.11', $currentVersion) <= 0 && isset($theChampLoginOptions['enable']) && is_array($theChampLoginOptions['providers']) && in_array('facebook', $theChampLoginOptions['providers'])){
 			if(!get_option('heateor_ss_fb_redirection_notification_read')){
 				?>
 				<script type="text/javascript">
@@ -1643,7 +1694,7 @@ function the_champ_addon_update_notification(){
 			}
 		}
 
-		if(version_compare('7.11', $currentVersion) <= 0 && isset($theChampLoginOptions['enable']) && in_array('linkedin', $theChampLoginOptions['providers'])){
+		if(version_compare('7.11', $currentVersion) <= 0 && isset($theChampLoginOptions['enable']) && is_array($theChampLoginOptions['providers']) && in_array('linkedin', $theChampLoginOptions['providers'])){
 			if(!get_option('heateor_ss_linkedin_redirection_notification_read')){
 				?>
 				<script type="text/javascript">
@@ -1668,7 +1719,7 @@ function the_champ_addon_update_notification(){
 			}
 		}
 
-		if(version_compare('7.11', $currentVersion) <= 0 && isset($theChampLoginOptions['enable']) && in_array('google', $theChampLoginOptions['providers']) && home_url() != the_champ_get_http() . $_SERVER['HTTP_HOST']){
+		if(version_compare('7.11', $currentVersion) <= 0 && isset($theChampLoginOptions['enable']) && is_array($theChampLoginOptions['providers']) && in_array('google', $theChampLoginOptions['providers']) && home_url() != the_champ_get_http() . $_SERVER['HTTP_HOST']){
 			if(!get_option('heateor_ss_google_redirection_notification_read')){
 				?>
 				<script type="text/javascript">
@@ -1691,6 +1742,40 @@ function the_champ_addon_update_notification(){
 				</div>
 				<?php
 			}
+		}
+
+		if(version_compare('7.11.12', $currentVersion) <= 0){
+			if(isset($theChampLoginOptions['enable']) && $theChampLoginOptions['privacy_policy_url'] == ''){
+				?>
+				<div class="error">
+					<h3>Super Socializer</h3>
+					<p><?php echo sprintf(__('Save the url of privacy policy page of your website <a href="%s">here</a>', 'super-socializer'), 'admin.php?page=heateor-social-login#tabs-3'); ?></p>
+				</div>
+				<?php
+			}
+			if(!get_option('heateor_ss_gdpr_notification_read')){
+				?>
+				<script type="text/javascript">
+				function heateorSsGDPRNotificationRead(){
+					jQuery.ajax({
+						type: 'GET',
+						url: '<?php echo get_admin_url() ?>admin-ajax.php',
+						data: {
+							action: 'heateor_ss_gdpr_notification_read'
+						},
+						success: function(data, textStatus, XMLHttpRequest){
+							jQuery('#heateor_ss_gdpr_notification').fadeOut();
+						}
+					});
+				}
+				</script>
+				<div id="heateor_ss_gdpr_notification" class="update-nag">
+					<h3>Super Socializer</h3>
+					<p><?php echo sprintf(__('This plugin is GDPR compliant. You need to update the privacy policy of your website regarding the personal data this plugin saves, as mentioned <a href="%s" target="_blank">here</a>', 'super-socializer'), 'http://support.heateor.com/gdpr-and-our-plugins'); ?><input type="button" onclick="heateorSsGDPRNotificationRead()" style="margin-left: 5px;" class="button button-primary" value="<?php _e('Okay', 'super-socializer') ?>" /></p>
+				</div>
+				<?php
+			}
+
 		}
 
 		if(!get_option('heateor_ss_browser_notification_read')){
@@ -1726,6 +1811,13 @@ function the_champ_update_db_check(){
 	$currentVersion = get_option('the_champ_ss_version');
 
 	if($currentVersion && $currentVersion != THE_CHAMP_SS_VERSION){
+		if(version_compare("7.11.12", $currentVersion) > 0){
+			global $theChampLoginOptions;
+			$theChampLoginOptions['privacy_policy_optin_text'] = 'I agree to my personal data being stored and used as per Privacy Policy';
+			$theChampLoginOptions['ppu_placeholder'] = 'Privacy Policy';
+			$theChampLoginOptions['privacy_policy_url'] = '';
+			update_option('the_champ_login', $theChampLoginOptions);
+		}
 
 		if(version_compare("7.9", $currentVersion) > 0){
 			global $theChampSharingOptions;

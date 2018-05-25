@@ -232,11 +232,25 @@ function the_champ_fb_commenting_shortcode($params){
 	if( $title != '' ) {
 		$html .= '<div style="font-weight:bold">' . ucfirst( $title ) . '</div>';
 	}
+	if(defined('HEATEOR_FB_COM_NOT_VERSION') && version_compare('1.1.5', HEATEOR_FB_COM_NOT_VERSION) < 0){
+		global $heateor_fcn_options;
+		$html .= '<div class="heateor_ss_fb_comments_notifier_optin_container"><label><input type="checkbox" class="heateor_ss_fb_comments_notifier_optin" value="1" />'. str_replace($heateor_fcn_options['ppu_placeholder'], '<a href="'. $heateor_fcn_options['privacy_policy_url'] .'" target="_blank">'. $heateor_fcn_options['ppu_placeholder'] .'</a>', wp_strip_all_tags($heateor_fcn_options['privacy_policy_optin_text'])) .'</label></div>';
+	}
+	if(defined('HEATEOR_FB_COM_MOD_VERSION') && version_compare('1.2.3', HEATEOR_FB_COM_MOD_VERSION) < 0){
+		global $heateor_fcm_options;
+		$html .= '<div class="heateor_ss_fb_comments_optin_container"><label><input type="checkbox" class="heateor_ss_fb_comments_optin" value="1" />'. str_replace($heateor_fcm_options['ppu_placeholder'], '<a href="'. $heateor_fcm_options['privacy_policy_url'] .'" target="_blank">'. $heateor_fcm_options['ppu_placeholder'] .'</a>', wp_strip_all_tags($heateor_fcm_options['privacy_policy_optin_text'])) .'</label></div>';
+	}
 	$html .= '<div class="fb-comments" data-href="' .($url == '' ? html_entity_decode(esc_url(the_champ_get_http().$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"])) : $url). '"';
     $html .= ' data-numposts="' . $num_posts . '"';
     $html .= ' data-width="' . ($width == '' ? '100%' : $width) . '"';
     $html .= ' ></div></div><script type="text/javascript" src="//connect.facebook.net/' . $language . '/sdk.js
     "></script><script>FB.init({xfbml:1,version: "v2.11"});</script>';
+    if(defined('HEATEOR_FB_COM_NOT_VERSION') && version_compare('1.1.5', HEATEOR_FB_COM_NOT_VERSION) < 0){
+	    $html .= '<script type="text/javascript">jQuery(window).load(function(){"undefined"!=typeof theChampFacebookCommentsNotifierOptinText&&(null!=heateorFcnGetCookie("heateorFcnOptin")&&jQuery("input.heateor_ss_fb_comments_notifier_optin").prop("checked",!0),jQuery("input.heateor_ss_fb_comments_notifier_optin").click(function(){if(jQuery(this).is(":checked")){if(heateorFcnOptin=1,null==heateorFcnGetCookie("heateorFcnOptin")){var e=new Date;e.setTime(e.getTime()+31536e6),document.cookie="heateorFcnOptin=1; expires="+e.toUTCString()+"; path=/"}}else heateorFcnOptin=0,document.cookie="heateorFcnOptin=; expires=Fri, 02 Jan 1970 00:00:00 UTC; path=/"}));});</script>';
+	}
+	if(defined('HEATEOR_FB_COM_MOD_VERSION') && version_compare('1.2.3', HEATEOR_FB_COM_MOD_VERSION) < 0){
+		 $html .= '<script type="text/javascript">jQuery(window).load(function(){"undefined"!=typeof theChampFacebookCommentsOptinText&&(null!=heateorFcmGetCookie("heateorFcmOptin")&&jQuery("input.heateor_ss_fb_comments_optin").prop("checked",!0),jQuery("input.heateor_ss_fb_comments_optin").click(function(){if(jQuery(this).is(":checked")){if(heateorFcmOptin=1,null==heateorFcmGetCookie("heateorFcmOptin")){var e=new Date;e.setTime(e.getTime()+31536e6),document.cookie="heateorFcmOptin=1; expires="+e.toUTCString()+"; path=/"}}else heateorFcmOptin=0,document.cookie="heateorFcmOptin=; expires=Fri, 02 Jan 1970 00:00:00 UTC; path=/"}));});</script>';
+	}
 	return $html;
 }
 add_shortcode('TheChamp-FB-Comments', 'the_champ_fb_commenting_shortcode');

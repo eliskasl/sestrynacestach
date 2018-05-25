@@ -979,3 +979,86 @@ function heateor_ss_validate_url($url){
 function heateor_ss_is_plugin_active($pluginFile){
 	return in_array($pluginFile, apply_filters('active_plugins', get_option('active_plugins')));
 }
+
+/**
+ * Add column in the user list to delete social profile data
+ */
+function heateor_ss_add_custom_column($columns){
+	$columns['heateor_ss_delete_profile_data'] = 'Delete Social Profile';
+	return $columns;
+}
+add_filter('manage_users_columns', 'heateor_ss_add_custom_column');
+
+/**
+ * Show option to delete social profile in the custom column
+ */
+function heateor_ss_delete_profile_column($value, $columnName, $userId){
+	if('heateor_ss_delete_profile_data' == $columnName){
+		global $wpdb;
+		$socialUser = $wpdb->get_var($wpdb->prepare('SELECT user_id FROM '. $wpdb->prefix .'usermeta WHERE user_id = %d and meta_key LIKE "thechamp%"', $userId));
+		if($socialUser > 0){
+			return '<a href="javascript:void(0)" title="'. __('Click to delete social profile data', 'super-socializer') .'" alt="'. __('Click to delete social profile data', 'super-socializer') .'" onclick="javascript:heateorSsDeleteSocialProfile(this, '. $userId .')">Delete</a>';
+		}
+	}
+}
+add_action('manage_users_custom_column', 'heateor_ss_delete_profile_column', 10, 3);
+
+/**
+ * Include thickbox js and css
+ */
+function heateor_ss_include_thickbox(){
+	global $parent_file;
+	if($parent_file == 'users.php'){
+		wp_enqueue_script('jquery');
+		wp_enqueue_script('thickbox', null, array('jquery'));
+		wp_enqueue_style('thickbox');
+	}
+}
+add_action('admin_enqueue_scripts', 'heateor_ss_include_thickbox');
+
+/**
+ * Script to delete social profile
+ */
+function heateor_ss_delete_social_profile_script(){
+	global $parent_file;
+	if($parent_file == 'users.php'){
+		?>
+		<script type="text/javascript">
+			function heateorSsDeleteSocialProfile(elem, userId){
+               	var parentElement = jQuery(elem).parent();
+                jQuery(parentElement).html('<span><?php _e('Deleting', 'super-socializer'); ?>...</span>');
+                jQuery.ajax({
+                    type: 'GET',
+                    url: '<?php echo get_admin_url() ?>admin-ajax.php',
+                    data: {
+                        action: 'heateor_ss_delete_social_profile',
+                        user_id: userId
+                    },
+                    success: function(data, textStatus, XMLHttpRequest){
+                        if(data == 'done'){
+                            jQuery(parentElement).html('<?php _e('Deleted', 'super-socializer'); ?>');
+                        }else{
+                            jQuery(parentElement).html('<?php _e('Something bad happened', 'super-socializer'); ?>');
+                        }
+                    }
+                });
+            }
+		</script>
+		<?php
+	}
+}
+add_action('admin_head', 'heateor_ss_delete_social_profile_script');
+
+/**
+ * Delete social profile of the user
+ */
+function heateor_ss_delete_social_profile(){
+	if(isset($_GET['user_id'])){
+		$userId = intval(trim($_GET['user_id']));
+		global $wpdb;
+		$wpdb->query($wpdb->prepare('DELETE FROM '. $wpdb->prefix .'usermeta WHERE user_id = %d and meta_key LIKE "thechamp%"', $userId));
+		die('done');
+	}
+	die;
+}
+add_action('wp_ajax_heateor_ss_delete_social_profile', 'heateor_ss_delete_social_profile');

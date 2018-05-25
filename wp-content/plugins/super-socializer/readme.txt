@@ -3,8 +3,8 @@ Contributors: Heateor, the_champ, Hungarian Translator: László Tavaszi http://
 Donate link: https://www.heateor.com/donate?action=Super+Socializer
 Tags: social login, social share, social commenting, social comments, social plugin, profile data, social analytics, online identity, social profile storage, single sign-on, social media follow, facebook login, Twitch login
 Requires at least: 2.5.0
-Tested up to: 4.9.5
-Stable tag: 7.11.11
+Tested up to: 4.9.6
+Stable tag: 7.11.12
 License: GPLv2 or later
 
 The unique Social Plugin to let you integrate Social Login, Social Share, Social Comments and Social Media follow at your website
@@ -18,6 +18,7 @@ Integrate Social Login, Social Share and Social Comments at your website easiest
 3. If you want to integrate only Social Share, you should install <a target="_blank" href="https://wordpress.org/plugins/sassy-social-share">Sassy Social Share</a>
 
 = Feature list =
+* GDPR Compliant
 * Social Share from around 100 social networks
 * Social Media follow icons 
 * Share counts are supported for Facebook, Linkedin, Twitter, Buffer, Reddit, Pinterest, Stumbleupon, Odnoklassniki and Vkontakte
@@ -209,6 +210,11 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 8. **Social Commenting**: Disqus Commenting selected
 
 == Changelog ==
+= 7.11.12 =
+* [Improvement] Compatible with GDPR
+* [New] Added option to delete social profile data saved in usermeta after social login
+* [Bugfix] Admin UI code improvement
+
 = 7.11.11 =
 * [Bugfix] Facebook login was not working for new users
 * [Bugfix] Google login was not working with <a href="https://wordpress.org/plugins/wp-mail-smtp/" target="_blank">WP Mail SMTP</a> plugin active in a few cases
@@ -1532,3 +1538,8 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 * [Bugfix] PHP warning was being generated when using Linkedin login
 * [Bugfix] AMP validation error was being generated with <a href="https://wordpress.org/plugins/accelerated-mobile-pages/" target="_blank">AMPforWP</a> plugin because of the "super-socializer-no-counts" attribute
 * [Improvement] Whatsapp sharing is now compatible with Whatsapp web app
+
+= 7.11.12 =
+* [Improvement] Compatible with GDPR
+* [New] Added option to delete social profile data saved in usermeta after social login
+* [Bugfix] Admin UI code improvement

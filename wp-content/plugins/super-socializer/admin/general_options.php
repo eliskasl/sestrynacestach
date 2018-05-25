@@ -120,7 +120,7 @@ defined('ABSPATH') or die("Cheating........Uh!!");
 						<?php _e('You can specify any additional CSS rules (without &lt;style&gt; tag)', 'super-socializer' ) ?>
 						</div>
 						</td>
-					</tr>
+					</tr>	
 				</table>
 				
 				<div class="the_champ_clear"></div>
